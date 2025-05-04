@@ -70,3 +70,11 @@ BEGIN
     SET @sql = 'UPDATE ' + QUOTENAME(@tableName) + ' SET ' + QUOTENAME(@columna) + ' = @nuevoValor WHERE DNI = @DNI';
     EXEC sp_executesql @sql, N'@DNI VARCHAR(20), @nuevoValor NVARCHAR(100)', @DNI, @nuevoValor;
 END;
+
+
+
+insert into AgentePublico(DNI,Nombre,Cargo,Edad,Procedencia) values('72147855','German','Alcalde',30,'Lima')
+
+ALTER TABLE AgentePublico ADD Apellido VARCHAR(25);
+
+UPDATE AgentePublico SET Apellido = 'Rojas'
