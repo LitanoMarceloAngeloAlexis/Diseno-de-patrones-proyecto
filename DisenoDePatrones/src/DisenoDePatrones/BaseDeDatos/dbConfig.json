@@ -1,0 +1,9 @@
+{
+  "host": "localhost",
+  "port": 1433,
+  "databaseName": "GestionCiudadana",
+  "encrypt": true,
+  "trustServerCertificate": true,
+  "user": "sa",
+  "password": "admin"
+}
