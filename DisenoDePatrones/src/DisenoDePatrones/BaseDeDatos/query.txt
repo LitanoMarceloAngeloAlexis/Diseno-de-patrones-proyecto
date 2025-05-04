@@ -1,0 +1,72 @@
+-- Creación de la base de datos
+CREATE DATABASE GestionCiudadana;
+USE GestionCiudadana;
+
+-- Tabla para Agentes Públicos
+CREATE TABLE AgentePublico (
+    DNI VARCHAR(20) PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Cargo VARCHAR(100),
+    Edad INT,
+    Procedencia VARCHAR(100)
+);
+
+-- Tabla para Ciudadanos
+CREATE TABLE Ciudadano (
+    DNI VARCHAR(20) PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Apellido VARCHAR(100),
+    Edad INT,
+    Procedencia VARCHAR(100)
+);
+
+-- Tabla para Fuerzas de Orden
+CREATE TABLE FuerzaOrden (
+    DNI VARCHAR(20) PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Edad INT,
+    Rango VARCHAR(50),
+    Cargo VARCHAR(100),
+    Procedencia VARCHAR(100)
+);
+
+-- Insertar datos de ejemplo en AgentePublico
+INSERT INTO AgentePublico (DNI, Nombre, Cargo, Edad, Procedencia)
+VALUES 
+('123456789', 'Juan Pérez', 'Inspector', 35, 'Madrid'),
+('987654321', 'Ana Gómez', 'Comisaria', 42, 'Barcelona');
+
+-- Insertar datos de ejemplo en Ciudadano
+INSERT INTO Ciudadano (DNI, Nombre, Apellido, Edad, Procedencia)
+VALUES 
+('112233445', 'Carlos', 'Sánchez', 28, 'Valencia'),
+('998877665', 'María', 'López', 34, 'Sevilla');
+
+-- Insertar datos de ejemplo en FuerzaOrden
+INSERT INTO FuerzaOrden (DNI, Nombre, Edad, Rango, Cargo, Procedencia)
+VALUES 
+('556677889', 'Pedro Ruiz', 38, 'Teniente', 'Jefe de Sección', 'Madrid'),
+('667788990', 'Laura Díaz', 30, 'Suboficial', 'Patrullera', 'Zaragoza');
+
+-- Procedimiento almacenado para SELECT
+CREATE PROCEDURE sp_SelectFromTable
+    @tableName NVARCHAR(50)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(MAX);
+    SET @sql = 'SELECT * FROM ' + QUOTENAME(@tableName);
+    EXEC sp_executesql @sql;
+END;
+
+-- Procedimiento almacenado para ALTER
+CREATE PROCEDURE sp_AlterRecord
+    @tableName NVARCHAR(50),
+    @DNI VARCHAR(20),
+    @columna NVARCHAR(50),
+    @nuevoValor NVARCHAR(100)
+AS
+BEGIN
+    DECLARE @sql NVARCHAR(MAX);
+    SET @sql = 'UPDATE ' + QUOTENAME(@tableName) + ' SET ' + QUOTENAME(@columna) + ' = @nuevoValor WHERE DNI = @DNI';
+    EXEC sp_executesql @sql, N'@DNI VARCHAR(20), @nuevoValor NVARCHAR(100)', @DNI, @nuevoValor;
+END;
