@@ -25,8 +25,6 @@ public class Ciudadano {
         this.DNI = DNI;
     }
 
-    
-
     public String getNombre() {
         return nombre;
     }
@@ -58,8 +56,5 @@ public class Ciudadano {
     public void setProcedencia(String procedencia) {
         this.procedencia = procedencia;
     }
-
-    
-    
-    
+  
 }
