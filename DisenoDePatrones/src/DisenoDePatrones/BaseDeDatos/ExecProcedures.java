@@ -15,45 +15,53 @@ public class ExecProcedures {
         this.connection = connection;
     }
 
-    public List<Object> obtenerRegistros(String tableName) {
+    public List<Object> obtenerRegistrosHumanos(String tableName) {
         List<Object> registros = new ArrayList<>();
-        String sql = "{call sp_SelectFromTable(?)}";
+        String sql = null;
+
+        // Escoge el procedimiento correcto
+        if (tableName.equalsIgnoreCase("CIUDADANO")) {
+            sql = "{call sp_GetCiudadanos}";
+        } else if (tableName.equalsIgnoreCase("AGENTEPUBLICO")) {
+            sql = "{call sp_GetAgentesPublicos}";
+        } else if (tableName.equalsIgnoreCase("FUERZAORDEN")) {
+            sql = "{call sp_GetFuerzaOrden}";
+        } else if (tableName.equalsIgnoreCase("CIUDADANOCOMUN")) {
+            sql = "{call sp_GetCiudadanosComunes}";
+        } else {
+            System.out.println("Tabla no reconocida");
+            return registros;
+        }
 
         try (CallableStatement stmt = connection.prepareCall(sql)) {
-            stmt.setString(1, tableName);
-
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                if (tableName.equalsIgnoreCase("CIUDADANO")) {
-                    String dni = rs.getString("DNI");
-                    String nombre = rs.getString("NOMBRE");
-                    String apellido = rs.getString("APELLIDO");
-                    int edad = rs.getInt("EDAD");
-                    String procedencia = rs.getString("PROCEDENCIA");
+                String dni = rs.getString("DNI");
+                String nombre = rs.getString("NOMBRE");
+                String apellido = rs.getString("APELLIDO");
+                int edad = rs.getInt("EDAD");
+                String procedencia = rs.getString("PROCEDENCIA");
+                String cargo = null;
+                String rango = null;
 
-                    Ciudadano ciudadano = new Ciudadano(dni, nombre, apellido, edad, procedencia);
-                    registros.add(ciudadano);
-                } else if (tableName.equalsIgnoreCase("AGENTEPUBLICO")) {
-                    String dni = rs.getString("DNI");
-                    String nombre = rs.getString("NOMBRE");
-                    String apellido = rs.getString("APELLIDO");                    
-                    String cargo = rs.getString("CARGO");
-                    int edad = rs.getInt("EDAD");
-                    String procedencia = rs.getString("PROCEDENCIA");
-
-                    AgentePublico agente = new AgentePublico(dni, nombre, apellido, cargo, edad, procedencia);
-                    registros.add(agente);
-                } else {
-                    System.out.println("No hay un caso para esta tabla");
+                // USANDO FACTORY :D
+                if(tableName.equalsIgnoreCase("FUERZAORDEN")){
+                    cargo = rs.getString("CARGO");
+                    rango = rs.getString("RANGO");
+                } else if(tableName.equalsIgnoreCase("AGENTEPUBLICO")){
+                    cargo = rs.getString("CARGO");
                 }
+                
+                Object registro = RegistroFactory.crearRegistro(tableName, dni, nombre, apellido, edad, procedencia, cargo, rango);
+                registros.add(registro);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return registros;
+
     }
 
 

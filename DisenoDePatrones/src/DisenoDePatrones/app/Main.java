@@ -21,8 +21,10 @@ public class Main {
         
         ExecProcedures exec = new ExecProcedures(conn);
         
-        List<Object> listaAgentes = exec.obtenerRegistros("AGENTEPUBLICO");
-        List<Object> listaCiudadanos = exec.obtenerRegistros("CIUDADANO");
+        List<Object> listaAgentes = exec.obtenerRegistrosHumanos("AGENTEPUBLICO");
+        List<Object> listaCiudadanos = exec.obtenerRegistrosHumanos("CIUDADANO");
+        List<Object> listaCiudadanosComunes = exec.obtenerRegistrosHumanos("CIUDADANOCOMUN");
+
 
         System.out.println("-----Mostrando Agentes Publicos---------------------------");
 
@@ -37,6 +39,17 @@ public class Main {
         System.out.println("-----Mostrando Ciudadanos--------------------------------");
 
         for(Object i : listaCiudadanos){
+                Ciudadano ciudadano = (Ciudadano) i;
+                System.out.println("Nombre :" + ciudadano.getNombre());               
+                System.out.println("Procedencia :" + ciudadano.getProcedencia());
+                System.out.println("Edad :" + ciudadano.getEdad());
+                System.out.println("-");
+                
+        }
+        
+        System.out.println("-----Mostrando Ciudadanos Comunes--------------------------------");
+
+        for(Object i : listaCiudadanosComunes){
                 Ciudadano ciudadano = (Ciudadano) i;
                 System.out.println("Nombre :" + ciudadano.getNombre());               
                 System.out.println("Procedencia :" + ciudadano.getProcedencia());

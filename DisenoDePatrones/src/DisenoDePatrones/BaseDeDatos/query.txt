@@ -78,3 +78,112 @@ insert into AgentePublico(DNI,Nombre,Cargo,Edad,Procedencia) values('72147855','
 ALTER TABLE AgentePublico ADD Apellido VARCHAR(25);
 
 UPDATE AgentePublico SET Apellido = 'Rojas'
+
+
+drop table AgentePublico, FuerzaOrden, Ciudadano
+
+
+-- Tabla base
+CREATE TABLE Ciudadano (
+    DNI VARCHAR(20) PRIMARY KEY,
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    edad INT,
+    procedencia VARCHAR(100)
+);
+
+-- Tabla AgentePublico (hereda de Ciudadano)
+CREATE TABLE AgentePublico (
+    DNI VARCHAR(20) PRIMARY KEY,
+    cargo VARCHAR(100),
+    FOREIGN KEY (DNI) REFERENCES Ciudadano(DNI)
+);
+
+-- Tabla FuerzaOrden (hereda de Ciudadano)
+CREATE TABLE FuerzaOrden (
+    DNI VARCHAR(20) PRIMARY KEY,
+    rango VARCHAR(100),
+    cargo VARCHAR(100),
+    FOREIGN KEY (DNI) REFERENCES Ciudadano(DNI)
+);
+
+INSERT INTO Ciudadano (DNI, nombre, apellido, edad, procedencia) VALUES
+('12345678A', 'Juan', 'Pérez', 35, 'Lima'),
+('23456789B', 'Ana', 'García', 40, 'Cusco'),
+('34567890C', 'Luis', 'Martínez', 28, 'Arequipa'),
+('45678901D', 'Carla', 'Ramos', 32, 'Trujillo'),
+('56789012E', 'Mario', 'Salazar', 45, 'Piura'),
+('67890123F', 'Lucía', 'Torres', 30, 'Tacna'),
+('78901234G', 'Diego', 'Quispe', 38, 'Puno'),
+('89012345H', 'Sofía', 'Fernández', 27, 'Chiclayo'),
+('90123456I', 'Andrés', 'Lozano', 50, 'Huancayo'),
+('01234567J', 'Valeria', 'Cruz', 29, 'Iquitos');
+
+INSERT INTO Ciudadano (DNI, nombre, apellido, edad, procedencia) VALUES
+('72147777A', 'Antonio', 'Banderas', 35, 'Lima')
+
+INSERT INTO AgentePublico (DNI, cargo) VALUES
+('12345678A', 'Inspector'),
+('23456789B', 'Administrador'),
+('34567890C', 'Director'),
+('45678901D', 'Secretario'),
+('56789012E', 'Supervisor');
+
+INSERT INTO FuerzaOrden (DNI, rango, cargo) VALUES
+('67890123F', 'Sargento', 'Operaciones'),
+('78901234G', 'Teniente', 'Logística'),
+('89012345H', 'Capitán', 'Seguridad'),
+('90123456I', 'Mayor', 'Comunicaciones'),
+('01234567J', 'Coronel', 'Inteligencia');
+
+CREATE PROCEDURE sp_GetCiudadanosComunes
+AS
+BEGIN
+    SELECT *
+    FROM CIUDADANO
+    WHERE DNI NOT IN (
+        SELECT DNI FROM AGENTEPUBLICO
+        UNION
+        SELECT DNI FROM FUERZAORDEN
+    );
+END;
+
+CREATE PROCEDURE sp_GetAgentesPublicos
+AS
+BEGIN
+    SELECT 
+        c.DNI,
+        c.NOMBRE,
+        c.APELLIDO,
+        c.EDAD,
+        c.PROCEDENCIA,
+        a.CARGO
+    FROM CIUDADANO c
+    INNER JOIN AGENTEPUBLICO a ON c.DNI = a.DNI;
+END;
+
+CREATE PROCEDURE sp_GetFuerzaOrden
+AS
+BEGIN
+    SELECT 
+        c.DNI,
+        c.NOMBRE,
+        c.APELLIDO,
+        c.EDAD,
+        c.PROCEDENCIA,
+        f.RANGO,
+        f.CARGO
+    FROM CIUDADANO c
+    INNER JOIN FUERZAORDEN f ON c.DNI = f.DNI;
+END;
+
+EXEC sp_GetCiudadanosComunes;
+
+
+ALTER PROCEDURE sp_GetCiudadanos
+AS
+BEGIN
+    SELECT *
+    FROM CIUDADANO
+    
+END;
