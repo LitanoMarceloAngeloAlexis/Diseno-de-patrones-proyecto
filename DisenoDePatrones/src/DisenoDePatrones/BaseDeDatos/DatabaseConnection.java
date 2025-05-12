@@ -15,7 +15,6 @@ public class DatabaseConnection {
     private String url;
     private String user;
     private String password;
-
     
     private DatabaseConnection() throws SQLException{
         loadConfig();
@@ -47,7 +46,6 @@ public class DatabaseConnection {
             throw new RuntimeException("No lei el JSON", e);
         }
     }
-    
     
     public static DatabaseConnection getInstance() throws SQLException {
         if (instance == null || instance.getConnection().isClosed()) {

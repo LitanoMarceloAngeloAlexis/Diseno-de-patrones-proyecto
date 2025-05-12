@@ -1,5 +1,6 @@
 package DisenoDePatrones.Modelo;
 
 public interface IFuerzaOrden {
-    void SIGParaElAnalisisDelincuencial();
+    void SIGDelincuencial();
+    void VisualizarDatosPoblacionales();
 }

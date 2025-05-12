@@ -19,7 +19,6 @@ public class ExecProcedures {
         List<Object> registros = new ArrayList<>();
         String sql = null;
 
-        // Escoge el procedimiento correcto
         if (tableName.equalsIgnoreCase("CIUDADANO")) {
             sql = "{call sp_GetCiudadanos}";
         } else if (tableName.equalsIgnoreCase("AGENTEPUBLICO")) {
@@ -63,6 +62,28 @@ public class ExecProcedures {
         return registros;
 
     }
+    
+    public List<Tramite> obtenerTramites() {
+        List<Tramite> tramites = new ArrayList<>();
+        String sql = "{call sp_GetTramites}";
 
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String dniFromDB = rs.getString("DNI");
+                int id = rs.getInt("ID");
+                String titulo = rs.getString("titulo");
+                String estado = rs.getString("estado");
+
+                Tramite tramite = new Tramite(id, dniFromDB, titulo, estado);
+                tramites.add(tramite);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tramites;
+    }
 
 }

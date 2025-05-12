@@ -12,7 +12,7 @@ public class RegistroFactory {
             case "FUERZAORDEN":
                 return new FuerzaOrden(dni, nombre, apellido, edad, rango, cargo, procedencia);
             case "CIUDADANOCOMUN":
-                return new CiudadanoComun(dni, nombre, apellido, edad, procedencia);
+                return new Habitante(dni, nombre, apellido, edad, procedencia);
             default:
                 throw new IllegalArgumentException("Tipo de registro no reconocido: " + tableName);
         }

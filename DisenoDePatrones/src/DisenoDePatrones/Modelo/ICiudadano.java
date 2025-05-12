@@ -1,9 +1,10 @@
 package DisenoDePatrones.Modelo;
 
+import java.util.List;
+
 public interface ICiudadano {
-    void GeneracionDeInformesYReportes();
-    void ConsultaEstadoDeTramites();
-    void VisualizacionDeDatosPersonales();
-    void HistorialDeInteraccion();
-    void VisualizacionDeDatos();
+    void GeneracionReportes(Reporte reporte);
+    void ConsultaEstadoTramites(List<Tramite> tramites);
+    void VisualizarDatosPersonales();
+    void HistorialInteraccion();
 }
