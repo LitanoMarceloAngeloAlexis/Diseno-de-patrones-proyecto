@@ -15,8 +15,8 @@ public class ExecProcedures {
         this.connection = connection;
     }
 
-    public List<Object> obtenerRegistrosHumanos(String tableName) {
-        List<Object> registros = new ArrayList<>();
+    public List<Ciudadano> obtenerRegistrosHumanos(String tableName) {
+        List<Ciudadano> registros = new ArrayList<>();
         String sql = null;
 
         if (tableName.equalsIgnoreCase("CIUDADANO")) {
@@ -52,7 +52,7 @@ public class ExecProcedures {
                     cargo = rs.getString("CARGO");
                 }
                 
-                Object registro = RegistroFactory.crearRegistro(tableName, dni, nombre, apellido, edad, procedencia, cargo, rango);
+                Ciudadano registro = RegistroFactory.crearRegistro(tableName, dni, nombre, apellido, edad, procedencia, cargo, rango);
                 registros.add(registro);
             }
         } catch (SQLException e) {
@@ -84,6 +84,31 @@ public class ExecProcedures {
         }
 
         return tramites;
+    }
+    
+    public List<DelincuenciaDistritos> ObtenerSIGDelincuencial() {
+        List<DelincuenciaDistritos> delincuenciaDistritos = new ArrayList<>();
+        String sql = "{call sp_SIGDelincuencial}";
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String Departamento = rs.getString("Departamento");
+                String Distrito = rs.getString("Distrito");
+                Double TasaDelincuencia = rs.getDouble("TasaDelincuencia");
+                String NivelRiesgo = rs.getString("NivelRiesgo");
+                int PoblacionAproximada = rs.getInt("PoblacionAproximada");
+
+                DelincuenciaDistritos distritoActual = new DelincuenciaDistritos(id, Departamento, Distrito, TasaDelincuencia,NivelRiesgo,PoblacionAproximada);
+                delincuenciaDistritos.add(distritoActual);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return delincuenciaDistritos;
     }
 
 }

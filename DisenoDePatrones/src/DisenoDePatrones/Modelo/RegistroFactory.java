@@ -3,7 +3,7 @@ package DisenoDePatrones.Modelo;
 
 public class RegistroFactory {
 
-    public static Object crearRegistro(String tableName, String dni, String nombre, String apellido, int edad, String procedencia, String cargo, String rango) {
+    public static Ciudadano crearRegistro(String tableName, String dni, String nombre, String apellido, int edad, String procedencia, String cargo, String rango) {
         switch (tableName.toUpperCase()) {
             case "CIUDADANO":
                 return new Ciudadano(dni, nombre, apellido, edad, procedencia);

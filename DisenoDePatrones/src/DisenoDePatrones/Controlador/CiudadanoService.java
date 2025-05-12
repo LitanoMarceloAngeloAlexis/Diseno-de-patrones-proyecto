@@ -1,10 +1,12 @@
 package DisenoDePatrones.Controlador;
 
+import DisenoDePatrones.Modelo.AgentePublico;
 import DisenoDePatrones.Modelo.Ciudadano;
+import DisenoDePatrones.Modelo.FuerzaOrden;
+import DisenoDePatrones.Modelo.Habitante;
 import DisenoDePatrones.Modelo.ICiudadano;
 import DisenoDePatrones.Modelo.Reporte;
 import DisenoDePatrones.Modelo.Tramite;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CiudadanoService implements ICiudadano {
@@ -17,16 +19,37 @@ public class CiudadanoService implements ICiudadano {
         this.ciudadanos = ciudadanos;
         this.ciudadanoActual = locateCiudadanoActual(DNIActual);
     }
-    
-    private Ciudadano locateCiudadanoActual(String DNIActual){
-        for(Ciudadano i : ciudadanos){
-            if(i.getDNI().equals(DNIActual)){
-                System.out.println("-> CIUDADANO ENCONTRADO <-");
-                return i;
-            }
-        } 
-        return null;
+
+    public Ciudadano getCiudadanoActual() {
+        return ciudadanoActual;
     }
+
+    public String getHistorialInteraccion() {
+        return historialInteraccion;
+    }
+
+    public void setHistorialInteraccion(String historialInteraccion) {
+        this.historialInteraccion = this.historialInteraccion + historialInteraccion;
+    }
+    
+
+    private Ciudadano locateCiudadanoActual(String DNIActual) {
+    for (Ciudadano i : ciudadanos) {
+        if (i.getDNI().equals(DNIActual)) {
+            if (i instanceof Habitante) {
+                System.out.println("-> HABITANTE ENCONTRADO <-");
+            } else if(i instanceof AgentePublico){
+               System.out.println("-> AGENTE PUBLICO ENCONTRADO <-");
+            } else if(i instanceof FuerzaOrden){
+               System.out.println("-> FUERZA DEL ORDEN ENCONTRADO <-");
+            } else {
+                System.out.println("-> CIUDADANO ENCONTRADO <-");
+            }
+            return i;
+        }
+    }
+    return null;
+}
     
     public Reporte crearReporte(String hora, String fecha, String motivo, String descripcion) {
         return new Reporte(ciudadanoActual, hora, fecha, motivo, descripcion);

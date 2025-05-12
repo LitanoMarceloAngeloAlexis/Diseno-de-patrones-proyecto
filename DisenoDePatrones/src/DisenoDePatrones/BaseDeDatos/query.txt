@@ -217,3 +217,38 @@ AS
 BEGIN
     SELECT * FROM Tramites;
 END;
+
+
+CREATE TABLE SIGDelincuencial (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+	Departamento VARCHAR(50) NOT NULL,
+    Distrito VARCHAR(50) NOT NULL,
+    TasaDelincuencia DECIMAL(5,2),
+    NivelRiesgo VARCHAR(20),
+    PoblacionAproximada INT
+);
+
+INSERT INTO SIGDelincuencial (Departamento, Distrito, TasaDelincuencia, NivelRiesgo, PoblacionAproximada)
+VALUES 
+('Lima', 'San Juan de Lurigancho', 23.75, 'Alto', 1090000),
+('Lima', 'Miraflores', 5.20, 'Bajo', 99000),
+('Lima', 'Comas', 18.40, 'Medio', 520000),
+('Lima', 'Santiago de Surco', 7.80, 'Bajo', 300000),
+('Callao', 'Callao', 25.90, 'Alto', 475000),
+('Lima', 'La Victoria', 22.10, 'Alto', 189000),
+('Lima', 'Los Olivos', 15.60, 'Medio', 380000),
+('Cusco', 'Cusco', 10.45, 'Medio', 430000),
+('La Libertad', 'Trujillo', 19.85, 'Alto', 800000),
+('Lambayeque', 'Chiclayo', 14.30, 'Medio', 580000),
+('Tacna', 'Tacna', 6.90, 'Bajo', 280000),
+('Arequipa', 'Arequipa', 12.75, 'Medio', 1000000),
+('Junín', 'Huancayo', 11.55, 'Medio', 370000),
+('Ucayali', 'Pucallpa', 17.20, 'Alto', 310000),
+('Loreto', 'Iquitos', 20.40, 'Alto', 450000);
+
+CREATE PROCEDURE sp_SIGDelincuencial
+AS
+BEGIN
+    SELECT * FROM SIGDelincuencial;
+END;
+
