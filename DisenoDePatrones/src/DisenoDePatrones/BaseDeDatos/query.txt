@@ -187,3 +187,33 @@ BEGIN
     FROM CIUDADANO
     
 END;
+
+
+create table Tramites(
+    ID INT PRIMARY KEY IDENTITY(1,1),
+	DNI varchar(20),
+	titulo varchar(50),
+	estado varchar(20),
+
+	foreign key (DNI) references Ciudadano(DNI)
+)
+
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('01234567J', 'Pago de Luz', 'Finalizado');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('12345678A', 'Renovación de DNI', 'En proceso');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('23456789B', 'Pago de Impuestos Municipales', 'Pendiente');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('34567890C', 'Solicitud de Subsidio', 'Finalizado');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('45678901D', 'Pago de Agua', 'En proceso');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('56789012E', 'Licencia de Conducir', 'Finalizado');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('67890123F', 'Actualización de Datos', 'Pendiente');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('72147777A', 'Inscripción Escolar', 'En proceso');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('78901234G', 'Pago de Predial', 'Finalizado');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('89012345H', 'Certificado de Residencia', 'Pendiente');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('90123456I', 'Reclamo por Servicio Público', 'En proceso');
+INSERT INTO Tramites (DNI, titulo, estado) VALUES ('12345678A', 'Pago de licencia de conducir', 'Pendiente');
+
+
+CREATE PROCEDURE sp_GetTramites
+AS
+BEGIN
+    SELECT * FROM Tramites;
+END;
