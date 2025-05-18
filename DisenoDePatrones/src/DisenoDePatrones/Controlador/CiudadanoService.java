@@ -7,6 +7,7 @@ import DisenoDePatrones.Modelo.Habitante;
 import DisenoDePatrones.Modelo.ICiudadano;
 import DisenoDePatrones.Modelo.Reporte;
 import DisenoDePatrones.Modelo.Tramite;
+import java.util.HashMap;
 import java.util.List;
 
 public class CiudadanoService implements ICiudadano {
@@ -22,6 +23,18 @@ public class CiudadanoService implements ICiudadano {
 
     public Ciudadano getCiudadanoActual() {
         return ciudadanoActual;
+    }
+    
+    public HashMap getHashMapInfo(){
+        HashMap<String, String> infoHashMap = new HashMap<>();
+        infoHashMap.put("dni",ciudadanoActual.getDNI());
+        infoHashMap.put("nombres",ciudadanoActual.getNombre());
+        infoHashMap.put("apellidos",ciudadanoActual.getApellido());
+        infoHashMap.put("edad",String.valueOf(ciudadanoActual.getEdad()));
+        infoHashMap.put("procedencia",ciudadanoActual.getProcedencia());
+        infoHashMap.put("correo","CORREO SIN ASIGNAR");
+        
+        return infoHashMap;
     }
 
     public String getHistorialInteraccion() {
