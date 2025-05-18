@@ -10,14 +10,18 @@ import DisenoDePatrones.Modelo.Ciudadano;
 import DisenoDePatrones.Modelo.DelincuenciaDistritos;
 import DisenoDePatrones.Modelo.Reporte;
 import DisenoDePatrones.Modelo.Tramite;
+import DisenoDePatrones.Vista.ReportVista;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
-
+    
     public static void main(String[] args) throws SQLException {
-
+        // Probando el menu con el patron de FACADE
+        ReportVista reporteVista = new ReportVista();
+        reporteVista.Mostrar();
+        
         System.out.println("AREA DE PRUEBA==============================================================");
         
         //CONEXION A BASE DE DATOS
