@@ -33,6 +33,20 @@ public class ReportVista implements IReportVista {
 
         this.window.setVisible(false);
         this.SwitchStep(this.currentStep);
+        
+        this.reportForm.ActionExitApplicaction().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Cerrar();
+            }
+        });
+        
+         this.reportForm.ActionMinimize().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                window.setExtendedState(window.ICONIFIED);
+            }
+        });
     }
 
     @Override
@@ -152,6 +166,16 @@ public class ReportVista implements IReportVista {
     }
     
     @Override
+    public void OnThanksClickEvent(Runnable event) {
+        this.reportForm.GetThanksButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                event.run();
+            }
+        });
+    }
+    
+    @Override
     public void Mostrar() {
         this.window.setVisible(true);
     }
@@ -170,13 +194,20 @@ public class ReportVista implements IReportVista {
 
         switch (step) {
             case 1 -> {
+                this.reportForm.GetPreviousButton().setVisible(false);
+                this.reportForm.GetThanksButton().setVisible(false);
                 this.currentStepPanel = new ReportStep1();
             }
             case 2 -> {
                 this.currentStepPanel = new ReportStep2();
+                this.reportForm.GetThanksButton().setVisible(false);
                 this.reportForm.GetPreviousButton().setVisible(true);
             }
             case 3 -> {
+                this.reportForm.GetPreviousButton().setVisible(false);
+                this.reportForm.GetNextButton().setVisible(false);
+                this.reportForm.GetCancelButton().setVisible(false);
+                this.reportForm.GetThanksButton().setVisible(true);
                 this.currentStepPanel = new ReportStep3();
             }
             default -> {

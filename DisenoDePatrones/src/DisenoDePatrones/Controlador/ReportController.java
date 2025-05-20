@@ -14,6 +14,7 @@ public class ReportController {
         this.vista.OnNextClickEvent(this::manejarNextClick);
         this.vista.OnCancelClickEvent(this::manejarCancelClick);
         this.vista.OnPreviousClickEvent(this::manejarPreviousClick);
+        this.vista.OnThanksClickEvent(this::manejarCancelClick);
         this.ciudadano = ciudadano;
         Map data = ciudadano.getHashMapInfo();
         this.vista.SetCurrentStepData(data);

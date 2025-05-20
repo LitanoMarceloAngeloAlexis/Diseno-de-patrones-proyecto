@@ -22,6 +22,6 @@ public class Main {
         ReportController controladorReporte = new ReportController(ciudadano1);
         //ReportVista reporteVista = new ReportVista();
         //reporteVista.Mostrar();
-       
+
     }
 }

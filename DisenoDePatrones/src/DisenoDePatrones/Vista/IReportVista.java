@@ -10,6 +10,7 @@ public interface IReportVista {
     void OnNextClickEvent(Runnable event);
     void OnCancelClickEvent(Runnable event);
     void OnPreviousClickEvent(Runnable event);
+    void OnThanksClickEvent(Runnable event);
     void Mostrar();
     void Cerrar();
 }
