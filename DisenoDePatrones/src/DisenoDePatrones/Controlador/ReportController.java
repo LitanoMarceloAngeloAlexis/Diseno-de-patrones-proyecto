@@ -23,7 +23,7 @@ public class ReportController {
     private void manejarNextClick() {
         vista.ShowNextStep();
     }
-
+    
     private void manejarCancelClick() {
         vista.Cerrar();
     }

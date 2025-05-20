@@ -20,6 +20,7 @@ public class ReportVista implements IReportVista {
     private ReportForm reportForm;
     private int currentStep = 1;
     private JPanel currentStepPanel;
+    private IRunnableParams<Integer> changeEvent;
 
     public ReportVista() {
         this.window = new JFrame();
@@ -176,6 +177,11 @@ public class ReportVista implements IReportVista {
     }
     
     @Override
+    public void OnChangeStep(IRunnableParams<Integer> event) {
+        this.changeEvent = event;
+    }
+    
+    @Override
     public void Mostrar() {
         this.window.setVisible(true);
     }
@@ -214,7 +220,8 @@ public class ReportVista implements IReportVista {
                 this.currentStepPanel = new JPanel();
             }
         }
-
+        
+        this.changeEvent.vrun(this.currentStep);
         mainContent.add(this.currentStepPanel, new AbsoluteConstraints(0, 0, 800, 420));
         mainContent.revalidate();
         mainContent.repaint();
