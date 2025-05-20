@@ -23,7 +23,7 @@ public class ReportVista implements IReportVista {
 
     public ReportVista() {
         this.window = new JFrame();
-        this.reportForm = new ReportForm();
+        this.reportForm = new ReportForm(window);
 
         this.window.setUndecorated(true);
         this.window.setBackground(new Color(0, 0, 0, 0));
