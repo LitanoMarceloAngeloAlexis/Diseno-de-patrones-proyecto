@@ -4,6 +4,7 @@
  */
 package DisenoDePatrones.Vista.Layouts;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -89,6 +90,11 @@ public class ReportForm extends javax.swing.JPanel {
         tabPerfil.setRoundBottomRight(4);
         tabPerfil.setRoundTopLeft(4);
         tabPerfil.setRoundTopRight(4);
+        tabPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabPerfilMouseClicked(evt);
+            }
+        });
         tabPerfil.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 12, 6));
 
         jLabel2.setText("MI PERFIL");
@@ -114,6 +120,11 @@ public class ReportForm extends javax.swing.JPanel {
         tabInformation.setRoundBottomRight(4);
         tabInformation.setRoundTopLeft(4);
         tabInformation.setRoundTopRight(4);
+        tabInformation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabInformationMouseClicked(evt);
+            }
+        });
         tabInformation.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 12, 6));
 
         jLabel4.setText("INFORMACION");
@@ -217,6 +228,16 @@ public class ReportForm extends javax.swing.JPanel {
             .addComponent(Main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabInformationMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Esta opcion aun no esta planteada");
+    }//GEN-LAST:event_tabInformationMouseClicked
+
+    private void tabPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPerfilMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Esta opcion aun no esta planteada");
+    }//GEN-LAST:event_tabPerfilMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
