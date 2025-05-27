@@ -221,7 +221,7 @@ public class ReportVista implements IReportVista {
             }
         }
         
-        this.changeEvent.vrun(this.currentStep);
+        //this.changeEvent.vrun(this.currentStep);
         mainContent.add(this.currentStepPanel, new AbsoluteConstraints(0, 0, 800, 420));
         mainContent.revalidate();
         mainContent.repaint();
