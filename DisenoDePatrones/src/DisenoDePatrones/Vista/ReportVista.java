@@ -226,4 +226,9 @@ public class ReportVista implements IReportVista {
         mainContent.revalidate();
         mainContent.repaint();
     }
+
+    @Override
+    public int GetCurrentStep() {
+        return currentStep;
+    }
 }

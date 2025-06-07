@@ -110,5 +110,25 @@ public class ExecProcedures {
 
         return delincuenciaDistritos;
     }
+    
+    public boolean insertarReporte(String dni, String fecha, String hora, String motivo, String descripcion) {
+        String sql = "{call sp_InsertarReporte(?, ?, ?, ?, ?)}";
+        
+        System.out.println(dni + fecha +hora+motivo+descripcion);
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            stmt.setString(2, fecha);
+            stmt.setString(3, hora);
+            stmt.setString(4, motivo);
+            stmt.setString(5, descripcion);
+
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

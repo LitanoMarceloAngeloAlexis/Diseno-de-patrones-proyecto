@@ -25,7 +25,7 @@ public class CiudadanoService implements ICiudadano {
         return ciudadanoActual;
     }
     
-    public HashMap getHashMapInfo(){
+    public HashMap<String, String> getHashMapInfo(){
         HashMap<String, String> infoHashMap = new HashMap<>();
         infoHashMap.put("dni",ciudadanoActual.getDNI());
         infoHashMap.put("nombres",ciudadanoActual.getNombre());

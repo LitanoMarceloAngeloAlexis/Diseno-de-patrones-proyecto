@@ -19,7 +19,7 @@ public class Main {
         CiudadanoService ciudadano1 = new CiudadanoService(listaCiudadanos, "12345678A");
         
         // Probando el menu con el patron de FACADE   
-        ReportController controladorReporte = new ReportController(ciudadano1);
+        ReportController controladorReporte = new ReportController(ciudadano1, conn);
         //ReportVista reporteVista = new ReportVista();
         //reporteVista.Mostrar();
         

@@ -252,3 +252,29 @@ BEGIN
     SELECT * FROM SIGDelincuencial;
 END;
 
+
+CREATE TABLE Reportes (
+    IDReporte INT IDENTITY(1,1) PRIMARY KEY,
+    DNI VARCHAR(20) NOT NULL,
+    Fecha VARCHAR(10),
+    Hora VARCHAR(8),
+    Motivo VARCHAR(50),
+    Descripcion TEXT,
+    
+    CONSTRAINT FK_Reportes_Ciudadano FOREIGN KEY (DNI)
+        REFERENCES Ciudadano(DNI)
+);
+
+CREATE PROCEDURE sp_InsertarReporte
+    @DNI VARCHAR(20),
+    @Fecha VARCHAR(10),
+    @Hora VARCHAR(8),
+    @Motivo VARCHAR(50),
+    @Descripcion TEXT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Reportes (DNI, Fecha, Hora, Motivo, Descripcion)
+    VALUES (@DNI, @Fecha, @Hora, @Motivo, @Descripcion);
+END;

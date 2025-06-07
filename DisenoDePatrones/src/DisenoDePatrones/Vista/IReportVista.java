@@ -14,4 +14,5 @@ public interface IReportVista {
     void OnChangeStep(IRunnableParams<Integer> event);
     void Mostrar();
     void Cerrar();
+    int GetCurrentStep();
 }

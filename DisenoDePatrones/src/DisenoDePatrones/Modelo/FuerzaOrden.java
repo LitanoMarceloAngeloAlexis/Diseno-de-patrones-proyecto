@@ -11,21 +11,12 @@ public class FuerzaOrden extends Ciudadano {
         this.cargo = cargo;
     }
 
-    
     public String getRango() {
         return rango;
     }
 
-    public void setRango(String rango) {
-        this.rango = rango;
-    }
-
     public String getCargo() {
         return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
     }
     
 }
