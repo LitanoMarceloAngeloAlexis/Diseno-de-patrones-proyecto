@@ -1,12 +1,20 @@
 
-package DisenoDePatrones.Modelo;
+package DisenoDePatrones.Controlador;
 
+import DisenoDePatrones.BaseDeDatos.ExecProcedures;
 import DisenoDePatrones.Controlador.AgentePublicoService;
 import DisenoDePatrones.Controlador.CiudadanoService;
 import DisenoDePatrones.Controlador.FuerzaOrdenService;
 import DisenoDePatrones.Controlador.ProxyAgentePublicoService;
 import DisenoDePatrones.Controlador.ProxyFuerzaOrdenService;
+import DisenoDePatrones.Modelo.AgentePublico;
+import DisenoDePatrones.Modelo.Ciudadano;
+import DisenoDePatrones.Modelo.FuerzaOrden;
+import DisenoDePatrones.Modelo.Habitante;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ServiceFactory {
     public static CiudadanoService crearService(List<Ciudadano> lista, String dni) {
@@ -39,5 +47,27 @@ public class ServiceFactory {
             }
         }
         throw new IllegalArgumentException("Usuario no encontrado");
+    }
+    
+    public static List<Ciudadano> cargarCiudadanosSinDuplicados(ExecProcedures exec) {
+        Map<String, Ciudadano> ciudadanosPorDni = new HashMap<>();
+
+        for (Ciudadano c : exec.obtenerRegistrosHumanos("FUERZAORDEN")) {
+            ciudadanosPorDni.put(c.getDNI(), c);
+        }
+
+        for (Ciudadano c : exec.obtenerRegistrosHumanos("AGENTEPUBLICO")) {
+            ciudadanosPorDni.putIfAbsent(c.getDNI(), c);
+        }
+
+        for (Ciudadano c : exec.obtenerRegistrosHumanos("CIUDADANOCOMUN")) {
+            ciudadanosPorDni.putIfAbsent(c.getDNI(), c);
+        }
+
+        for (Ciudadano c : exec.obtenerRegistrosHumanos("CIUDADANO")) {
+            ciudadanosPorDni.putIfAbsent(c.getDNI(), c);
+        }
+
+        return new ArrayList<>(ciudadanosPorDni.values());
     }
 }
