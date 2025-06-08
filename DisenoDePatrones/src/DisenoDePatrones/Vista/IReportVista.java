@@ -1,6 +1,7 @@
 package DisenoDePatrones.Vista;
 
 import java.util.Map;
+import javax.swing.JPanel;
 
 public interface IReportVista {
     void ShowNextStep();
@@ -15,4 +16,5 @@ public interface IReportVista {
     void Mostrar();
     void Cerrar();
     int GetCurrentStep();
+    JPanel getCurrentStepPanel();
 }

@@ -2,9 +2,11 @@ package DisenoDePatrones.Controlador;
 
 import DisenoDePatrones.BaseDeDatos.ExecProcedures;
 import DisenoDePatrones.Vista.IReportVista;
+import DisenoDePatrones.Vista.Layouts.ReportStep2;
 import DisenoDePatrones.Vista.ReportVista;
 import java.sql.Connection;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 public class ReportController {
     private IReportVista vista;
@@ -28,7 +30,16 @@ public class ReportController {
 
     private void manejarNextClick() {
         if(vista.GetCurrentStep() == 2){
-            
+            ReportStep2 step2 = (ReportStep2) vista.getCurrentStepPanel();
+            String asunto = step2.getAsunto().trim();
+            String hora = step2.getHora().trim();
+            String fecha = step2.getFecha().trim();
+            String descripcion = step2.getDescripcion().trim();
+
+            if (asunto.isEmpty() || hora.isEmpty() || fecha.isEmpty() || descripcion.isEmpty() || asunto.equals("...") || hora.equals("...") || fecha.equals("...") || descripcion.equals("...")) { 
+                JOptionPane.showMessageDialog(null, "Recuerda rellenar todos los campos", "Aviso", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
             datosReporte = vista.GetCurrentStepData();
             execProcedures.insertarReporte(data.get("dni"), datosReporte.get("fecha"), datosReporte.get("hora"), datosReporte.get("asunto"), datosReporte.get("descripcion"));
        

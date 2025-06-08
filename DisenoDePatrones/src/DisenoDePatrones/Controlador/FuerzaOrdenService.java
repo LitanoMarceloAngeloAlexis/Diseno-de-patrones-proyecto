@@ -7,8 +7,8 @@ import java.util.List;
 
 public class FuerzaOrdenService extends AgentePublicoService implements IFuerzaOrden{
 
-    public FuerzaOrdenService(List<Ciudadano> ciudadanos, String DNIActual) {
-        super(ciudadanos, DNIActual);
+    public FuerzaOrdenService(List<Ciudadano> ciudadanos, Ciudadano ciudadanoActual) {
+        super(ciudadanos, ciudadanoActual);
     }
 
     @Override

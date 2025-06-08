@@ -5,6 +5,7 @@ import DisenoDePatrones.BaseDeDatos.ExecProcedures;
 import DisenoDePatrones.Controlador.CiudadanoService;
 import DisenoDePatrones.Controlador.ReportController;
 import DisenoDePatrones.Modelo.Ciudadano;
+import DisenoDePatrones.Modelo.ServiceFactory;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,8 +17,8 @@ public class Main {
         Connection conn = dbc.getConnection();
         ExecProcedures exec = new ExecProcedures(conn);
         List<Ciudadano> listaCiudadanos = exec.obtenerRegistrosHumanos("CIUDADANO");
-        CiudadanoService ciudadano1 = new CiudadanoService(listaCiudadanos, "12345678A");
-        
+        //CiudadanoService ciudadano1 = new CiudadanoService(listaCiudadanos, "12345678A");
+        CiudadanoService ciudadano1 = ServiceFactory.crearService(listaCiudadanos,"12345678A");        
         // Probando el menu con el patron de FACADE   
         ReportController controladorReporte = new ReportController(ciudadano1, conn);
         //ReportVista reporteVista = new ReportVista();

@@ -6,9 +6,9 @@ import java.util.List;
 
 public class HabitanteService extends CiudadanoService implements IHabitante{
     
-    public HabitanteService(List<Ciudadano> ciudadanos, String DNIActual) {
-        super(ciudadanos, DNIActual);
-    }
+    public HabitanteService(List<Ciudadano> ciudadanos, Ciudadano ciudadanoActual) {
+        super(ciudadanos, ciudadanoActual);
+    }   
     
     @Override
     public void ParticiparEncuestas() {

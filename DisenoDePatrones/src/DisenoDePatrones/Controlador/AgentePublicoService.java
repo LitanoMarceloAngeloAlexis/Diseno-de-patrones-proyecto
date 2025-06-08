@@ -6,8 +6,8 @@ import java.util.List;
 
 public class AgentePublicoService extends CiudadanoService implements IAgentePublico{
 
-    public AgentePublicoService(List<Ciudadano> ciudadanos, String DNIActual) {
-        super(ciudadanos, DNIActual);
+    public AgentePublicoService(List<Ciudadano> ciudadanos, Ciudadano ciudadanoActual) {
+        super(ciudadanos, ciudadanoActual);
     }
 
     @Override

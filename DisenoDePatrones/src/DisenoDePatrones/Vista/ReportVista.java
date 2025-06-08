@@ -231,4 +231,9 @@ public class ReportVista implements IReportVista {
     public int GetCurrentStep() {
         return currentStep;
     }
+    
+    @Override
+    public JPanel getCurrentStepPanel(){
+        return this.currentStepPanel;
+    }
 }
