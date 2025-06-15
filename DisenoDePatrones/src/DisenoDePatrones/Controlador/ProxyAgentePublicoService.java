@@ -31,4 +31,13 @@ public class ProxyAgentePublicoService extends AgentePublicoService {
         }
     }
     
+    @Override
+    public void modificarReglamento(String nuevoContenido) {
+        if (usuario instanceof AgentePublico) {
+            servicioReal.modificarReglamento(nuevoContenido);
+        } else {
+            throw new SecurityException("Acceso denegado: no es un funcionario.");
+        }
+    }
+    
 }

@@ -1,6 +1,5 @@
 package DisenoDePatrones.Controlador;
 
-import DisenoDePatrones.Modelo.AgentePublico;
 import DisenoDePatrones.Modelo.Ciudadano;
 import DisenoDePatrones.Modelo.DelincuenciaDistritos;
 import DisenoDePatrones.Modelo.FuerzaOrden;

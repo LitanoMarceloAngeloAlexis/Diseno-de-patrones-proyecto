@@ -3,11 +3,14 @@ package DisenoDePatrones.Controlador;
 import DisenoDePatrones.Modelo.Ciudadano;
 import DisenoDePatrones.Modelo.DelincuenciaDistritos;
 import DisenoDePatrones.Modelo.IFuerzaOrden;
+import DisenoDePatrones.Modelo.Reglamento;
 import java.util.List;
 
-public class FuerzaOrdenService extends AgentePublicoService implements IFuerzaOrden{
+public class FuerzaOrdenService extends CiudadanoService implements IFuerzaOrden{
+    
+    Reglamento reglamento = Reglamento.getInstancia();
 
-    public FuerzaOrdenService(List<Ciudadano> ciudadanos, Ciudadano ciudadanoActual) {
+    protected FuerzaOrdenService(List<Ciudadano> ciudadanos, Ciudadano ciudadanoActual) {
         super(ciudadanos, ciudadanoActual);
     }
 
@@ -44,4 +47,9 @@ public class FuerzaOrdenService extends AgentePublicoService implements IFuerzaO
 
     }
  
+    @Override
+    public void VisualizarReglamentos(){
+        System.out.println(reglamento.getContenido());
+        setHistorialInteraccion(" - VISUALIZO EL REGLAMENTO");
+    }
 }

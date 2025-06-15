@@ -16,9 +16,8 @@ public class CiudadanoService implements ICiudadano {
     private Ciudadano ciudadanoActual;
     private String historialInteraccion = "////////////////////////////////\nHISTORIAL DE INTERACCION:";
 
-    public CiudadanoService(List<Ciudadano> ciudadanos, Ciudadano ciudadanoActual) {
+    protected CiudadanoService(List<Ciudadano> ciudadanos, Ciudadano ciudadanoActual) {
         this.ciudadanos = ciudadanos;
-        //this.ciudadanoActual = locateCiudadanoActual(DNIActual);
         this.ciudadanoActual = ciudadanoActual;
     }
 
