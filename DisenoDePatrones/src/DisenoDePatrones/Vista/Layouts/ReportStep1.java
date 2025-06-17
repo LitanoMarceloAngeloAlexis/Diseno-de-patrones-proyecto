@@ -103,13 +103,11 @@ public class ReportStep1 extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         valueCorreo = new javax.swing.JTextField();
 
-        setOpaque(false);
-
         Stepper.setOpaque(false);
         Stepper.setPreferredSize(new java.awt.Dimension(800, 80));
         Stepper.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
-        panelRound1.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound1.setBackground(new java.awt.Color(65, 125, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(205, 40));
         panelRound1.setRoundBottomLeft(40);
         panelRound1.setRoundBottomRight(40);
@@ -129,7 +127,7 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         Stepper.add(panelRound1);
 
-        BarProgress.setBackground(new java.awt.Color(197, 205, 216));
+        BarProgress.setBackground(new java.awt.Color(64, 76, 102));
         BarProgress.setPreferredSize(new java.awt.Dimension(205, 6));
         BarProgress.setRoundBottomLeft(6);
         BarProgress.setRoundBottomRight(6);
@@ -137,7 +135,7 @@ public class ReportStep1 extends javax.swing.JPanel {
         BarProgress.setRoundTopRight(6);
         BarProgress.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        decor.setBackground(new java.awt.Color(38, 38, 38));
+        decor.setBackground(new java.awt.Color(65, 125, 255));
         decor.setPreferredSize(new java.awt.Dimension(102, 6));
         decor.setRoundBottomLeft(6);
         decor.setRoundBottomRight(6);
@@ -159,7 +157,7 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         Stepper.add(BarProgress);
 
-        panelRound2.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound2.setBackground(new java.awt.Color(64, 76, 102));
         panelRound2.setPreferredSize(new java.awt.Dimension(40, 40));
         panelRound2.setRoundBottomLeft(40);
         panelRound2.setRoundBottomRight(40);
@@ -174,7 +172,7 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         Stepper.add(panelRound2);
 
-        BarProgress1.setBackground(new java.awt.Color(197, 205, 216));
+        BarProgress1.setBackground(new java.awt.Color(64, 76, 102));
         BarProgress1.setPreferredSize(new java.awt.Dimension(205, 6));
         BarProgress1.setRoundBottomLeft(6);
         BarProgress1.setRoundBottomRight(6);
@@ -183,7 +181,7 @@ public class ReportStep1 extends javax.swing.JPanel {
         BarProgress1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Stepper.add(BarProgress1);
 
-        panelRound3.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound3.setBackground(new java.awt.Color(64, 76, 102));
         panelRound3.setPreferredSize(new java.awt.Dimension(40, 40));
         panelRound3.setRoundBottomLeft(40);
         panelRound3.setRoundBottomRight(40);
@@ -202,7 +200,7 @@ public class ReportStep1 extends javax.swing.JPanel {
         Content.setPreferredSize(new java.awt.Dimension(800, 80));
         Content.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
 
-        InputDNI.setBackground(new java.awt.Color(38, 38, 38));
+        InputDNI.setBackground(new java.awt.Color(245, 245, 245));
         InputDNI.setPreferredSize(new java.awt.Dimension(492, 65));
         InputDNI.setRoundBottomLeft(6);
         InputDNI.setRoundBottomRight(6);
@@ -211,14 +209,15 @@ public class ReportStep1 extends javax.swing.JPanel {
         InputDNI.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nameDNI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI.setForeground(new java.awt.Color(197, 205, 216));
+        nameDNI.setForeground(new java.awt.Color(64, 76, 102));
         nameDNI.setText("DNI");
         nameDNI.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        nameDNI.setOpaque(true);
         InputDNI.add(nameDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueDNI.setBackground(new java.awt.Color(38, 38, 38));
+        valueDNI.setBackground(new java.awt.Color(245, 245, 245));
         valueDNI.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueDNI.setForeground(new java.awt.Color(255, 255, 255));
+        valueDNI.setForeground(new java.awt.Color(64, 76, 102));
         valueDNI.setText("...");
         valueDNI.setBorder(null);
         valueDNI.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -226,10 +225,11 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         Content.add(InputDNI);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(492, 65));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 15, 0));
 
-        InputNombre.setBackground(new java.awt.Color(38, 38, 38));
+        InputNombre.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre.setPreferredSize(new java.awt.Dimension(492, 65));
         InputNombre.setRoundBottomLeft(6);
         InputNombre.setRoundBottomRight(6);
@@ -238,14 +238,14 @@ public class ReportStep1 extends javax.swing.JPanel {
         InputNombre.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel8.setForeground(new java.awt.Color(64, 76, 102));
         jLabel8.setText("Nombres");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputNombre.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueNombres.setBackground(new java.awt.Color(38, 38, 38));
+        valueNombres.setBackground(new java.awt.Color(245, 245, 245));
         valueNombres.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueNombres.setForeground(new java.awt.Color(255, 255, 255));
+        valueNombres.setForeground(new java.awt.Color(64, 76, 102));
         valueNombres.setText("...");
         valueNombres.setBorder(null);
         valueNombres.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -253,7 +253,7 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         jPanel1.add(InputNombre);
 
-        InputApellidos.setBackground(new java.awt.Color(38, 38, 38));
+        InputApellidos.setBackground(new java.awt.Color(245, 245, 245));
         InputApellidos.setPreferredSize(new java.awt.Dimension(492, 65));
         InputApellidos.setRoundBottomLeft(6);
         InputApellidos.setRoundBottomRight(6);
@@ -262,14 +262,14 @@ public class ReportStep1 extends javax.swing.JPanel {
         InputApellidos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel7.setForeground(new java.awt.Color(64, 76, 102));
         jLabel7.setText("Apellidos");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputApellidos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueApellidos.setBackground(new java.awt.Color(38, 38, 38));
+        valueApellidos.setBackground(new java.awt.Color(245, 245, 245));
         valueApellidos.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueApellidos.setForeground(new java.awt.Color(255, 255, 255));
+        valueApellidos.setForeground(new java.awt.Color(64, 76, 102));
         valueApellidos.setText("...");
         valueApellidos.setBorder(null);
         valueApellidos.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -279,10 +279,11 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         Content.add(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(492, 65));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 15, 0));
 
-        InputEdad.setBackground(new java.awt.Color(38, 38, 38));
+        InputEdad.setBackground(new java.awt.Color(245, 245, 245));
         InputEdad.setPreferredSize(new java.awt.Dimension(492, 65));
         InputEdad.setRoundBottomLeft(6);
         InputEdad.setRoundBottomRight(6);
@@ -291,14 +292,14 @@ public class ReportStep1 extends javax.swing.JPanel {
         InputEdad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel9.setForeground(new java.awt.Color(64, 76, 102));
         jLabel9.setText("Edad");
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputEdad.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueEdad.setBackground(new java.awt.Color(38, 38, 38));
+        valueEdad.setBackground(new java.awt.Color(245, 245, 245));
         valueEdad.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueEdad.setForeground(new java.awt.Color(255, 255, 255));
+        valueEdad.setForeground(new java.awt.Color(64, 76, 102));
         valueEdad.setText("...");
         valueEdad.setBorder(null);
         valueEdad.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -306,7 +307,7 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         jPanel2.add(InputEdad);
 
-        InputProcedencia.setBackground(new java.awt.Color(38, 38, 38));
+        InputProcedencia.setBackground(new java.awt.Color(245, 245, 245));
         InputProcedencia.setPreferredSize(new java.awt.Dimension(492, 65));
         InputProcedencia.setRoundBottomLeft(6);
         InputProcedencia.setRoundBottomRight(6);
@@ -315,14 +316,14 @@ public class ReportStep1 extends javax.swing.JPanel {
         InputProcedencia.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel10.setForeground(new java.awt.Color(64, 76, 102));
         jLabel10.setText("Procedencia");
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputProcedencia.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueProcedencia.setBackground(new java.awt.Color(38, 38, 38));
+        valueProcedencia.setBackground(new java.awt.Color(245, 245, 245));
         valueProcedencia.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueProcedencia.setForeground(new java.awt.Color(255, 255, 255));
+        valueProcedencia.setForeground(new java.awt.Color(64, 76, 102));
         valueProcedencia.setText("...");
         valueProcedencia.setBorder(null);
         valueProcedencia.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -332,7 +333,7 @@ public class ReportStep1 extends javax.swing.JPanel {
 
         Content.add(jPanel2);
 
-        InputCorreo.setBackground(new java.awt.Color(38, 38, 38));
+        InputCorreo.setBackground(new java.awt.Color(245, 245, 245));
         InputCorreo.setPreferredSize(new java.awt.Dimension(492, 65));
         InputCorreo.setRoundBottomLeft(6);
         InputCorreo.setRoundBottomRight(6);
@@ -341,14 +342,14 @@ public class ReportStep1 extends javax.swing.JPanel {
         InputCorreo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel6.setForeground(new java.awt.Color(64, 76, 102));
         jLabel6.setText("Correo");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputCorreo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueCorreo.setBackground(new java.awt.Color(38, 38, 38));
+        valueCorreo.setBackground(new java.awt.Color(245, 245, 245));
         valueCorreo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        valueCorreo.setForeground(new java.awt.Color(64, 76, 102));
         valueCorreo.setText("...");
         valueCorreo.setBorder(null);
         valueCorreo.setPreferredSize(new java.awt.Dimension(492, 22));

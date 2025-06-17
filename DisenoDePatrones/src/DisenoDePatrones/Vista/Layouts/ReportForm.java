@@ -4,6 +4,8 @@
  */
 package DisenoDePatrones.Vista.Layouts;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -123,14 +125,14 @@ public class ReportForm extends javax.swing.JPanel {
         Navbar.setOpaque(false);
         Navbar.setPreferredSize(new java.awt.Dimension(800, 50));
 
-        Content2.setBackground(new java.awt.Color(197, 205, 216));
+        Content2.setBackground(new java.awt.Color(245, 245, 245));
         Content2.setRoundBottomLeft(8);
         Content2.setRoundBottomRight(8);
         Content2.setRoundTopLeft(8);
         Content2.setRoundTopRight(8);
         Content2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 6));
 
-        tabPerfil.setBackground(new java.awt.Color(197, 205, 216));
+        tabPerfil.setBackground(new java.awt.Color(245, 245, 245));
         tabPerfil.setRoundBottomLeft(4);
         tabPerfil.setRoundBottomRight(4);
         tabPerfil.setRoundTopLeft(4);
@@ -142,12 +144,13 @@ public class ReportForm extends javax.swing.JPanel {
         });
         tabPerfil.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 12, 6));
 
+        jLabel2.setForeground(new java.awt.Color(65, 125, 255));
         jLabel2.setText("MI PERFIL");
         tabPerfil.add(jLabel2);
 
         Content2.add(tabPerfil);
 
-        tabServices.setBackground(new java.awt.Color(38, 38, 38));
+        tabServices.setBackground(new java.awt.Color(65, 125, 255));
         tabServices.setRoundBottomLeft(4);
         tabServices.setRoundBottomRight(4);
         tabServices.setRoundTopLeft(4);
@@ -160,7 +163,7 @@ public class ReportForm extends javax.swing.JPanel {
 
         Content2.add(tabServices);
 
-        tabInformation.setBackground(new java.awt.Color(197, 205, 216));
+        tabInformation.setBackground(new java.awt.Color(245, 245, 245));
         tabInformation.setRoundBottomLeft(4);
         tabInformation.setRoundBottomRight(4);
         tabInformation.setRoundTopLeft(4);
@@ -172,6 +175,7 @@ public class ReportForm extends javax.swing.JPanel {
         });
         tabInformation.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 12, 6));
 
+        jLabel4.setForeground(new java.awt.Color(65, 125, 255));
         jLabel4.setText("INFORMACION");
         tabInformation.add(jLabel4);
 
@@ -191,12 +195,12 @@ public class ReportForm extends javax.swing.JPanel {
         Footer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 16));
 
         btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(38, 38, 38), 2, true));
+        btnCancelar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(65, 125, 255), 2, true));
         btnCancelar.setPreferredSize(new java.awt.Dimension(216, 36));
         btnCancelar.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, -3));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel5.setForeground(new java.awt.Color(65, 125, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("CANCELAR");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -205,7 +209,7 @@ public class ReportForm extends javax.swing.JPanel {
 
         Footer.add(btnCancelar);
 
-        btnAtras.setBackground(new java.awt.Color(38, 38, 38));
+        btnAtras.setBackground(new java.awt.Color(65, 125, 255));
         btnAtras.setPreferredSize(new java.awt.Dimension(216, 36));
         btnAtras.setRoundBottomLeft(4);
         btnAtras.setRoundBottomRight(4);
@@ -213,6 +217,7 @@ public class ReportForm extends javax.swing.JPanel {
         btnAtras.setRoundTopRight(4);
         btnAtras.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
+        jlabel2.setBackground(new java.awt.Color(65, 125, 255));
         jlabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jlabel2.setForeground(new java.awt.Color(255, 255, 255));
         jlabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -224,7 +229,7 @@ public class ReportForm extends javax.swing.JPanel {
 
         Footer.add(btnAtras);
 
-        btnSiguiente.setBackground(new java.awt.Color(38, 38, 38));
+        btnSiguiente.setBackground(new java.awt.Color(65, 125, 255));
         btnSiguiente.setPreferredSize(new java.awt.Dimension(216, 36));
         btnSiguiente.setRoundBottomLeft(4);
         btnSiguiente.setRoundBottomRight(4);
@@ -243,7 +248,7 @@ public class ReportForm extends javax.swing.JPanel {
 
         Footer.add(btnSiguiente);
 
-        btnThanks.setBackground(new java.awt.Color(38, 38, 38));
+        btnThanks.setBackground(new java.awt.Color(65, 125, 255));
         btnThanks.setPreferredSize(new java.awt.Dimension(216, 36));
         btnThanks.setRoundBottomLeft(4);
         btnThanks.setRoundBottomRight(4);
@@ -264,7 +269,7 @@ public class ReportForm extends javax.swing.JPanel {
 
         Main.add(Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 521, -1, 80));
 
-        Topbar.setBackground(new java.awt.Color(38, 38, 38));
+        Topbar.setBackground(new java.awt.Color(65, 125, 255));
         Topbar.setRoundTopLeft(14);
         Topbar.setRoundTopRight(14);
 

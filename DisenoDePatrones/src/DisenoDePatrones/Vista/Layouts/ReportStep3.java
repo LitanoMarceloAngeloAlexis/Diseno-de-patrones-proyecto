@@ -56,7 +56,7 @@ public class ReportStep3 extends javax.swing.JPanel {
         Stepper.setPreferredSize(new java.awt.Dimension(800, 80));
         Stepper.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
-        panelRound2.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound2.setBackground(new java.awt.Color(65, 125, 255));
         panelRound2.setPreferredSize(new java.awt.Dimension(40, 40));
         panelRound2.setRoundBottomLeft(40);
         panelRound2.setRoundBottomRight(40);
@@ -79,7 +79,7 @@ public class ReportStep3 extends javax.swing.JPanel {
         BarProgress.setRoundTopRight(6);
         BarProgress.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        decor.setBackground(new java.awt.Color(38, 38, 38));
+        decor.setBackground(new java.awt.Color(65, 125, 255));
         decor.setPreferredSize(new java.awt.Dimension(205, 6));
         decor.setRoundBottomLeft(6);
         decor.setRoundBottomRight(6);
@@ -101,7 +101,7 @@ public class ReportStep3 extends javax.swing.JPanel {
 
         Stepper.add(BarProgress);
 
-        panelRound3.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound3.setBackground(new java.awt.Color(65, 125, 255));
         panelRound3.setPreferredSize(new java.awt.Dimension(40, 40));
         panelRound3.setRoundBottomLeft(40);
         panelRound3.setRoundBottomRight(40);
@@ -124,7 +124,7 @@ public class ReportStep3 extends javax.swing.JPanel {
         BarProgress1.setRoundTopRight(6);
         BarProgress1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        decor1.setBackground(new java.awt.Color(38, 38, 38));
+        decor1.setBackground(new java.awt.Color(65, 125, 255));
         decor1.setPreferredSize(new java.awt.Dimension(205, 6));
         decor1.setRoundBottomLeft(6);
         decor1.setRoundBottomRight(6);
@@ -146,7 +146,7 @@ public class ReportStep3 extends javax.swing.JPanel {
 
         Stepper.add(BarProgress1);
 
-        panelRound1.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound1.setBackground(new java.awt.Color(65, 125, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(160, 40));
         panelRound1.setRoundBottomLeft(40);
         panelRound1.setRoundBottomRight(40);
@@ -171,7 +171,7 @@ public class ReportStep3 extends javax.swing.JPanel {
         Content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 32)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel3.setForeground(new java.awt.Color(69, 132, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("COMPLETADO");
         Content.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 260, 30));
@@ -182,13 +182,13 @@ public class ReportStep3 extends javax.swing.JPanel {
         Content.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 32)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel5.setForeground(new java.awt.Color(69, 132, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("REPORTE Y/O SOLICITUD");
         Content.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 400, 40));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(38, 38, 38));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(64, 76, 102));
         jLabel6.setText("Gracias por su colaboración");
         Content.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 

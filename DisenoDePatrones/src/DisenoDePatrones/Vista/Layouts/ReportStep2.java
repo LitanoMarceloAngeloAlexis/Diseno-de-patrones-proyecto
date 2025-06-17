@@ -87,13 +87,11 @@ public class ReportStep2 extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         valueDescripcion = new javax.swing.JTextArea();
 
-        setOpaque(false);
-
         Stepper.setOpaque(false);
         Stepper.setPreferredSize(new java.awt.Dimension(800, 80));
         Stepper.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
-        panelRound2.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound2.setBackground(new java.awt.Color(65, 125, 255));
         panelRound2.setPreferredSize(new java.awt.Dimension(40, 40));
         panelRound2.setRoundBottomLeft(40);
         panelRound2.setRoundBottomRight(40);
@@ -116,7 +114,7 @@ public class ReportStep2 extends javax.swing.JPanel {
         BarProgress.setRoundTopRight(6);
         BarProgress.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        decor.setBackground(new java.awt.Color(38, 38, 38));
+        decor.setBackground(new java.awt.Color(65, 125, 255));
         decor.setPreferredSize(new java.awt.Dimension(205, 6));
         decor.setRoundBottomLeft(6);
         decor.setRoundBottomRight(6);
@@ -138,7 +136,8 @@ public class ReportStep2 extends javax.swing.JPanel {
 
         Stepper.add(BarProgress);
 
-        panelRound1.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound1.setBackground(new java.awt.Color(65, 125, 255));
+        panelRound1.setOpaque(true);
         panelRound1.setPreferredSize(new java.awt.Dimension(205, 40));
         panelRound1.setRoundBottomLeft(40);
         panelRound1.setRoundBottomRight(40);
@@ -158,7 +157,7 @@ public class ReportStep2 extends javax.swing.JPanel {
 
         Stepper.add(panelRound1);
 
-        BarProgress1.setBackground(new java.awt.Color(197, 205, 216));
+        BarProgress1.setBackground(new java.awt.Color(64, 76, 102));
         BarProgress1.setPreferredSize(new java.awt.Dimension(205, 6));
         BarProgress1.setRoundBottomLeft(6);
         BarProgress1.setRoundBottomRight(6);
@@ -166,7 +165,7 @@ public class ReportStep2 extends javax.swing.JPanel {
         BarProgress1.setRoundTopRight(6);
         BarProgress1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        decor1.setBackground(new java.awt.Color(38, 38, 38));
+        decor1.setBackground(new java.awt.Color(65, 125, 255));
         decor1.setPreferredSize(new java.awt.Dimension(102, 6));
         decor1.setRoundBottomLeft(6);
         decor1.setRoundBottomRight(6);
@@ -188,7 +187,7 @@ public class ReportStep2 extends javax.swing.JPanel {
 
         Stepper.add(BarProgress1);
 
-        panelRound3.setBackground(new java.awt.Color(38, 38, 38));
+        panelRound3.setBackground(new java.awt.Color(64, 76, 102));
         panelRound3.setPreferredSize(new java.awt.Dimension(40, 40));
         panelRound3.setRoundBottomLeft(40);
         panelRound3.setRoundBottomRight(40);
@@ -207,7 +206,7 @@ public class ReportStep2 extends javax.swing.JPanel {
         Content.setPreferredSize(new java.awt.Dimension(800, 80));
         Content.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
 
-        InputNombre.setBackground(new java.awt.Color(38, 38, 38));
+        InputNombre.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre.setPreferredSize(new java.awt.Dimension(492, 65));
         InputNombre.setRoundBottomLeft(6);
         InputNombre.setRoundBottomRight(6);
@@ -216,14 +215,14 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel5.setForeground(new java.awt.Color(64, 76, 102));
         jLabel5.setText("Asunto");
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputNombre.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueAsunto.setBackground(new java.awt.Color(38, 38, 38));
+        valueAsunto.setBackground(new java.awt.Color(245, 245, 245));
         valueAsunto.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueAsunto.setForeground(new java.awt.Color(255, 255, 255));
+        valueAsunto.setForeground(new java.awt.Color(64, 76, 102));
         valueAsunto.setText("...");
         valueAsunto.setBorder(null);
         valueAsunto.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -231,10 +230,11 @@ public class ReportStep2 extends javax.swing.JPanel {
 
         Content.add(InputNombre);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(492, 65));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0, 15, 0));
 
-        InputNombre3.setBackground(new java.awt.Color(38, 38, 38));
+        InputNombre3.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre3.setPreferredSize(new java.awt.Dimension(492, 65));
         InputNombre3.setRoundBottomLeft(6);
         InputNombre3.setRoundBottomRight(6);
@@ -243,14 +243,14 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel8.setForeground(new java.awt.Color(64, 76, 102));
         jLabel8.setText("Hora");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputNombre3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueHora.setBackground(new java.awt.Color(38, 38, 38));
+        valueHora.setBackground(new java.awt.Color(245, 245, 245));
         valueHora.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueHora.setForeground(new java.awt.Color(255, 255, 255));
+        valueHora.setForeground(new java.awt.Color(64, 76, 102));
         valueHora.setText("...");
         valueHora.setBorder(null);
         valueHora.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -258,7 +258,7 @@ public class ReportStep2 extends javax.swing.JPanel {
 
         jPanel1.add(InputNombre3);
 
-        InputNombre2.setBackground(new java.awt.Color(38, 38, 38));
+        InputNombre2.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre2.setPreferredSize(new java.awt.Dimension(492, 65));
         InputNombre2.setRoundBottomLeft(6);
         InputNombre2.setRoundBottomRight(6);
@@ -267,14 +267,14 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel7.setForeground(new java.awt.Color(64, 76, 102));
         jLabel7.setText("Fecha");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         InputNombre2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueFecha.setBackground(new java.awt.Color(38, 38, 38));
+        valueFecha.setBackground(new java.awt.Color(245, 245, 245));
         valueFecha.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueFecha.setForeground(new java.awt.Color(255, 255, 255));
+        valueFecha.setForeground(new java.awt.Color(64, 76, 102));
         valueFecha.setText("...");
         valueFecha.setBorder(null);
         valueFecha.setPreferredSize(new java.awt.Dimension(492, 22));
@@ -284,7 +284,7 @@ public class ReportStep2 extends javax.swing.JPanel {
 
         Content.add(jPanel1);
 
-        InputNombre1.setBackground(new java.awt.Color(38, 38, 38));
+        InputNombre1.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre1.setPreferredSize(new java.awt.Dimension(492, 150));
         InputNombre1.setRoundBottomLeft(6);
         InputNombre1.setRoundBottomRight(6);
@@ -293,16 +293,16 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(197, 205, 216));
+        jLabel6.setForeground(new java.awt.Color(64, 76, 102));
         jLabel6.setText("Descripción");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jLabel6.setPreferredSize(new java.awt.Dimension(492, 20));
         InputNombre1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, 470, -1));
 
-        valueDescripcion.setBackground(new java.awt.Color(38, 38, 38));
+        valueDescripcion.setBackground(new java.awt.Color(245, 245, 245));
         valueDescripcion.setColumns(20);
         valueDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        valueDescripcion.setForeground(new java.awt.Color(64, 76, 102));
         valueDescripcion.setLineWrap(true);
         valueDescripcion.setRows(5);
         valueDescripcion.setText("...");
