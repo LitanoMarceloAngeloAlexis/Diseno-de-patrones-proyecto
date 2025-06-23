@@ -4,6 +4,6 @@
   "databaseName": "GestionCiudadana",
   "encrypt": true,
   "trustServerCertificate": true,
-  "user": "sa",
+  "user": "user",
   "password": "kalioz123"
 }

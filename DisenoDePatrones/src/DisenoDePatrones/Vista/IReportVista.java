@@ -1,6 +1,7 @@
 package DisenoDePatrones.Vista;
 
 import java.util.Map;
+import java.util.function.Consumer;
 import javax.swing.JPanel;
 
 public interface IReportVista {
@@ -12,8 +13,13 @@ public interface IReportVista {
     void OnCancelClickEvent(Runnable event);
     void OnPreviousClickEvent(Runnable event);
     void OnThanksClickEvent(Runnable event);
+    void OnRegulationsClickEvent(Runnable event);
     void Cerrar();
     void Mostrar();
     int GetCurrentStep();
     JPanel getCurrentStepPanel();
+    void ChangeStateNotification(int state);
+    void ShowRegulationsWindow(String method);
+    void ShowRegulationsWindow(String method, Consumer<String> event);
+    void SetContentTextRegulations(String text);
 }

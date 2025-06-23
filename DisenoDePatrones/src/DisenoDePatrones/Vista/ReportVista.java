@@ -1,5 +1,6 @@
 package DisenoDePatrones.Vista;
 
+import DisenoDePatrones.Vista.Layouts.Reports.Regulations;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep1;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
@@ -8,6 +9,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
@@ -15,6 +19,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 public class ReportVista implements IReportVista {
     private Window window;
     private ReportForm reportForm;
+    private Regulations regulations;
     private int currentStep = 1;
     private JPanel currentStepPanel;
 
@@ -25,6 +30,34 @@ public class ReportVista implements IReportVista {
       
         this.SwitchStep(this.currentStep);
     }
+    
+    @Override
+    public void SetContentTextRegulations(String text) {
+        this.regulations.setText(text);
+    }
+    
+    @Override
+    public void ShowRegulationsWindow(String method) {
+        Window regulationWindow = new Window(false, false, true);
+        regulationWindow.setTitle("Regulaciones Importantes");
+        this.regulations = new Regulations();
+        regulationWindow.add(this.regulations);
+        
+        if (method.equals("READ")) {
+            this.regulations.ChangeWriteOrWrite(0);
+        } else if (method.equals("WRITE")) {
+            this.regulations.ChangeWriteOrWrite(1); 
+        }
+        
+        regulationWindow.setVisible(true);
+    }
+    
+    @Override
+    public void ShowRegulationsWindow(String method, Consumer<String> event) {
+        this.ShowRegulationsWindow(method);
+        this.regulations.setOnTextChangeListener(event);
+    }
+    
 
     @Override
     public void ShowNextStep() {
@@ -153,6 +186,16 @@ public class ReportVista implements IReportVista {
     }
     
     @Override
+    public void OnRegulationsClickEvent(Runnable event) {
+        this.reportForm.GetRegulationsButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               event.run();
+            }
+        });
+    }
+    
+    @Override
     public void Mostrar() {
         this.window.setVisible(true);
     }
@@ -206,5 +249,16 @@ public class ReportVista implements IReportVista {
     @Override
     public JPanel getCurrentStepPanel(){
         return this.currentStepPanel;
+    }
+    
+    @Override
+    public void ChangeStateNotification(int state) {
+        JLabel button = this.reportForm.GetNotificationButton();
+        
+        if (state == 0) {
+            button.setIcon(new ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png")));
+        } else if (state == 1) {
+            button.setIcon(new ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationI.png")));
+        }
     }
 }

@@ -22,6 +22,29 @@ public class Window extends JFrame {
         this.setVisible(false);
     }
     
+      public Window(boolean frame) {
+        this.InitWindow();
+        this.setUndecorated(frame);
+    }
+
+    public Window(boolean frame, boolean transparency) {
+        this(frame);
+        if (transparency) {
+            this.setUndecorated(true);
+            this.setBackground(new Color(0, 0, 0, 0));
+        }
+    }
+    
+    public Window(boolean frame, boolean transparency, boolean visible) {
+        this(frame, transparency);
+        this.setVisible(visible);
+    }
+    
+    private void InitWindow() {
+        this.setSize(new Dimension(800, 600));
+        this.setLocationRelativeTo(null);
+    }
+    
     public void SetSizeWindow(int width, int heigth) {
         this.setSize(new Dimension(width, heigth));
     }

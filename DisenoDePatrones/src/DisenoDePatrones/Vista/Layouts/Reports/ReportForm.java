@@ -5,6 +5,7 @@
 package DisenoDePatrones.Vista.Layouts.Reports;
 
 import DisenoDePatrones.Vista.Window;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -41,6 +42,14 @@ public class ReportForm extends javax.swing.JPanel {
         return this.btnThanks;
     }
     
+    public JLabel GetNotificationButton() {
+        return this.btnNotification;
+    }
+    
+    public JLabel GetRegulationsButton() {
+        return this.btnRegulations;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +68,10 @@ public class ReportForm extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         tabInformation = new DisenoDePatrones.Vista.Components.PanelRound();
         jLabel4 = new javax.swing.JLabel();
+        iconNoti = new DisenoDePatrones.Vista.Components.PanelRound();
+        btnNotification = new javax.swing.JLabel();
+        iconRegla = new DisenoDePatrones.Vista.Components.PanelRound();
+        btnRegulations = new javax.swing.JLabel();
         ContentMain = new javax.swing.JPanel();
         Footer = new javax.swing.JPanel();
         btnCancelar = new DisenoDePatrones.Vista.Components.PanelRound();
@@ -83,6 +96,7 @@ public class ReportForm extends javax.swing.JPanel {
 
         Navbar.setOpaque(false);
         Navbar.setPreferredSize(new java.awt.Dimension(800, 50));
+        Navbar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Content2.setBackground(new java.awt.Color(245, 245, 245));
         Content2.setRoundBottomLeft(8);
@@ -140,7 +154,31 @@ public class ReportForm extends javax.swing.JPanel {
 
         Content2.add(tabInformation);
 
-        Navbar.add(Content2);
+        Navbar.add(Content2, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 5, -1, -1));
+
+        iconNoti.setBackground(new java.awt.Color(255, 255, 255));
+        iconNoti.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        iconNoti.setRoundBottomLeft(8);
+        iconNoti.setRoundBottomRight(8);
+        iconNoti.setRoundTopLeft(8);
+        iconNoti.setRoundTopRight(8);
+        iconNoti.setLayout(new java.awt.CardLayout(1, 0));
+
+        btnNotification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png"))); // NOI18N
+        iconNoti.add(btnNotification, "card2");
+
+        Navbar.add(iconNoti, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 30, 30));
+
+        iconRegla.setRoundBottomLeft(8);
+        iconRegla.setRoundBottomRight(8);
+        iconRegla.setRoundTopLeft(8);
+        iconRegla.setRoundTopRight(8);
+        iconRegla.setLayout(new java.awt.CardLayout(3, 0));
+
+        btnRegulations.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/reglamentos.png"))); // NOI18N
+        iconRegla.add(btnRegulations, "card2");
+
+        Navbar.add(iconRegla, new org.netbeans.lib.awtextra.AbsoluteConstraints(715, 10, 30, 30));
 
         Main.add(Navbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 36, 800, -1));
 
@@ -262,9 +300,13 @@ public class ReportForm extends javax.swing.JPanel {
     private javax.swing.JPanel Navbar;
     private DisenoDePatrones.Vista.Components.PanelRound btnAtras;
     private DisenoDePatrones.Vista.Components.PanelRound btnCancelar;
+    private javax.swing.JLabel btnNotification;
+    private javax.swing.JLabel btnRegulations;
     private DisenoDePatrones.Vista.Components.PanelRound btnSiguiente;
     private DisenoDePatrones.Vista.Components.PanelRound btnThanks;
     private DisenoDePatrones.Vista.Components.ContentDragged contentDragged1;
+    private DisenoDePatrones.Vista.Components.PanelRound iconNoti;
+    private DisenoDePatrones.Vista.Components.PanelRound iconRegla;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

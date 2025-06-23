@@ -33,9 +33,7 @@ public class Main {
         reglamento.modificar("Nueva actualización del artículo 42.");
                 
         // Probando el menu con el patron de FACADE   
-        AuthVista vista = new AuthVista();
-        
-        
-        //ReportController controladorReporte = new ReportController(ciudadano1, conn);
+        //AuthVista vista = new AuthVista();
+        ReportController controladorReporte = new ReportController(ciudadano1, conn);
     }
 }
