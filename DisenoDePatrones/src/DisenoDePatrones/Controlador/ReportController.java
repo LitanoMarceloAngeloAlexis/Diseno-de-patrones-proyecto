@@ -26,11 +26,6 @@ public class ReportController {
         this.ciudadano = ciudadano;
         this.data = ciudadano.getHashMapInfo();
         this.vista.SetCurrentStepData(data);
-        
-        
-        this.vista.OnRegulationsClickEvent(() -> {
-            this.vista.ShowRegulationsWindow("READ");
-        });
     }
 
     private void manejarNextClick() {
