@@ -2,16 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package DisenoDePatrones.Vista.Layouts;
+package DisenoDePatrones.Vista.Layouts.Reports;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import DisenoDePatrones.Vista.Window;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -20,35 +13,12 @@ import javax.swing.JPanel;
  * @author Alex
  */
 public class ReportForm extends javax.swing.JPanel {
-
-    private Point initialClick;
-    private JFrame parent;
     /**
      * Creates new form ReportForm
      */
-    public ReportForm(JFrame parent) {
-        this.parent = parent;
+    public ReportForm(Window parent) {
         initComponents();
-        
-        this.Topbar.addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                initialClick = e.getPoint();
-                getComponentAt(initialClick);
-            }
-        });
-        
-        this.Topbar.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                int thisX = parent.getLocation().x;
-                int thisY = parent.getLocation().y;
-                int xMoved = e.getX() - initialClick.x;
-                int yMoved = e.getY() - initialClick.y;
-                int X = thisX + xMoved;
-                int Y = thisY + yMoved;
-                parent.setLocation(X, Y);
-            }
-        });
+        this.contentDragged1.initDragSystem(parent);
     }
     
     public JPanel GetMainContent() {
@@ -69,14 +39,6 @@ public class ReportForm extends javax.swing.JPanel {
     
     public JPanel GetThanksButton() {
         return this.btnThanks;
-    }
-    
-    public JLabel ActionExitApplicaction() {
-        return this.btnExit;
-    }
-    
-    public JLabel ActionMinimize() {
-        return this.btnMinimize;
     }
     
     /**
@@ -107,10 +69,7 @@ public class ReportForm extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         btnThanks = new DisenoDePatrones.Vista.Components.PanelRound();
         jLabel8 = new javax.swing.JLabel();
-        Topbar = new DisenoDePatrones.Vista.Components.PanelRound();
-        btnExit = new javax.swing.JLabel();
-        btnMinimize = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        contentDragged1 = new DisenoDePatrones.Vista.Components.ContentDragged();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -269,48 +228,8 @@ public class ReportForm extends javax.swing.JPanel {
 
         Main.add(Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 521, -1, 80));
 
-        Topbar.setBackground(new java.awt.Color(65, 125, 255));
-        Topbar.setRoundTopLeft(14);
-        Topbar.setRoundTopRight(14);
-
-        btnExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/close.png"))); // NOI18N
-        btnExit.setMaximumSize(new java.awt.Dimension(37, 30));
-        btnExit.setPreferredSize(new java.awt.Dimension(30, 30));
-
-        btnMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/minimize.png"))); // NOI18N
-        btnMinimize.setMaximumSize(new java.awt.Dimension(37, 30));
-        btnMinimize.setPreferredSize(new java.awt.Dimension(30, 30));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Gestion Ciudadana");
-
-        javax.swing.GroupLayout TopbarLayout = new javax.swing.GroupLayout(Topbar);
-        Topbar.setLayout(TopbarLayout);
-        TopbarLayout.setHorizontalGroup(
-            TopbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopbarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 606, Short.MAX_VALUE)
-                .addComponent(btnMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        TopbarLayout.setVerticalGroup(
-            TopbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TopbarLayout.createSequentialGroup()
-                .addGroup(TopbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMinimize, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        Main.add(Topbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
+        contentDragged1.setTitleBar("Gestion Ciudadana");
+        Main.add(contentDragged1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -341,20 +260,17 @@ public class ReportForm extends javax.swing.JPanel {
     private javax.swing.JPanel Footer;
     private DisenoDePatrones.Vista.Components.PanelRound Main;
     private javax.swing.JPanel Navbar;
-    private DisenoDePatrones.Vista.Components.PanelRound Topbar;
     private DisenoDePatrones.Vista.Components.PanelRound btnAtras;
     private DisenoDePatrones.Vista.Components.PanelRound btnCancelar;
-    private javax.swing.JLabel btnExit;
-    private javax.swing.JLabel btnMinimize;
     private DisenoDePatrones.Vista.Components.PanelRound btnSiguiente;
     private DisenoDePatrones.Vista.Components.PanelRound btnThanks;
+    private DisenoDePatrones.Vista.Components.ContentDragged contentDragged1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jlabel2;
     private DisenoDePatrones.Vista.Components.PanelRound tabInformation;
     private DisenoDePatrones.Vista.Components.PanelRound tabPerfil;

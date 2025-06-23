@@ -12,9 +12,8 @@ public interface IReportVista {
     void OnCancelClickEvent(Runnable event);
     void OnPreviousClickEvent(Runnable event);
     void OnThanksClickEvent(Runnable event);
-    void OnChangeStep(IRunnableParams<Integer> event);
-    void Mostrar();
     void Cerrar();
+    void Mostrar();
     int GetCurrentStep();
     JPanel getCurrentStepPanel();
 }

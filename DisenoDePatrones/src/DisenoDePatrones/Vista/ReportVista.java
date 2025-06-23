@@ -1,53 +1,29 @@
 package DisenoDePatrones.Vista;
 
-import DisenoDePatrones.Vista.Layouts.ReportForm;
-import DisenoDePatrones.Vista.Layouts.ReportStep1;
-import DisenoDePatrones.Vista.Layouts.ReportStep2;
-import DisenoDePatrones.Vista.Layouts.ReportStep3;
-import java.awt.Color;
-import java.awt.Dimension;
+import DisenoDePatrones.Vista.Layouts.Reports.ReportForm;
+import DisenoDePatrones.Vista.Layouts.Reports.ReportStep1;
+import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
+import DisenoDePatrones.Vista.Layouts.Reports.ReportStep3;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 // IMPLEMENTACION DE REPORTE VISTA CON EL PATRON DE FACADE
 public class ReportVista implements IReportVista {
-    private JFrame window;
+    private Window window;
     private ReportForm reportForm;
     private int currentStep = 1;
     private JPanel currentStepPanel;
-    private IRunnableParams<Integer> changeEvent;
 
     public ReportVista() {
-        this.window = new JFrame();
-        this.reportForm = new ReportForm(window);
-
-        this.window.setUndecorated(true);
-        this.window.setBackground(new Color(0, 0, 0, 0));
-        this.window.setSize(new Dimension(800, 600));
-        this.window.setLocationRelativeTo(null);
+        this.window = new Window();
+        this.reportForm = new ReportForm(this.window);
         this.window.add(this.reportForm);
-
-        this.window.setVisible(false);
+      
         this.SwitchStep(this.currentStep);
-        
-        this.reportForm.ActionExitApplicaction().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                Cerrar();
-            }
-        });
-        
-         this.reportForm.ActionMinimize().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                window.setExtendedState(window.ICONIFIED);
-            }
-        });
     }
 
     @Override
@@ -174,11 +150,6 @@ public class ReportVista implements IReportVista {
                 event.run();
             }
         });
-    }
-    
-    @Override
-    public void OnChangeStep(IRunnableParams<Integer> event) {
-        this.changeEvent = event;
     }
     
     @Override

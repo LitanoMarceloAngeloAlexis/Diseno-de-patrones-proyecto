@@ -2,7 +2,7 @@ package DisenoDePatrones.Controlador;
 
 import DisenoDePatrones.BaseDeDatos.ExecProcedures;
 import DisenoDePatrones.Vista.IReportVista;
-import DisenoDePatrones.Vista.Layouts.ReportStep2;
+import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
 import DisenoDePatrones.Vista.ReportVista;
 import java.sql.Connection;
 import java.util.Map;

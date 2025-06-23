@@ -8,6 +8,7 @@ import DisenoDePatrones.Modelo.Ciudadano;
 import DisenoDePatrones.Controlador.ServiceFactory;
 import DisenoDePatrones.Modelo.FuerzaOrden;
 import DisenoDePatrones.Modelo.Reglamento;
+import DisenoDePatrones.Vista.AuthVista;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -32,7 +33,9 @@ public class Main {
         reglamento.modificar("Nueva actualización del artículo 42.");
                 
         // Probando el menu con el patron de FACADE   
-
-        ReportController controladorReporte = new ReportController(ciudadano1, conn);
+        AuthVista vista = new AuthVista();
+        
+        
+        //ReportController controladorReporte = new ReportController(ciudadano1, conn);
     }
 }
