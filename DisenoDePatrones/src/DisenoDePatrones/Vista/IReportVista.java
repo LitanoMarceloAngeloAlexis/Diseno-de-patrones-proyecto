@@ -14,6 +14,7 @@ public interface IReportVista {
     void OnPreviousClickEvent(Runnable event);
     void OnThanksClickEvent(Runnable event);
     void OnRegulationsClickEvent(Runnable event);
+    void OnNotificationClickEvent(Runnable event);
     void Cerrar();
     void Mostrar();
     int GetCurrentStep();
@@ -21,5 +22,7 @@ public interface IReportVista {
     void ChangeStateNotification(int state);
     void ShowRegulationsWindow(String method);
     void ShowRegulationsWindow(String method, Consumer<String> event);
+    void ShowNotificationWindow();
     void SetContentTextRegulations(String text);
+    void AddNewNotificationToList(String message, String date);
 }

@@ -1,6 +1,8 @@
 package DisenoDePatrones.Vista;
 
-import DisenoDePatrones.Vista.Layouts.Reports.Regulations;
+import DisenoDePatrones.Vista.Components.Notify;
+import DisenoDePatrones.Vista.Layouts.Reports.NotificationForm;
+import DisenoDePatrones.Vista.Layouts.Reports.RegulationForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep1;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
@@ -17,36 +19,38 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 // IMPLEMENTACION DE REPORTE VISTA CON EL PATRON DE FACADE
 public class ReportVista implements IReportVista {
-    private Window window;
-    private ReportForm reportForm;
-    private Regulations regulations;
     private int currentStep = 1;
     private JPanel currentStepPanel;
-
+        
+    private Window window;
+    private ReportForm reportForm;
+    private RegulationForm reguForm;
+    private NotificationForm notiForm;
+    
     public ReportVista() {
         this.window = new Window();
         this.reportForm = new ReportForm(this.window);
         this.window.add(this.reportForm);
-      
+        
         this.SwitchStep(this.currentStep);
     }
     
     @Override
     public void SetContentTextRegulations(String text) {
-        this.regulations.setText(text);
+        this.reguForm.setText(text);
     }
     
     @Override
     public void ShowRegulationsWindow(String method) {
         Window regulationWindow = new Window();
         regulationWindow.setTitle("Regulaciones Importantes");
-        this.regulations = new Regulations(regulationWindow);
-        regulationWindow.add(this.regulations);
+        this.reguForm = new RegulationForm(regulationWindow);
+        regulationWindow.add(this.reguForm);
         
         if (method.equals("READ")) {
-            this.regulations.ChangeWriteOrWrite(0);
+            this.reguForm.ChangeWriteOrWrite(0);
         } else if (method.equals("WRITE")) {
-            this.regulations.ChangeWriteOrWrite(1); 
+            this.reguForm.ChangeWriteOrWrite(1); 
         }
         
         regulationWindow.setVisible(true);
@@ -55,9 +59,18 @@ public class ReportVista implements IReportVista {
     @Override
     public void ShowRegulationsWindow(String method, Consumer<String> event) {
         this.ShowRegulationsWindow(method);
-        this.regulations.setOnTextChangeListener(event);
+        this.reguForm.setOnTextChangeListener(event);
     }
     
+@Override
+    public void ShowNotificationWindow() {
+        Window notificationWindow = new Window();
+        notificationWindow.setTitle("Regulaciones Importantes");
+        notificationWindow.SetSizeWindow(400, 500);
+        this.notiForm = new NotificationForm(notificationWindow);
+        notificationWindow.add(this.notiForm);
+        notificationWindow.setVisible(true);
+    }
 
     @Override
     public void ShowNextStep() {
@@ -196,6 +209,16 @@ public class ReportVista implements IReportVista {
     }
     
     @Override
+    public void OnNotificationClickEvent(Runnable event) {
+        this.reportForm.GetNotificationButton().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               event.run();
+            }
+        });
+    }    
+    
+    @Override
     public void Mostrar() {
         this.window.setVisible(true);
     }
@@ -259,6 +282,18 @@ public class ReportVista implements IReportVista {
             button.setIcon(new ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png")));
         } else if (state == 1) {
             button.setIcon(new ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationI.png")));
+        }
+    }
+    
+    @Override
+    public void AddNewNotificationToList(String message, String date) {
+        if (this.notiForm != null) {
+            Notify not = new Notify();
+            not.setContent(message);
+            not.setDate(date);
+            this.notiForm.GetContentNotifiers().add(not);
+        } else {
+            System.out.println("ERROR: Al parecer aun no se carga el reguForm");
         }
     }
 }

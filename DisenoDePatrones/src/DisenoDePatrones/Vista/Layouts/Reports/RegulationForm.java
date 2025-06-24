@@ -13,13 +13,13 @@ import javax.swing.event.DocumentListener;
  *
  * @author Alex
  */
-public class Regulations extends javax.swing.JPanel {
+public class RegulationForm extends javax.swing.JPanel {
     private Consumer<String> textChangeListener;
  
     /**
      * Creates new form regulations
      */
-    public Regulations(Window parent) {
+    public RegulationForm(Window parent) {
         initComponents();
         this.contentDragged1.initDragSystem(parent);
         
@@ -105,9 +105,7 @@ public class Regulations extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(contentDragged1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(contentDragged1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()

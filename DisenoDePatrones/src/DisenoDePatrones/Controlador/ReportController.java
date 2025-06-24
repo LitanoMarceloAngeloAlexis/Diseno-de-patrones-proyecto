@@ -4,7 +4,7 @@ import DisenoDePatrones.BaseDeDatos.ExecProcedures;
 import DisenoDePatrones.Modelo.Notificacion;
 import DisenoDePatrones.Modelo.Reglamento;
 import DisenoDePatrones.Vista.IReportVista;
-import DisenoDePatrones.Vista.Layouts.Reports.Regulations;
+import DisenoDePatrones.Vista.Layouts.Reports.RegulationForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
 import DisenoDePatrones.Vista.ReportVista;
 import DisenoDePatrones.Vista.Window;

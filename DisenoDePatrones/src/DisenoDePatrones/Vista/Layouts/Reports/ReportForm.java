@@ -156,13 +156,12 @@ public class ReportForm extends javax.swing.JPanel {
 
         Navbar.add(Content2, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 5, -1, -1));
 
-        iconNoti.setBackground(new java.awt.Color(255, 255, 255));
         iconNoti.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         iconNoti.setRoundBottomLeft(8);
         iconNoti.setRoundBottomRight(8);
         iconNoti.setRoundTopLeft(8);
         iconNoti.setRoundTopRight(8);
-        iconNoti.setLayout(new java.awt.CardLayout());
+        iconNoti.setLayout(new java.awt.CardLayout(2, 0));
 
         btnNotification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png"))); // NOI18N
         iconNoti.add(btnNotification, "card2");
@@ -173,7 +172,7 @@ public class ReportForm extends javax.swing.JPanel {
         iconRegla.setRoundBottomRight(8);
         iconRegla.setRoundTopLeft(8);
         iconRegla.setRoundTopRight(8);
-        iconRegla.setLayout(new java.awt.CardLayout());
+        iconRegla.setLayout(new java.awt.CardLayout(3, 0));
 
         btnRegulations.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/reglamentos.png"))); // NOI18N
         iconRegla.add(btnRegulations, "card2");
@@ -200,7 +199,7 @@ public class ReportForm extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(65, 125, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("CANCELAR");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel5.setPreferredSize(new java.awt.Dimension(216, 36));
         btnCancelar.add(jLabel5);
 
@@ -219,7 +218,7 @@ public class ReportForm extends javax.swing.JPanel {
         jlabel2.setForeground(new java.awt.Color(255, 255, 255));
         jlabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlabel2.setText("RETROCEDER");
-        jlabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jlabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jlabel2.setPreferredSize(new java.awt.Dimension(216, 36));
         btnAtras.add(jlabel2);
@@ -238,7 +237,7 @@ public class ReportForm extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("SIGUIENTE");
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel7.setPreferredSize(new java.awt.Dimension(216, 36));
         btnSiguiente.add(jLabel7);
@@ -257,7 +256,7 @@ public class ReportForm extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("GRACIAS");
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel8.setPreferredSize(new java.awt.Dimension(216, 36));
         btnThanks.add(jLabel8);

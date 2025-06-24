@@ -22,7 +22,7 @@ public class Window extends JFrame {
         this.setVisible(false);
     }
     
-      public Window(boolean frame) {
+    public Window(boolean frame) {
         this.InitWindow();
         this.setUndecorated(frame);
     }

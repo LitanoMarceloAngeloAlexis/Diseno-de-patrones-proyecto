@@ -4,6 +4,6 @@
   "databaseName": "GestionCiudadana",
   "encrypt": true,
   "trustServerCertificate": true,
-  "user": "user123",
-  "password": "user123"
+  "user": "user1",
+  "password": "user"
 }

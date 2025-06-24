@@ -173,9 +173,6 @@
             </Container>
             <Container class="DisenoDePatrones.Vista.Components.PanelRound" name="iconNoti">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder/>
@@ -192,7 +189,9 @@
                 </Constraint>
               </Constraints>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout">
+                <Property name="horizontalGap" type="int" value="2"/>
+              </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="btnNotification">
                   <Properties>
@@ -221,7 +220,9 @@
                 </Constraint>
               </Constraints>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout">
+                <Property name="horizontalGap" type="int" value="3"/>
+              </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="btnRegulations">
                   <Properties>
@@ -305,7 +306,7 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="CANCELAR"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Por defecto"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[216, 36]"/>
@@ -346,7 +347,7 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="RETROCEDER"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Por defecto"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -385,7 +386,7 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="SIGUIENTE"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Por defecto"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -424,7 +425,7 @@
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="GRACIAS"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Cursor Por defecto"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
