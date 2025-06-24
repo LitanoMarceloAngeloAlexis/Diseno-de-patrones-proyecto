@@ -278,3 +278,77 @@ BEGIN
     INSERT INTO Reportes (DNI, Fecha, Hora, Motivo, Descripcion)
     VALUES (@DNI, @Fecha, @Hora, @Motivo, @Descripcion);
 END;
+
+
+CREATE TABLE login_ciudadano (
+    dni VARCHAR(20) PRIMARY KEY,
+    contraseña TEXT NOT NULL,
+    FOREIGN KEY (dni) REFERENCES ciudadano(dni)
+);
+
+INSERT INTO login_ciudadano (dni, contraseña) VALUES 
+('01234567J', 'Valeria2024!'),
+('12345678A', 'JuanLima35'),
+('23456789B', 'AnaG@rcia40'),
+('34567890C', 'LuisM_2025'),
+('45678901D', 'Carla.R32'),
+('56789012E', 'MarioS#Piura'),
+('67890123F', 'LuciaTacna30'),
+('72147777A', 'AntonioB@nd35'),
+('78901234G', 'DiegoPuno38'),
+('89012345H', 'Sofi@Ch27'),
+('90123456I', 'AndresLoz50');
+
+
+CREATE PROCEDURE autenticar_login
+    @dni VARCHAR(9),
+    @contraseña_ingresada NVARCHAR(100),
+    @autenticado BIT OUTPUT
+AS
+BEGIN
+    DECLARE @contraseña_guardada NVARCHAR(100);
+
+    SELECT @contraseña_guardada = contraseña
+    FROM login_ciudadano
+    WHERE dni = @dni;
+
+    IF @contraseña_guardada IS NOT NULL AND @contraseña_guardada = @contraseña_ingresada
+        SET @autenticado = 1;
+    ELSE
+        SET @autenticado = 0;
+END;
+
+
+
+CREATE TABLE notificacion (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    dni VARCHAR(20) NOT NULL,
+    mensaje NVARCHAR(MAX) NOT NULL,
+    fecha DATETIME DEFAULT GETDATE(),
+    leido BIT DEFAULT 0,
+    FOREIGN KEY (dni) REFERENCES ciudadano(dni)
+);
+
+INSERT INTO notificacion (dni, mensaje)
+VALUES ('01234567J', 'Tiene una nueva actualización de su trámite.');
+
+
+
+CREATE PROCEDURE CrearNotificacion
+    @dni VARCHAR(20),
+    @mensaje NVARCHAR(MAX)
+AS
+BEGIN
+    INSERT INTO notificacion (dni, mensaje)
+    VALUES (@dni, @mensaje);
+END;
+
+
+CREATE PROCEDURE LeerNotificacionesNoLeidas
+    @dni VARCHAR(20)
+AS
+BEGIN
+    SELECT id, mensaje, fecha
+    FROM notificacion
+    WHERE dni = @dni AND leido = 0;
+END;

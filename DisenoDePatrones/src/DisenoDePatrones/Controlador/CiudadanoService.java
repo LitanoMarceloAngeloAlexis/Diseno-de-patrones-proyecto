@@ -45,24 +45,6 @@ public class CiudadanoService implements ICiudadano {
         this.historialInteraccion = this.historialInteraccion + historialInteraccion;
     }
     
-
-    private Ciudadano locateCiudadanoActual(String DNIActual) {
-        for (Ciudadano i : ciudadanos) {
-            if (i.getDNI().equals(DNIActual)) {
-                if (i instanceof Habitante) {
-                    System.out.println("-> HABITANTE ENCONTRADO <-");
-                } else if(i instanceof AgentePublico){
-                   System.out.println("-> AGENTE PUBLICO ENCONTRADO <-");
-                } else if(i instanceof FuerzaOrden){
-                   System.out.println("-> FUERZA DEL ORDEN ENCONTRADO <-");
-                } else {
-                    System.out.println("-> CIUDADANO ENCONTRADO <-");
-                }
-                return i;
-            }
-        }
-    return null;
-    }
     
     public Reporte crearReporte(String hora, String fecha, String motivo, String descripcion) {
         return new Reporte(ciudadanoActual, hora, fecha, motivo, descripcion);

@@ -16,6 +16,7 @@ import javax.swing.JPanel;
  * @author Alex
  */
 public class AuthForm extends javax.swing.JPanel {
+    
     public enum Modos {
         CIUDADANO,
         FUERZA_ORDEN,
@@ -28,9 +29,10 @@ public class AuthForm extends javax.swing.JPanel {
     private PanelRound currentPanel;
 
     public AuthForm(Window window) {
-        initComponents();
+        initComponents();   
         this.contentDragged1.initDragSystem(window);
         this.SwitchModeAccess(this.btnModeCiudadano, this.jLabel1);
+        this.currentMode = Modos.CIUDADANO;
     }
     
     public Modos getModeAccess() {

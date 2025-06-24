@@ -132,6 +132,7 @@ public class Login extends javax.swing.JPanel {
         pnContent.add(jPanel1, gridBagConstraints);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setToolTipText("");
         jPanel2.setPreferredSize(new java.awt.Dimension(331, 40));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

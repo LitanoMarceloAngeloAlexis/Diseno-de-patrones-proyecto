@@ -20,4 +20,5 @@ public interface IAuthVista {
     void OnClickAccederRegister(Runnable callback);
     void ChangeVistaTo(AuthVista.AuthState state);
     AuthForm.Modos GetCurrentModeAccess();
+    void CerrarVentana();
 }

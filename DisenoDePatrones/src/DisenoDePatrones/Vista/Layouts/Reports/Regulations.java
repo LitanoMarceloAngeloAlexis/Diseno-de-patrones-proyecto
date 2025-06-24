@@ -49,8 +49,7 @@ public class Regulations extends javax.swing.JPanel {
     }
      
     public void setText(String text) {
-        String format = "<html><body style='width: 100%;'>%s</body></html>";
-        this.jTextArea1.setText(String.format(format, text));
+        this.jTextArea1.setText(text);
     }
     
     public void ChangeWriteOrWrite(int state) {

@@ -25,7 +25,7 @@ public class AuthVista implements IAuthVista {
     private JPanel currentViewer;
     private Login login;
     private Register register;
-    
+
     public enum AuthState {
         LOGIN,
         REGISTER
@@ -119,5 +119,10 @@ public class AuthVista implements IAuthVista {
                 callback.run();
             }
         });
+    }
+    
+    @Override
+    public void CerrarVentana() {
+        this.window.dispose();
     }
 }

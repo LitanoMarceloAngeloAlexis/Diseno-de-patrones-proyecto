@@ -1,10 +1,15 @@
 package DisenoDePatrones.Controlador;
 
 import DisenoDePatrones.BaseDeDatos.ExecProcedures;
+import DisenoDePatrones.Modelo.Notificacion;
+import DisenoDePatrones.Modelo.Reglamento;
 import DisenoDePatrones.Vista.IReportVista;
+import DisenoDePatrones.Vista.Layouts.Reports.Regulations;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
 import DisenoDePatrones.Vista.ReportVista;
+import DisenoDePatrones.Vista.Window;
 import java.sql.Connection;
+import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
@@ -23,9 +28,11 @@ public class ReportController {
         this.vista.OnCancelClickEvent(this::manejarCancelClick);
         this.vista.OnPreviousClickEvent(this::manejarPreviousClick);
         this.vista.OnThanksClickEvent(this::manejarCancelClick);
+        this.vista.OnRegulationsClickEvent(this::manejarClickReglamento);
         this.ciudadano = ciudadano;
         this.data = ciudadano.getHashMapInfo();
         this.vista.SetCurrentStepData(data);
+        this.comprobarNotificaciones();
     }
 
     private void manejarNextClick() {
@@ -54,5 +61,30 @@ public class ReportController {
     private void manejarPreviousClick() {
        vista.ShowPreviousStep();
     }
+    
+    private void comprobarNotificaciones() {
+        String dni = ciudadano.getCiudadanoActual().getDNI();
+        List<Notificacion> notificaciones = execProcedures.leerNotificacionesNoLeidas(dni);
+
+        if (!notificaciones.isEmpty()) {
+            vista.ChangeStateNotification(1);
+        } else {
+            vista.ChangeStateNotification(0);
+        }
+    }
+    
+    private void manejarClickReglamento(){
+        Regulations regPanel = new Regulations();
+        Reglamento reglamento = Reglamento.getInstancia();
+        regPanel.setText(reglamento.getContenido());
+        regPanel.ChangeWriteOrWrite(0);
+
+        Window reglamentoWindow = new Window(false, false, false);
+            reglamentoWindow.setTitle("Reglamentos y Políticas");
+            reglamentoWindow.setContentPane(regPanel);
+            reglamentoWindow.pack();
+            reglamentoWindow.setLocationRelativeTo(null);
+            reglamentoWindow.setVisible(true);
+        }
     
 }

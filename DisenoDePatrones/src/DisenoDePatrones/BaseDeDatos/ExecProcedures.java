@@ -130,5 +130,59 @@ public class ExecProcedures {
             return false;
         }
     }
+    
+    public boolean autenticarLogin(String dni, String contraseña) {
+        String sql = "{call autenticar_login(?, ?, ?)}";
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            stmt.setString(2, contraseña);
+            stmt.registerOutParameter(3, Types.BIT);
+
+            stmt.execute();
+
+            return stmt.getBoolean(3);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean crearNotificacion(String dni, String mensaje) {
+        String sql = "{call CrearNotificacion(?, ?)}";
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            stmt.setString(2, mensaje);
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public List<Notificacion> leerNotificacionesNoLeidas(String dni) {
+        List<Notificacion> notificaciones = new ArrayList<>();
+        String sql = "{call LeerNotificacionesNoLeidas(?)}";
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String mensaje = rs.getString("mensaje");
+                Timestamp fecha = rs.getTimestamp("fecha");
+
+                Notificacion notificacion = new Notificacion(id, dni, mensaje, fecha.toLocalDateTime(), false);
+                notificaciones.add(notificacion);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return notificaciones;
+    }
 
 }
