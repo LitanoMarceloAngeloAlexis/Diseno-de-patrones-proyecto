@@ -74,17 +74,7 @@ public class ReportController {
     }
     
     private void manejarClickReglamento(){
-        Regulations regPanel = new Regulations();
-        Reglamento reglamento = Reglamento.getInstancia();
-        regPanel.setText(reglamento.getContenido());
-        regPanel.ChangeWriteOrWrite(0);
-
-        Window reglamentoWindow = new Window(false, false, false);
-            reglamentoWindow.setTitle("Reglamentos y Políticas");
-            reglamentoWindow.setContentPane(regPanel);
-            reglamentoWindow.pack();
-            reglamentoWindow.setLocationRelativeTo(null);
-            reglamentoWindow.setVisible(true);
-        }
+        vista.ShowRegulationsWindow("READ");
+    }
     
 }

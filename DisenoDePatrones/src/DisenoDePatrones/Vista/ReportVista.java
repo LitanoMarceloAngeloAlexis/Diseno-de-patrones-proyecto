@@ -38,9 +38,9 @@ public class ReportVista implements IReportVista {
     
     @Override
     public void ShowRegulationsWindow(String method) {
-        Window regulationWindow = new Window(false, false, true);
+        Window regulationWindow = new Window();
         regulationWindow.setTitle("Regulaciones Importantes");
-        this.regulations = new Regulations();
+        this.regulations = new Regulations(regulationWindow);
         regulationWindow.add(this.regulations);
         
         if (method.equals("READ")) {
