@@ -1,6 +1,6 @@
 package DisenoDePatrones.Modelo;
 
-public class FuerzaOrden extends Ciudadano implements Observador{
+public class FuerzaOrden extends Ciudadano{
 
     private String rango;
     private String cargo;
@@ -19,9 +19,5 @@ public class FuerzaOrden extends Ciudadano implements Observador{
         return cargo;
     }
 
-    @Override
-    public void recibirNotificacion(String mensaje) {
-        System.out.println(" => Fuerza del orden " + getNombre() + " ha recibido una notificacion: " + mensaje);
-    }
     
 }

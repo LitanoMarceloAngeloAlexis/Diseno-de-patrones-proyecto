@@ -9,16 +9,22 @@ import java.util.function.Consumer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+
 /**
  *
  * @author Alex
  */
 public class RegulationForm extends javax.swing.JPanel {
     private Consumer<String> textChangeListener;
+    private Runnable onCtrlEnterCallback;
+
  
     /**
      * Creates new form regulations
      */
+    
+    private int currentState = 0;
+    
     public RegulationForm(Window parent) {
         initComponents();
         this.contentDragged1.initDragSystem(parent);
@@ -44,6 +50,22 @@ public class RegulationForm extends javax.swing.JPanel {
                 }
             }
         });
+        
+        this.jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (currentState == 1 && e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER && e.isControlDown()) {
+                    e.consume();
+                    if (onCtrlEnterCallback != null) {
+                        onCtrlEnterCallback.run();
+                    }
+                }
+            }
+        });
+    }
+    
+    public void setOnCtrlEnterListener(Runnable listener) {
+        this.onCtrlEnterCallback = listener;
     }
     
     public void setOnTextChangeListener(Consumer<String> listener) {
@@ -55,10 +77,16 @@ public class RegulationForm extends javax.swing.JPanel {
     }
     
     public void ChangeWriteOrWrite(int state) {
-        if (state == 0)
-            this.jTextArea1.setFocusable(false);
-        else if (state == 1)
-            this.jTextArea1.setFocusable(true);
+        this.currentState = state;
+        this.jTextArea1.setFocusable(state == 1);
+    }
+    
+    public int getCurrentState() {
+        return currentState;
+    }
+    
+    public String obtenerTexto(){
+        return jTextArea1.getText();
     }
 
     /**

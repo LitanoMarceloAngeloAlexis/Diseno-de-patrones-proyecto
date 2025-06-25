@@ -20,6 +20,7 @@ public class ReportForm extends javax.swing.JPanel {
     public ReportForm(Window parent) {
         initComponents();
         this.contentDragged1.initDragSystem(parent);
+        iconRegla.setVisible(false);
     }
     
     public JPanel GetMainContent() {
@@ -48,6 +49,10 @@ public class ReportForm extends javax.swing.JPanel {
     
     public JLabel GetRegulationsButton() {
         return this.btnRegulations;
+    }
+    
+    public void SetIconRegla(boolean valor){
+        this.iconRegla.setVisible(valor);
     }
     
     /**

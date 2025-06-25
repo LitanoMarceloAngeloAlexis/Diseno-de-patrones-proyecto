@@ -25,4 +25,7 @@ public interface IReportVista {
     void ShowNotificationWindow();
     void SetContentTextRegulations(String text);
     void AddNewNotificationToList(String message, String date);
+    void ChangeIconVisible(boolean valor);
+    void setOnCtrlEnterRegulation(Runnable listener);
+    String obtenerTextoReglamento();
 }

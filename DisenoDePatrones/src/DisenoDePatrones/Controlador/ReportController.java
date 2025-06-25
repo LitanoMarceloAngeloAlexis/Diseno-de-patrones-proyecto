@@ -1,14 +1,15 @@
 package DisenoDePatrones.Controlador;
 
 import DisenoDePatrones.BaseDeDatos.ExecProcedures;
+import DisenoDePatrones.Modelo.Ciudadano;
+import DisenoDePatrones.Modelo.FuerzaOrden;
 import DisenoDePatrones.Modelo.Notificacion;
 import DisenoDePatrones.Modelo.Reglamento;
 import DisenoDePatrones.Vista.IReportVista;
-import DisenoDePatrones.Vista.Layouts.Reports.RegulationForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
 import DisenoDePatrones.Vista.ReportVista;
-import DisenoDePatrones.Vista.Window;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -29,10 +30,12 @@ public class ReportController {
         this.vista.OnPreviousClickEvent(this::manejarPreviousClick);
         this.vista.OnThanksClickEvent(this::manejarCancelClick);
         this.vista.OnRegulationsClickEvent(this::manejarClickReglamento);
+        this.vista.OnNotificationClickEvent(this::manejarNotificationClick);
         this.ciudadano = ciudadano;
         this.data = ciudadano.getHashMapInfo();
         this.vista.SetCurrentStepData(data);
         this.comprobarNotificaciones();
+        this.opcionesDeRol();
     }
 
     private void manejarNextClick() {
@@ -74,7 +77,50 @@ public class ReportController {
     }
     
     private void manejarClickReglamento(){
-        vista.ShowRegulationsWindow("READ");
+        Reglamento reglamento = Reglamento.getInstancia();
+        if(ciudadano instanceof ProxyFuerzaOrdenService){
+            vista.ShowRegulationsWindow("READ");
+            vista.SetContentTextRegulations(reglamento.getContenido());
+        } else if (ciudadano instanceof ProxyAgentePublicoService) {
+            vista.ShowRegulationsWindow("WRITE");
+            vista.SetContentTextRegulations(reglamento.getContenido());
+
+            List<Ciudadano> fuerzas = execProcedures.obtenerRegistrosHumanos("FUERZAORDEN");
+            List<FuerzaOrden> fuerzasOrden = new ArrayList<>();
+            
+            for (Ciudadano c : fuerzas) {
+                if (c instanceof FuerzaOrden f) {
+                    fuerzasOrden.add(f);
+                }
+            }
+            
+            reglamento.registrarObservador(new NotificacionDispatcher(execProcedures, fuerzasOrden));
+            
+            vista.setOnCtrlEnterRegulation(() -> {
+                System.out.println("Desde el controlador: Se presiono Ctrl+Enter");
+                String nuevoContenido = vista.obtenerTextoReglamento();
+                reglamento.modificar(nuevoContenido);
+            });
+        }
     }
     
+    private void manejarNotificationClick(){
+        vista.ShowNotificationWindow();
+        
+        String dni = ciudadano.getCiudadanoActual().getDNI();
+        List<Notificacion> notificaciones = execProcedures.leerNotificacionesNoLeidas(dni);
+
+        for (Notificacion noti : notificaciones) {
+            String mensaje = noti.getMensaje();
+            String fecha = noti.getFecha().toLocalDate().toString();
+            System.out.println(mensaje + fecha);
+            vista.AddNewNotificationToList(mensaje, fecha);
+        }
+    }
+    
+    private void opcionesDeRol(){
+        if(ciudadano instanceof ProxyFuerzaOrdenService || ciudadano instanceof ProxyAgentePublicoService){
+            this.vista.ChangeIconVisible(true);
+        }
+    }
 }

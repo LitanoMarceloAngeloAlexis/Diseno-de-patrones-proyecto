@@ -62,11 +62,12 @@ public class ReportVista implements IReportVista {
         this.reguForm.setOnTextChangeListener(event);
     }
     
-@Override
+    @Override
     public void ShowNotificationWindow() {
         Window notificationWindow = new Window();
         notificationWindow.setTitle("Regulaciones Importantes");
         notificationWindow.SetSizeWindow(400, 500);
+        notificationWindow.setLocation(950, 300);
         this.notiForm = new NotificationForm(notificationWindow);
         notificationWindow.add(this.notiForm);
         notificationWindow.setVisible(true);
@@ -292,8 +293,30 @@ public class ReportVista implements IReportVista {
             not.setContent(message);
             not.setDate(date);
             this.notiForm.GetContentNotifiers().add(not);
+
+            this.notiForm.GetContentNotifiers().revalidate();
+            this.notiForm.GetContentNotifiers().repaint();
         } else {
-            System.out.println("ERROR: Al parecer aun no se carga el reguForm");
+            System.out.println("ERROR: Aún no se ha cargado notiForm");
         }
+    }
+
+    @Override
+    public void ChangeIconVisible(boolean valor) {
+        this.reportForm.SetIconRegla(valor);
+    }
+    
+    @Override
+    public void setOnCtrlEnterRegulation(Runnable listener) {
+        if (this.reguForm != null) {
+            this.reguForm.setOnCtrlEnterListener(listener);
+        } else {
+            System.out.println("reguForm aún no ha sido inicializado.");
+        }
+    }
+    
+    @Override
+    public String obtenerTextoReglamento(){
+        return this.reguForm.obtenerTexto();
     }
 }
