@@ -24,9 +24,10 @@ public class NotificacionDispatcher implements Observador {
     }
 
     @Override
-    public void recibirNotificacion(String mensaje) {
+    public void enviarNotificacion(String mensaje) {
         for (FuerzaOrden f : fuerzas) {
-            execProcedures.crearNotificacion(f.getDNI(), mensaje);
+            Command comando = new EnviarNotificacionCommand(execProcedures, f.getDNI(), mensaje);
+            comando.execute();
         }
     }
 }

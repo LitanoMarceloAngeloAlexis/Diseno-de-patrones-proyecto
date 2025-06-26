@@ -91,7 +91,7 @@ public class Reglamento implements SujetoObservado{
     @Override
     public void notificarObservadores(String mensaje) {
         for (Observador o : observadores) {
-            o.recibirNotificacion(mensaje);
+            o.enviarNotificacion(mensaje);
         }
     }
 }
