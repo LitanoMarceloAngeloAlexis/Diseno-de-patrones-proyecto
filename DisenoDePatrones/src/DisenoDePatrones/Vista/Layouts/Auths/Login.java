@@ -172,10 +172,10 @@ public class Login extends javax.swing.JPanel {
 
         panelRound1.setBackground(new java.awt.Color(69, 132, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(331, 40));
-        panelRound1.setRoundBottomLeft(4);
-        panelRound1.setRoundBottomRight(4);
-        panelRound1.setRoundTopLeft(4);
-        panelRound1.setRoundTopRight(4);
+        panelRound1.setRoundBottomLeft(15);
+        panelRound1.setRoundBottomRight(15);
+        panelRound1.setRoundTopLeft(15);
+        panelRound1.setRoundTopRight(15);
         panelRound1.setLayout(new java.awt.CardLayout());
 
         btnAcceder.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N

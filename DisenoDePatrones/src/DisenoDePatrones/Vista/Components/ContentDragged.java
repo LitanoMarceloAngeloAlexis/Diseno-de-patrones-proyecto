@@ -79,9 +79,11 @@ public class ContentDragged extends javax.swing.JPanel {
         Topbar.setRoundTopLeft(14);
         Topbar.setRoundTopRight(14);
 
+        btnExit.setBackground(new java.awt.Color(65, 125, 255));
         btnExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/close.png"))); // NOI18N
         btnExit.setMaximumSize(new java.awt.Dimension(37, 30));
+        btnExit.setOpaque(true);
         btnExit.setPreferredSize(new java.awt.Dimension(30, 30));
         btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -89,9 +91,11 @@ public class ContentDragged extends javax.swing.JPanel {
             }
         });
 
+        btnMinimize.setBackground(new java.awt.Color(65, 125, 255));
         btnMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/minimize.png"))); // NOI18N
         btnMinimize.setMaximumSize(new java.awt.Dimension(37, 30));
+        btnMinimize.setOpaque(true);
         btnMinimize.setPreferredSize(new java.awt.Dimension(30, 30));
         btnMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -1,9 +1,8 @@
 package DisenoDePatrones.Vista.Layouts.Auths;
 
-import DisenoDePatrones.Vista.Components.PanelRound;
 import DisenoDePatrones.Vista.Window;
 import java.awt.Color;
-import javax.swing.JLabel;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /*
@@ -25,13 +24,13 @@ public class AuthForm extends javax.swing.JPanel {
     
     private Modos currentMode;
     
-    private JLabel currentLabel;
-    private PanelRound currentPanel;
+    private JPanel currentPanel;
+    private JButton currentLabel;
 
     public AuthForm(Window window) {
         initComponents();   
         this.contentDragged1.initDragSystem(window);
-        this.SwitchModeAccess(this.btnModeCiudadano, this.jLabel1);
+        this.SwitchModeAccess(this.jPanel2, this.jButton2);
         this.currentMode = Modos.CIUDADANO;
     }
     
@@ -43,14 +42,14 @@ public class AuthForm extends javax.swing.JPanel {
         return this.content;
     }
     
-    private void SwitchModeAccess(PanelRound pn, JLabel label) {
+    private void SwitchModeAccess(JPanel panel, JButton label) {
         if (this.currentPanel != null) {
             this.currentPanel.setBackground(Color.WHITE);
             this.currentLabel.setForeground(new Color(64, 76, 102));
         }
         
-        this.currentPanel = pn;
         this.currentLabel = label;
+        this.currentPanel = panel;
         
         this.currentPanel.setBackground(new Color(64, 76, 102));
         this.currentLabel.setForeground(Color.WHITE);
@@ -67,12 +66,12 @@ public class AuthForm extends javax.swing.JPanel {
 
         contentDragged1 = new DisenoDePatrones.Vista.Components.ContentDragged();
         jPanel1 = new javax.swing.JPanel();
-        btnModeCiudadano = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel1 = new javax.swing.JLabel();
-        btnModeFOrden = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel2 = new javax.swing.JLabel();
-        btnModeAPublico = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
         content = new javax.swing.JPanel();
 
         setOpaque(false);
@@ -82,95 +81,108 @@ public class AuthForm extends javax.swing.JPanel {
         add(contentDragged1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 10));
+        jPanel1.setLayout(new java.awt.FlowLayout(1, 30, 10));
 
-        btnModeCiudadano.setBackground(new java.awt.Color(255, 255, 255));
-        btnModeCiudadano.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnModeCiudadano.setPreferredSize(new java.awt.Dimension(200, 30));
-        btnModeCiudadano.setLayout(new java.awt.CardLayout());
+        jPanel2.setPreferredSize(new java.awt.Dimension(200, 30));
+        jPanel2.setRequestFocusEnabled(false);
+        jPanel2.setLayout(new java.awt.CardLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(64, 76, 102));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CIUDADANO");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(64, 76, 102));
+        jButton2.setText("CIUDADANO");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
-        btnModeCiudadano.add(jLabel1, "card2");
+        jPanel2.add(jButton2, "card2");
 
-        jPanel1.add(btnModeCiudadano);
+        jPanel1.add(jPanel2);
 
-        btnModeFOrden.setBackground(new java.awt.Color(255, 255, 255));
-        btnModeFOrden.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnModeFOrden.setPreferredSize(new java.awt.Dimension(200, 30));
-        btnModeFOrden.setLayout(new java.awt.CardLayout());
+        jPanel3.setPreferredSize(new java.awt.Dimension(200, 30));
+        jPanel3.setRequestFocusEnabled(false);
+        jPanel3.setLayout(new java.awt.CardLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(64, 76, 102));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("FUERZA DEL ORDEN");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+        jButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(64, 76, 102));
+        jButton3.setText("FUERZA DEL ORDEN");
+        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
-        btnModeFOrden.add(jLabel2, "card2");
+        jPanel3.add(jButton3, "card2");
 
-        jPanel1.add(btnModeFOrden);
+        jPanel1.add(jPanel3);
 
-        btnModeAPublico.setBackground(new java.awt.Color(255, 255, 255));
-        btnModeAPublico.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnModeAPublico.setPreferredSize(new java.awt.Dimension(200, 30));
-        btnModeAPublico.setLayout(new java.awt.CardLayout());
+        jPanel4.setPreferredSize(new java.awt.Dimension(200, 30));
+        jPanel4.setRequestFocusEnabled(false);
+        jPanel4.setLayout(new java.awt.CardLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(64, 76, 102));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("AGENTE PUBLICO");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(64, 76, 102));
+        jButton4.setText("AGENTE PÚBLICO");
+        jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setFocusPainted(false);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
-        btnModeAPublico.add(jLabel3, "card2");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton4, "card2");
 
-        jPanel1.add(btnModeAPublico);
+        jPanel1.add(jPanel4);
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 800, -1));
 
-        content.setOpaque(false);
-        content.setPreferredSize(new java.awt.Dimension(800, 570));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 800, 570));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        this.currentMode = Modos.CIUDADANO;
-        this.SwitchModeAccess(this.btnModeCiudadano, this.jLabel1);
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        this.currentMode = Modos.FUERZA_ORDEN;
-        this.SwitchModeAccess(this.btnModeFOrden, this.jLabel2);
-    }//GEN-LAST:event_jLabel2MouseClicked
-
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        this.currentMode = Modos.AGENTE_PUBLICO;
-        this.SwitchModeAccess(this.btnModeAPublico, this.jLabel3);
+        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.SwitchModeAccess(this.jPanel2, this.jButton2);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.SwitchModeAccess(this.jPanel3, this.jButton3);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.SwitchModeAccess(this.jPanel4, this.jButton4);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private DisenoDePatrones.Vista.Components.PanelRound btnModeAPublico;
-    private DisenoDePatrones.Vista.Components.PanelRound btnModeCiudadano;
-    private DisenoDePatrones.Vista.Components.PanelRound btnModeFOrden;
     private javax.swing.JPanel content;
     private DisenoDePatrones.Vista.Components.ContentDragged contentDragged1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

@@ -44,7 +44,8 @@ public class NotificationForm extends javax.swing.JPanel {
         contentDragged1.setPreferredSize(new java.awt.Dimension(400, 30));
         contentDragged1.setTitleBar("Notificaciones");
 
-        jPanel1.setOpaque(false);
+        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,7 +59,7 @@ public class NotificationForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(contentDragged1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
