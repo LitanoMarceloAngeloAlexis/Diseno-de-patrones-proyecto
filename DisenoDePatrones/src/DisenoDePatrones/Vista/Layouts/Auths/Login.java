@@ -5,6 +5,7 @@
 package DisenoDePatrones.Vista.Layouts.Auths;
 
 import java.util.HashMap;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -20,7 +21,7 @@ public class Login extends javax.swing.JPanel {
         initComponents();
     }
     
-    public JLabel GetButtonAcceder() {
+    public JButton GetButtonAcceder() {
         return this.btnAcceder;
     }
     
@@ -62,7 +63,7 @@ public class Login extends javax.swing.JPanel {
         panelRound2 = new DisenoDePatrones.Vista.Components.PanelRound();
         btnRegister = new javax.swing.JLabel();
         panelRound1 = new DisenoDePatrones.Vista.Components.PanelRound();
-        btnAcceder = new javax.swing.JLabel();
+        btnAcceder = new javax.swing.JButton();
         tbDni = new DisenoDePatrones.Vista.Components.TextField();
         tbPassword = new DisenoDePatrones.Vista.Components.TextField();
         jPanel3 = new javax.swing.JPanel();
@@ -172,19 +173,20 @@ public class Login extends javax.swing.JPanel {
 
         panelRound1.setBackground(new java.awt.Color(69, 132, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(331, 40));
-        panelRound1.setRoundBottomLeft(15);
-        panelRound1.setRoundBottomRight(15);
-        panelRound1.setRoundTopLeft(15);
-        panelRound1.setRoundTopRight(15);
+        panelRound1.setRoundBottomLeft(5);
+        panelRound1.setRoundBottomRight(5);
+        panelRound1.setRoundTopLeft(5);
+        panelRound1.setRoundTopRight(5);
         panelRound1.setLayout(new java.awt.CardLayout());
 
-        btnAcceder.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnAcceder.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnAcceder.setForeground(new java.awt.Color(255, 255, 255));
-        btnAcceder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnAcceder.setText("ACCEDER");
-        btnAcceder.setPreferredSize(new java.awt.Dimension(335, 32));
+        btnAcceder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnAcceder.setBorderPainted(false);
+        btnAcceder.setContentAreaFilled(false);
+        btnAcceder.setFocusPainted(false);
         panelRound1.add(btnAcceder, "card2");
-        btnAcceder.getAccessibleContext().setAccessibleDescription("");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 8;
@@ -246,7 +248,7 @@ public class Login extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnAcceder;
+    private javax.swing.JButton btnAcceder;
     private javax.swing.JLabel btnRegister;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;

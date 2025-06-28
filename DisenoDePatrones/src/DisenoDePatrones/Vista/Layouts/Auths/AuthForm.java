@@ -81,8 +81,9 @@ public class AuthForm extends javax.swing.JPanel {
         add(contentDragged1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new java.awt.FlowLayout(1, 30, 10));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 30, 10));
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 76, 102)));
         jPanel2.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel2.setRequestFocusEnabled(false);
         jPanel2.setLayout(new java.awt.CardLayout());
@@ -103,6 +104,7 @@ public class AuthForm extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2);
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 76, 102)));
         jPanel3.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel3.setRequestFocusEnabled(false);
         jPanel3.setLayout(new java.awt.CardLayout());
@@ -123,6 +125,7 @@ public class AuthForm extends javax.swing.JPanel {
 
         jPanel1.add(jPanel3);
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 76, 102)));
         jPanel4.setPreferredSize(new java.awt.Dimension(200, 30));
         jPanel4.setRequestFocusEnabled(false);
         jPanel4.setLayout(new java.awt.CardLayout());
