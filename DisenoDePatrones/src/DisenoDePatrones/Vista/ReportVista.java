@@ -166,41 +166,36 @@ public class ReportVista implements IReportVista {
 
     @Override
     public void OnNextClickEvent(Runnable event) {
-        this.reportForm.GetNextButton().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                event.run();
-            }
+        this.reportForm.GetNextButton().addActionListener((e) -> {
+            event.run();
         });
     }
     
     @Override
     public void OnPreviousClickEvent(Runnable event) {
-        this.reportForm.GetPreviousButton().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                event.run();
-            }
+        this.reportForm.GetPreviousButton().addActionListener((e) -> {
+            event.run();
         });
     }
     
     @Override
     public void OnCancelClickEvent(Runnable event) {
-        this.reportForm.GetCancelButton().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                event.run();
-            }
+        this.reportForm.GetCancelButton().addActionListener((e) -> {
+            event.run();
         });
     }
     
     @Override
     public void OnThanksClickEvent(Runnable event) {
-        this.reportForm.GetThanksButton().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                event.run();
-            }
+        this.reportForm.GetThanksButton().addActionListener((e) -> {
+            event.run();
+        });
+    }
+    
+    @Override
+    public void OnOtherReportClickEvent(Runnable event) {
+        this.reportForm.GetOtherReportButton().addActionListener((e) -> {
+            event.run();
         });
     }
     
@@ -223,16 +218,7 @@ public class ReportVista implements IReportVista {
             }
         });
     }   
-    
-    @Override
-    public void OnOtherReportClickEvent(Runnable event) {
-        this.reportForm.getBtnOtherReport().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-               event.run();
-            }
-        });
-    }
+   
     
     @Override
     public void Mostrar() {
@@ -243,8 +229,7 @@ public class ReportVista implements IReportVista {
     public void Cerrar() {
         this.window.dispose();
     }
-
-    //@Override
+    
     private void SwitchStep(int step) {
         JPanel mainContent = this.reportForm.GetMainContent();
 
@@ -254,25 +239,25 @@ public class ReportVista implements IReportVista {
 
         switch (step) {
             case 1 -> {
-                this.reportForm.GetPreviousButton().setVisible(false);
-                this.reportForm.GetThanksButton().setVisible(false);
-                this.reportForm.GetNextButton().setVisible(true);
-                this.reportForm.getBtnOtherReport().setVisible(false);
+                this.reportForm.GetPreviousPanel().setVisible(false);
+                this.reportForm.GetThanksPanel().setVisible(false);
+                this.reportForm.GetNextPanel().setVisible(true);
+                this.reportForm.GetOtherReportPanel().setVisible(false);
                 this.currentStepPanel = new ReportStep1();
             }
             case 2 -> {
                 this.currentStepPanel = new ReportStep2();
-                this.reportForm.GetThanksButton().setVisible(false);
-                this.reportForm.GetNextButton().setVisible(true);
-                this.reportForm.GetPreviousButton().setVisible(true);
-                this.reportForm.getBtnOtherReport().setVisible(false);
+                this.reportForm.GetThanksPanel().setVisible(false);
+                this.reportForm.GetNextPanel().setVisible(true);
+                this.reportForm.GetPreviousPanel().setVisible(true);
+                this.reportForm.GetOtherReportPanel().setVisible(false);
             }
             case 3 -> {
-                this.reportForm.GetPreviousButton().setVisible(false);
-                this.reportForm.GetNextButton().setVisible(false);
-                this.reportForm.GetCancelButton().setVisible(false);
-                this.reportForm.GetThanksButton().setVisible(true);
-                this.reportForm.getBtnOtherReport().setVisible(true);
+                this.reportForm.GetPreviousPanel().setVisible(false);
+                this.reportForm.GetNextPanel().setVisible(false);
+                this.reportForm.GetCancelPanel().setVisible(false);
+                this.reportForm.GetThanksPanel().setVisible(true);
+                this.reportForm.GetOtherReportPanel().setVisible(true);
                 this.currentStepPanel = new ReportStep3();
             }
             default -> {

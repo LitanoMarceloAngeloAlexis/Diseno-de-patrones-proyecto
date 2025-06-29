@@ -6,6 +6,7 @@ package DisenoDePatrones.Vista.Layouts.Reports;
 
 import DisenoDePatrones.Vista.Components.PanelRound;
 import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,26 +23,52 @@ public class ReportForm extends javax.swing.JPanel {
         initComponents();
         this.contentDragged1.initDragSystem(parent);
         iconRegla.setVisible(false);
+        
+        this.btnCancel.setVisible(false);
     }
     
     public JPanel GetMainContent() {
         return this.ContentMain;
     }
 
-    public JPanel GetNextButton() {
-        return this.btnSiguiente;
+    public JButton GetNextButton() {
+        return this.btnNext;
     }
     
-    public JPanel GetCancelButton() {
-        return this.btnCancelar;
+    public JButton GetCancelButton() {
+        return this.btnCancel;
     }
     
-    public JPanel GetPreviousButton() {
-        return this.btnAtras;
+    public JButton GetPreviousButton() {
+        return this.btnPrevious;
     }
     
-    public JPanel GetThanksButton() {
+    public JButton GetThanksButton() {
         return this.btnThanks;
+    }
+    
+    public JButton GetOtherReportButton() {
+        return this.btnOtherReport;
+    }
+    
+    public JPanel GetNextPanel() {
+        return this.input3;
+    }
+    
+    public JPanel GetCancelPanel() {
+        return this.input1;
+    }
+    
+    public JPanel GetPreviousPanel() {
+        return this.input2;
+    }
+    
+    public JPanel GetThanksPanel() {
+        return this.input4;
+    }
+    
+    public JPanel GetOtherReportPanel() {
+        return this.input5;
     }
     
     public JLabel GetNotificationButton() {
@@ -56,9 +83,6 @@ public class ReportForm extends javax.swing.JPanel {
         this.iconRegla.setVisible(valor);
     }
 
-    public PanelRound getBtnOtherReport() {
-        return btnOtherReport;
-    }
     
     
     /**
@@ -85,16 +109,16 @@ public class ReportForm extends javax.swing.JPanel {
         btnRegulations = new javax.swing.JLabel();
         ContentMain = new javax.swing.JPanel();
         Footer = new javax.swing.JPanel();
-        btnCancelar = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel5 = new javax.swing.JLabel();
-        btnAtras = new DisenoDePatrones.Vista.Components.PanelRound();
-        jlabel2 = new javax.swing.JLabel();
-        btnSiguiente = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel7 = new javax.swing.JLabel();
-        btnThanks = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel8 = new javax.swing.JLabel();
-        btnOtherReport = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel9 = new javax.swing.JLabel();
+        input1 = new DisenoDePatrones.Vista.Components.PanelRound();
+        btnCancel = new javax.swing.JButton();
+        input2 = new DisenoDePatrones.Vista.Components.PanelRound();
+        btnPrevious = new javax.swing.JButton();
+        input3 = new DisenoDePatrones.Vista.Components.PanelRound();
+        btnNext = new javax.swing.JButton();
+        input4 = new DisenoDePatrones.Vista.Components.PanelRound();
+        btnThanks = new javax.swing.JButton();
+        input5 = new DisenoDePatrones.Vista.Components.PanelRound();
+        btnOtherReport = new javax.swing.JButton();
         contentDragged1 = new DisenoDePatrones.Vista.Components.ContentDragged();
 
         setOpaque(false);
@@ -174,7 +198,7 @@ public class ReportForm extends javax.swing.JPanel {
         iconNoti.setRoundBottomRight(8);
         iconNoti.setRoundTopLeft(8);
         iconNoti.setRoundTopRight(8);
-        iconNoti.setLayout(new java.awt.CardLayout(3, 0));
+        iconNoti.setLayout(new java.awt.CardLayout());
 
         btnNotification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png"))); // NOI18N
         iconNoti.add(btnNotification, "card2");
@@ -185,7 +209,7 @@ public class ReportForm extends javax.swing.JPanel {
         iconRegla.setRoundBottomRight(8);
         iconRegla.setRoundTopLeft(8);
         iconRegla.setRoundTopRight(8);
-        iconRegla.setLayout(new java.awt.CardLayout(3, 0));
+        iconRegla.setLayout(new java.awt.CardLayout());
 
         btnRegulations.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/reglamentos.png"))); // NOI18N
         iconRegla.add(btnRegulations, "card2");
@@ -203,97 +227,98 @@ public class ReportForm extends javax.swing.JPanel {
         Footer.setPreferredSize(new java.awt.Dimension(800, 77));
         Footer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 16));
 
-        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(65, 125, 255), 2, true));
-        btnCancelar.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnCancelar.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, -3));
+        input1.setBackground(new java.awt.Color(255, 255, 255));
+        input1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(65, 125, 255), 2, true));
+        input1.setOpaque(true);
+        input1.setPreferredSize(new java.awt.Dimension(216, 36));
+        input1.setLayout(new java.awt.CardLayout());
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(65, 125, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("CANCELAR");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel5.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnCancelar.add(jLabel5);
+        btnCancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(65, 125, 255));
+        btnCancel.setText("CANCELAR");
+        btnCancel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCancel.setBorderPainted(false);
+        btnCancel.setContentAreaFilled(false);
+        btnCancel.setFocusPainted(false);
+        input1.add(btnCancel, "card2");
 
-        Footer.add(btnCancelar);
+        Footer.add(input1);
 
-        btnAtras.setBackground(new java.awt.Color(65, 125, 255));
-        btnAtras.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnAtras.setRoundBottomLeft(4);
-        btnAtras.setRoundBottomRight(4);
-        btnAtras.setRoundTopLeft(4);
-        btnAtras.setRoundTopRight(4);
-        btnAtras.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+        input2.setBackground(new java.awt.Color(65, 125, 255));
+        input2.setPreferredSize(new java.awt.Dimension(216, 36));
+        input2.setRoundBottomLeft(4);
+        input2.setRoundBottomRight(4);
+        input2.setRoundTopLeft(4);
+        input2.setRoundTopRight(4);
+        input2.setLayout(new java.awt.CardLayout());
 
-        jlabel2.setBackground(new java.awt.Color(65, 125, 255));
-        jlabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jlabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jlabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlabel2.setText("RETROCEDER");
-        jlabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jlabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jlabel2.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnAtras.add(jlabel2);
+        btnPrevious.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnPrevious.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrevious.setText("RETROCEDER");
+        btnPrevious.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnPrevious.setBorderPainted(false);
+        btnPrevious.setContentAreaFilled(false);
+        btnPrevious.setFocusPainted(false);
+        input2.add(btnPrevious, "card2");
 
-        Footer.add(btnAtras);
+        Footer.add(input2);
 
-        btnSiguiente.setBackground(new java.awt.Color(65, 125, 255));
-        btnSiguiente.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnSiguiente.setRoundBottomLeft(4);
-        btnSiguiente.setRoundBottomRight(4);
-        btnSiguiente.setRoundTopLeft(4);
-        btnSiguiente.setRoundTopRight(4);
-        btnSiguiente.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+        input3.setBackground(new java.awt.Color(65, 125, 255));
+        input3.setPreferredSize(new java.awt.Dimension(216, 36));
+        input3.setRoundBottomLeft(4);
+        input3.setRoundBottomRight(4);
+        input3.setRoundTopLeft(4);
+        input3.setRoundTopRight(4);
+        input3.setLayout(new java.awt.CardLayout());
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("SIGUIENTE");
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel7.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnSiguiente.add(jLabel7);
+        btnNext.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
+        btnNext.setText("SIGUIENTE");
+        btnNext.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnNext.setBorderPainted(false);
+        btnNext.setContentAreaFilled(false);
+        btnNext.setFocusPainted(false);
+        input3.add(btnNext, "card2");
 
-        Footer.add(btnSiguiente);
+        Footer.add(input3);
 
-        btnThanks.setBackground(new java.awt.Color(65, 125, 255));
-        btnThanks.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnThanks.setRoundBottomLeft(4);
-        btnThanks.setRoundBottomRight(4);
-        btnThanks.setRoundTopLeft(4);
-        btnThanks.setRoundTopRight(4);
-        btnThanks.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+        input4.setBackground(new java.awt.Color(65, 125, 255));
+        input4.setPreferredSize(new java.awt.Dimension(216, 36));
+        input4.setRoundBottomLeft(4);
+        input4.setRoundBottomRight(4);
+        input4.setRoundTopLeft(4);
+        input4.setRoundTopRight(4);
+        input4.setLayout(new java.awt.CardLayout());
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("GRACIAS");
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel8.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnThanks.add(jLabel8);
+        btnThanks.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnThanks.setForeground(new java.awt.Color(255, 255, 255));
+        btnThanks.setText("GRACIAS");
+        btnThanks.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnThanks.setBorderPainted(false);
+        btnThanks.setContentAreaFilled(false);
+        btnThanks.setFocusPainted(false);
+        input4.add(btnThanks, "card2");
 
-        Footer.add(btnThanks);
+        Footer.add(input4);
 
-        btnOtherReport.setBackground(new java.awt.Color(65, 125, 255));
-        btnOtherReport.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnOtherReport.setRoundBottomLeft(4);
-        btnOtherReport.setRoundBottomRight(4);
-        btnOtherReport.setRoundTopLeft(4);
-        btnOtherReport.setRoundTopRight(4);
-        btnOtherReport.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+        input5.setBackground(new java.awt.Color(65, 125, 255));
+        input5.setPreferredSize(new java.awt.Dimension(216, 36));
+        input5.setRoundBottomLeft(4);
+        input5.setRoundBottomRight(4);
+        input5.setRoundTopLeft(4);
+        input5.setRoundTopRight(4);
+        input5.setLayout(new java.awt.CardLayout());
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("REPETIR REPORTE");
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel9.setPreferredSize(new java.awt.Dimension(216, 36));
-        btnOtherReport.add(jLabel9);
+        btnOtherReport.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnOtherReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnOtherReport.setText("HACER OTRO REPORTE");
+        btnOtherReport.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnOtherReport.setBorderPainted(false);
+        btnOtherReport.setContentAreaFilled(false);
+        btnOtherReport.setFocusPainted(false);
+        input5.add(btnOtherReport, "card2");
 
-        Footer.add(btnOtherReport);
+        Footer.add(input5);
 
         Main.add(Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 521, -1, 80));
 
@@ -314,12 +339,12 @@ public class ReportForm extends javax.swing.JPanel {
 
     private void tabInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabInformationMouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Esta opcion aun no esta planteada");
+        JOptionPane.showMessageDialog(this, "Has hecho clic en la pestaña Información.", "Información", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_tabInformationMouseClicked
 
     private void tabPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPerfilMouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Esta opcion aun no esta planteada");
+        JOptionPane.showMessageDialog(this, "Has hecho clic en la pestaña Información.", "Información", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_tabPerfilMouseClicked
 
 
@@ -329,24 +354,24 @@ public class ReportForm extends javax.swing.JPanel {
     private javax.swing.JPanel Footer;
     private DisenoDePatrones.Vista.Components.PanelRound Main;
     private javax.swing.JPanel Navbar;
-    private DisenoDePatrones.Vista.Components.PanelRound btnAtras;
-    private DisenoDePatrones.Vista.Components.PanelRound btnCancelar;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnNext;
     private javax.swing.JLabel btnNotification;
-    private DisenoDePatrones.Vista.Components.PanelRound btnOtherReport;
+    private javax.swing.JButton btnOtherReport;
+    private javax.swing.JButton btnPrevious;
     private javax.swing.JLabel btnRegulations;
-    private DisenoDePatrones.Vista.Components.PanelRound btnSiguiente;
-    private DisenoDePatrones.Vista.Components.PanelRound btnThanks;
+    private javax.swing.JButton btnThanks;
     private DisenoDePatrones.Vista.Components.ContentDragged contentDragged1;
     private DisenoDePatrones.Vista.Components.PanelRound iconNoti;
     private DisenoDePatrones.Vista.Components.PanelRound iconRegla;
+    private DisenoDePatrones.Vista.Components.PanelRound input1;
+    private DisenoDePatrones.Vista.Components.PanelRound input2;
+    private DisenoDePatrones.Vista.Components.PanelRound input3;
+    private DisenoDePatrones.Vista.Components.PanelRound input4;
+    private DisenoDePatrones.Vista.Components.PanelRound input5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jlabel2;
     private DisenoDePatrones.Vista.Components.PanelRound tabInformation;
     private DisenoDePatrones.Vista.Components.PanelRound tabPerfil;
     private DisenoDePatrones.Vista.Components.PanelRound tabServices;

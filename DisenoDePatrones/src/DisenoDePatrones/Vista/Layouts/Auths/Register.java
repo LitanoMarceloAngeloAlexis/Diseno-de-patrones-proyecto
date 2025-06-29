@@ -5,7 +5,7 @@
 package DisenoDePatrones.Vista.Layouts.Auths;
 
 import java.util.HashMap;
-import javax.swing.JLabel;
+import javax.swing.JButton;
 
 /**
  *
@@ -20,11 +20,11 @@ public class Register extends javax.swing.JPanel {
         initComponents();
     }
 
-     public JLabel GetButtonAcceder() {
+     public JButton GetButtonAcceder() {
         return this.btnAcceder;
     }
     
-    public JLabel GetChangeToLogin() {
+    public JButton GetChangeToLogin() {
         return this.btnLogin;
     }
     
@@ -74,9 +74,9 @@ public class Register extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         panelRound1 = new DisenoDePatrones.Vista.Components.PanelRound();
-        btnAcceder = new javax.swing.JLabel();
+        btnAcceder = new javax.swing.JButton();
         panelRound2 = new DisenoDePatrones.Vista.Components.PanelRound();
-        btnLogin = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         tbDni = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
@@ -220,13 +220,14 @@ public class Register extends javax.swing.JPanel {
         panelRound1.setRoundTopRight(4);
         panelRound1.setLayout(new java.awt.CardLayout());
 
-        btnAcceder.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnAcceder.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnAcceder.setForeground(new java.awt.Color(255, 255, 255));
-        btnAcceder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnAcceder.setText("CONTINUAR");
-        btnAcceder.setPreferredSize(new java.awt.Dimension(335, 32));
+        btnAcceder.setText("REGISTRAR");
+        btnAcceder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnAcceder.setBorderPainted(false);
+        btnAcceder.setContentAreaFilled(false);
+        btnAcceder.setFocusPainted(false);
         panelRound1.add(btnAcceder, "card2");
-        btnAcceder.getAccessibleContext().setAccessibleDescription("");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 13;
@@ -241,11 +242,13 @@ public class Register extends javax.swing.JPanel {
         panelRound2.setRoundTopRight(4);
         panelRound2.setLayout(new java.awt.CardLayout());
 
-        btnLogin.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(69, 132, 255));
-        btnLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnLogin.setText("INICIAR SESION");
-        btnLogin.setPreferredSize(new java.awt.Dimension(335, 32));
+        btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogin.setBorderPainted(false);
+        btnLogin.setContentAreaFilled(false);
+        btnLogin.setFocusPainted(false);
         panelRound2.add(btnLogin, "card2");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -369,8 +372,8 @@ public class Register extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnAcceder;
-    private javax.swing.JLabel btnLogin;
+    private javax.swing.JButton btnAcceder;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

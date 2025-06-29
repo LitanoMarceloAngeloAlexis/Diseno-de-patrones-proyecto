@@ -48,18 +48,12 @@ public class AuthVista implements IAuthVista {
 
         this.ChangeVistaTo(AuthState.LOGIN);
         
-        this.login.GetChangeToRegister().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                ChangeVistaTo(AuthState.REGISTER);
-            }
+        this.login.GetChangeToRegister().addActionListener((e) -> {
+            this.ChangeVistaTo(AuthState.REGISTER);
         });
         
-        this.register.GetChangeToLogin().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                ChangeVistaTo(AuthState.LOGIN);
-            }
+        this.register.GetChangeToLogin().addActionListener((e) -> {
+            this.ChangeVistaTo(AuthState.LOGIN);
         });
     }
     
@@ -103,21 +97,15 @@ public class AuthVista implements IAuthVista {
     
     @Override
     public void OnClickAccederLogin(Runnable callback) {
-        this.login.GetButtonAcceder().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                callback.run();
-            }
+        this.login.GetButtonAcceder().addActionListener((e) -> {
+            callback.run();
         });
     }
     
     @Override
     public void OnClickAccederRegister(Runnable callback) {
-        this.register.GetButtonAcceder().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                callback.run();
-            }
+        this.register.GetButtonAcceder().addActionListener((e) -> {
+            callback.run();
         });
     }
     

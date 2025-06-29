@@ -25,7 +25,7 @@ public class Login extends javax.swing.JPanel {
         return this.btnAcceder;
     }
     
-    public JLabel GetChangeToRegister() {
+    public JButton GetChangeToRegister() {
         return this.btnRegister;
     }
     
@@ -61,7 +61,7 @@ public class Login extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelRound2 = new DisenoDePatrones.Vista.Components.PanelRound();
-        btnRegister = new javax.swing.JLabel();
+        btnRegister = new javax.swing.JButton();
         panelRound1 = new DisenoDePatrones.Vista.Components.PanelRound();
         btnAcceder = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -160,11 +160,13 @@ public class Login extends javax.swing.JPanel {
         panelRound2.setRoundTopRight(4);
         panelRound2.setLayout(new java.awt.CardLayout());
 
-        btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(69, 132, 255));
-        btnRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnRegister.setText("REGISTARME");
-        btnRegister.setPreferredSize(new java.awt.Dimension(335, 32));
+        btnRegister.setText("REGISTRAR");
+        btnRegister.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnRegister.setBorderPainted(false);
+        btnRegister.setContentAreaFilled(false);
+        btnRegister.setFocusPainted(false);
         panelRound2.add(btnRegister, "card2");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -264,7 +266,7 @@ public class Login extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceder;
-    private javax.swing.JLabel btnRegister;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
