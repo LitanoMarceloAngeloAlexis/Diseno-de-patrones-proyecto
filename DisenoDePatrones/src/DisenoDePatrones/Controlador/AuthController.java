@@ -53,11 +53,12 @@ public class AuthController {
             AuthForm.Modos mode = authVista.GetCurrentModeAccess();
             CiudadanoService ciudadano1 = ServiceFactory.crearService(listaCiudadanos,dni,mode);
             authVista.CerrarVentana();
-            ReportController controladorReporte = new ReportController(ciudadano1, conn);
+            new ReportController(ciudadano1, conn);
 
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Advertencia", JOptionPane.WARNING_MESSAGE);
             System.out.println("FALLO DE AUTENTICACIÓN");
         }
     }
+    
 }

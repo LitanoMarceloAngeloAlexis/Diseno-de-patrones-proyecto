@@ -227,6 +227,11 @@ public class Register extends javax.swing.JPanel {
         btnAcceder.setBorderPainted(false);
         btnAcceder.setContentAreaFilled(false);
         btnAcceder.setFocusPainted(false);
+        btnAcceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAccederActionPerformed(evt);
+            }
+        });
         panelRound1.add(btnAcceder, "card2");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -369,6 +374,10 @@ public class Register extends javax.swing.JPanel {
 
         add(pnContent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAccederActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

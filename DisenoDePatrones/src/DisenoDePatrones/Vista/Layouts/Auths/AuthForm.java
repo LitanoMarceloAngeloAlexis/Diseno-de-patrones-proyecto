@@ -164,16 +164,19 @@ public class AuthForm extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.SwitchModeAccess(this.jPanel2, this.jButton2);
+        this.currentMode = Modos.CIUDADANO;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.SwitchModeAccess(this.jPanel3, this.jButton3);
+        this.currentMode = Modos.FUERZA_ORDEN;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.SwitchModeAccess(this.jPanel4, this.jButton4);
+        this.currentMode = Modos.AGENTE_PUBLICO;
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

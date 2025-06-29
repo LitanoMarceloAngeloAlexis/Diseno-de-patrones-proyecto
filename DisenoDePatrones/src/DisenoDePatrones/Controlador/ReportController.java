@@ -19,6 +19,7 @@ public class ReportController {
     private IReportVista vista;
     private CiudadanoService ciudadano;
     private ExecProcedures execProcedures;
+    private Reporte ultimoReporteEnviado;
     Map<String, String> datosReporte;
     Map<String, String> data;
     
@@ -55,10 +56,8 @@ public class ReportController {
             datosReporte = vista.GetCurrentStepData();
             Reporte reporte = new Reporte(ciudadano.getCiudadanoActual(), datosReporte.get("hora"), datosReporte.get("fecha"), datosReporte.get("asunto"), datosReporte.get("descripcion"));
             
-            // !! TE QUEDASTE AQUI, ESTABAMOS MODIFICANDO EL PROCEDURE PARA QUE ACEPTE REPORTES!!!!
-            
-            //execProcedures.insertarReporte(data.get("dni"), datosReporte.get("fecha"), datosReporte.get("hora"), datosReporte.get("asunto"), datosReporte.get("descripcion"));
-       
+            execProcedures.insertarReporte(reporte);
+            this.ultimoReporteEnviado = reporte;
         }
         vista.ShowNextStep();
     }
@@ -127,6 +126,16 @@ public class ReportController {
     private void manejarOtherReportClick(){
         this.vista.ShowPreviousStep();
         
+        if (ultimoReporteEnviado != null) {
+            Reporte reporteClonado = (Reporte) ultimoReporteEnviado.clone();
+            ReportStep2 step2 = (ReportStep2) vista.getCurrentStepPanel();
+            step2.setAsunto(reporteClonado.getMotivo());
+            step2.setDescripcion(reporteClonado.getDescripcion());
+            step2.setFecha(reporteClonado.getFecha());
+            step2.setHora(reporteClonado.getHora());
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay reporte anterior para clonar", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
     
     private void opcionesDeRol(){

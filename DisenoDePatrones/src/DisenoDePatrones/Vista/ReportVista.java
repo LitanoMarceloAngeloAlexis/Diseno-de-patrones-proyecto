@@ -74,6 +74,7 @@ public class ReportVista implements IReportVista {
         notificationWindow.setSize(400, 500);
         this.notiForm = new NotificationForm(notificationWindow);
         notificationWindow.add(this.notiForm);
+        notificationWindow.setLocation(950, 300);
         
         notificationWindow.setVisible(true);
     }

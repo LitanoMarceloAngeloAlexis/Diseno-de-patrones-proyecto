@@ -131,6 +131,32 @@ public class ExecProcedures {
         }
     }
     
+    public boolean insertarReporte(Reporte reporte) {
+        String sql = "{call sp_InsertarReporte(?, ?, ?, ?, ?)}";
+        
+        String dni = reporte.getAutor().getDNI();
+        String fecha= reporte.getFecha();
+        String hora= reporte.getHora();
+        String motivo= reporte.getMotivo();
+        String descripcion= reporte.getDescripcion();
+        
+        System.out.println(dni + fecha +hora+motivo+descripcion);
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            stmt.setString(2, fecha);
+            stmt.setString(3, hora);
+            stmt.setString(4, motivo);
+            stmt.setString(5, descripcion);
+
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public boolean autenticarLogin(String dni, String contraseña) {
         String sql = "{call autenticar_login(?, ?, ?)}";
 
