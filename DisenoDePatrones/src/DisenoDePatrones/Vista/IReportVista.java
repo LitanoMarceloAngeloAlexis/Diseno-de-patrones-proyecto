@@ -15,6 +15,8 @@ public interface IReportVista {
     void OnThanksClickEvent(Runnable event);
     void OnRegulationsClickEvent(Runnable event);
     void OnNotificationClickEvent(Runnable event);
+    void OnOtherReportClickEvent(Runnable event);
+    //void SwitchStep(int step);
     void Cerrar();
     void Mostrar();
     int GetCurrentStep();

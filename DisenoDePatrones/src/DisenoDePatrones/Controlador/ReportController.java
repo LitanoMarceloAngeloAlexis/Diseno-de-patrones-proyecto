@@ -5,6 +5,7 @@ import DisenoDePatrones.Modelo.Ciudadano;
 import DisenoDePatrones.Modelo.FuerzaOrden;
 import DisenoDePatrones.Modelo.Notificacion;
 import DisenoDePatrones.Modelo.Reglamento;
+import DisenoDePatrones.Modelo.Reporte;
 import DisenoDePatrones.Vista.IReportVista;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
 import DisenoDePatrones.Vista.ReportVista;
@@ -31,6 +32,7 @@ public class ReportController {
         this.vista.OnThanksClickEvent(this::manejarCancelClick);
         this.vista.OnRegulationsClickEvent(this::manejarClickReglamento);
         this.vista.OnNotificationClickEvent(this::manejarNotificationClick);
+        this.vista.OnOtherReportClickEvent(this::manejarOtherReportClick);
         this.ciudadano = ciudadano;
         this.data = ciudadano.getHashMapInfo();
         this.vista.SetCurrentStepData(data);
@@ -51,7 +53,11 @@ public class ReportController {
                 return;
             }
             datosReporte = vista.GetCurrentStepData();
-            execProcedures.insertarReporte(data.get("dni"), datosReporte.get("fecha"), datosReporte.get("hora"), datosReporte.get("asunto"), datosReporte.get("descripcion"));
+            Reporte reporte = new Reporte(ciudadano.getCiudadanoActual(), datosReporte.get("hora"), datosReporte.get("fecha"), datosReporte.get("asunto"), datosReporte.get("descripcion"));
+            
+            // !! TE QUEDASTE AQUI, ESTABAMOS MODIFICANDO EL PROCEDURE PARA QUE ACEPTE REPORTES!!!!
+            
+            //execProcedures.insertarReporte(data.get("dni"), datosReporte.get("fecha"), datosReporte.get("hora"), datosReporte.get("asunto"), datosReporte.get("descripcion"));
        
         }
         vista.ShowNextStep();
@@ -116,6 +122,11 @@ public class ReportController {
             System.out.println(mensaje + fecha);
             vista.AddNewNotificationToList(mensaje, fecha);
         }
+    }
+    
+    private void manejarOtherReportClick(){
+        this.vista.ShowPreviousStep();
+        
     }
     
     private void opcionesDeRol(){

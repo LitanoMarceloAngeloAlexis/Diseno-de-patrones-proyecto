@@ -4,6 +4,7 @@
  */
 package DisenoDePatrones.Vista.Layouts.Reports;
 
+import DisenoDePatrones.Vista.Components.PanelRound;
 import DisenoDePatrones.Vista.Window;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -54,6 +55,11 @@ public class ReportForm extends javax.swing.JPanel {
     public void SetIconRegla(boolean valor){
         this.iconRegla.setVisible(valor);
     }
+
+    public PanelRound getBtnOtherReport() {
+        return btnOtherReport;
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,6 +93,8 @@ public class ReportForm extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         btnThanks = new DisenoDePatrones.Vista.Components.PanelRound();
         jLabel8 = new javax.swing.JLabel();
+        btnOtherReport = new DisenoDePatrones.Vista.Components.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
         contentDragged1 = new DisenoDePatrones.Vista.Components.ContentDragged();
 
         setOpaque(false);
@@ -166,7 +174,7 @@ public class ReportForm extends javax.swing.JPanel {
         iconNoti.setRoundBottomRight(8);
         iconNoti.setRoundTopLeft(8);
         iconNoti.setRoundTopRight(8);
-        iconNoti.setLayout(new java.awt.CardLayout(2, 0));
+        iconNoti.setLayout(new java.awt.CardLayout());
 
         btnNotification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png"))); // NOI18N
         iconNoti.add(btnNotification, "card2");
@@ -177,7 +185,7 @@ public class ReportForm extends javax.swing.JPanel {
         iconRegla.setRoundBottomRight(8);
         iconRegla.setRoundTopLeft(8);
         iconRegla.setRoundTopRight(8);
-        iconRegla.setLayout(new java.awt.CardLayout(3, 0));
+        iconRegla.setLayout(new java.awt.CardLayout());
 
         btnRegulations.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/reglamentos.png"))); // NOI18N
         iconRegla.add(btnRegulations, "card2");
@@ -268,6 +276,25 @@ public class ReportForm extends javax.swing.JPanel {
 
         Footer.add(btnThanks);
 
+        btnOtherReport.setBackground(new java.awt.Color(65, 125, 255));
+        btnOtherReport.setPreferredSize(new java.awt.Dimension(216, 36));
+        btnOtherReport.setRoundBottomLeft(4);
+        btnOtherReport.setRoundBottomRight(4);
+        btnOtherReport.setRoundTopLeft(4);
+        btnOtherReport.setRoundTopRight(4);
+        btnOtherReport.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("REPETIR REPORTE");
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel9.setPreferredSize(new java.awt.Dimension(216, 36));
+        btnOtherReport.add(jLabel9);
+
+        Footer.add(btnOtherReport);
+
         Main.add(Footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 521, -1, 80));
 
         contentDragged1.setTitleBar("Gestion Ciudadana");
@@ -305,6 +332,7 @@ public class ReportForm extends javax.swing.JPanel {
     private DisenoDePatrones.Vista.Components.PanelRound btnAtras;
     private DisenoDePatrones.Vista.Components.PanelRound btnCancelar;
     private javax.swing.JLabel btnNotification;
+    private DisenoDePatrones.Vista.Components.PanelRound btnOtherReport;
     private javax.swing.JLabel btnRegulations;
     private DisenoDePatrones.Vista.Components.PanelRound btnSiguiente;
     private DisenoDePatrones.Vista.Components.PanelRound btnThanks;
@@ -317,6 +345,7 @@ public class ReportForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jlabel2;
     private DisenoDePatrones.Vista.Components.PanelRound tabInformation;
     private DisenoDePatrones.Vista.Components.PanelRound tabPerfil;

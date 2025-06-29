@@ -217,7 +217,17 @@ public class ReportVista implements IReportVista {
                event.run();
             }
         });
-    }    
+    }   
+    
+    @Override
+    public void OnOtherReportClickEvent(Runnable event) {
+        this.reportForm.getBtnOtherReport().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               event.run();
+            }
+        });
+    }
     
     @Override
     public void Mostrar() {
@@ -229,6 +239,7 @@ public class ReportVista implements IReportVista {
         this.window.dispose();
     }
 
+    //@Override
     private void SwitchStep(int step) {
         JPanel mainContent = this.reportForm.GetMainContent();
 
@@ -240,18 +251,23 @@ public class ReportVista implements IReportVista {
             case 1 -> {
                 this.reportForm.GetPreviousButton().setVisible(false);
                 this.reportForm.GetThanksButton().setVisible(false);
+                this.reportForm.GetNextButton().setVisible(true);
+                this.reportForm.getBtnOtherReport().setVisible(false);
                 this.currentStepPanel = new ReportStep1();
             }
             case 2 -> {
                 this.currentStepPanel = new ReportStep2();
                 this.reportForm.GetThanksButton().setVisible(false);
+                this.reportForm.GetNextButton().setVisible(true);
                 this.reportForm.GetPreviousButton().setVisible(true);
+                this.reportForm.getBtnOtherReport().setVisible(false);
             }
             case 3 -> {
                 this.reportForm.GetPreviousButton().setVisible(false);
                 this.reportForm.GetNextButton().setVisible(false);
                 this.reportForm.GetCancelButton().setVisible(false);
                 this.reportForm.GetThanksButton().setVisible(true);
+                this.reportForm.getBtnOtherReport().setVisible(true);
                 this.currentStepPanel = new ReportStep3();
             }
             default -> {
