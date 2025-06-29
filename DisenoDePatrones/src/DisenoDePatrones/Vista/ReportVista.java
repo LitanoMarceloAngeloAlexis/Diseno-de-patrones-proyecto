@@ -2,7 +2,6 @@ package DisenoDePatrones.Vista;
 
 import DisenoDePatrones.Vista.Components.NotifyElement.ColorTextDecorator;
 import DisenoDePatrones.Vista.Components.NotifyElement.INotify;
-import DisenoDePatrones.Vista.Components.NotifyElement.NotifyDecorator;
 import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
 import DisenoDePatrones.Vista.Components.NotifyElement.NotifyView;
 import DisenoDePatrones.Vista.Layouts.Reports.NotificationForm;
