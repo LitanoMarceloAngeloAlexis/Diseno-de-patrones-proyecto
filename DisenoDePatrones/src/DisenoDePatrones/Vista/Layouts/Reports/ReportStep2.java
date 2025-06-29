@@ -64,7 +64,7 @@ public class ReportStep2 extends javax.swing.JPanel {
         Step1Label = new javax.swing.JLabel();
         BarProgress = new DisenoDePatrones.Vista.Components.PanelRound();
         decor = new DisenoDePatrones.Vista.Components.PanelRound();
-        panelRound4 = new DisenoDePatrones.Vista.Components.PanelRound();
+        panelRound1 = new DisenoDePatrones.Vista.Components.PanelRound();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         BarProgress1 = new DisenoDePatrones.Vista.Components.PanelRound();
@@ -73,25 +73,19 @@ public class ReportStep2 extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         Content = new javax.swing.JPanel();
         InputNombre = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input = new javax.swing.JPanel();
-        valueAsunto = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
-        nameDNI = new javax.swing.JLabel();
-        Divider = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        valueAsunto = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         InputNombre3 = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input1 = new javax.swing.JPanel();
-        valueHora = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
-        nameDNI1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        valueHora = new javax.swing.JTextField();
         InputNombre2 = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input2 = new javax.swing.JPanel();
-        valueFecha = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
-        nameDNI2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        valueFecha = new javax.swing.JTextField();
         InputNombre1 = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input3 = new javax.swing.JPanel();
-        nameDNI3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         valueDescripcion = new javax.swing.JTextArea();
-
-        setOpaque(false);
 
         Stepper.setOpaque(false);
         Stepper.setPreferredSize(new java.awt.Dimension(800, 80));
@@ -142,25 +136,26 @@ public class ReportStep2 extends javax.swing.JPanel {
 
         Stepper.add(BarProgress);
 
-        panelRound4.setBackground(new java.awt.Color(65, 125, 255));
-        panelRound4.setPreferredSize(new java.awt.Dimension(200, 36));
-        panelRound4.setRoundBottomLeft(40);
-        panelRound4.setRoundBottomRight(40);
-        panelRound4.setRoundTopLeft(40);
-        panelRound4.setRoundTopRight(40);
-        panelRound4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 1));
+        panelRound1.setBackground(new java.awt.Color(65, 125, 255));
+        panelRound1.setOpaque(true);
+        panelRound1.setPreferredSize(new java.awt.Dimension(205, 40));
+        panelRound1.setRoundBottomLeft(40);
+        panelRound1.setRoundBottomRight(40);
+        panelRound1.setRoundTopLeft(40);
+        panelRound1.setRoundTopRight(40);
+        panelRound1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 2));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("2");
-        panelRound4.add(jLabel2);
+        panelRound1.add(jLabel2);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tema de Reporte");
-        panelRound4.add(jLabel1);
+        panelRound1.add(jLabel1);
 
-        Stepper.add(panelRound4);
+        Stepper.add(panelRound1);
 
         BarProgress1.setBackground(new java.awt.Color(64, 76, 102));
         BarProgress1.setPreferredSize(new java.awt.Dimension(205, 6));
@@ -217,33 +212,27 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre.setRoundBottomRight(6);
         InputNombre.setRoundTopLeft(6);
         InputNombre.setRoundTopRight(6);
-        InputNombre.setLayout(new java.awt.CardLayout(10, 10));
+        InputNombre.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Input.setOpaque(false);
-        Input.setLayout(new java.awt.BorderLayout());
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel5.setText("Asunto");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        InputNombre.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueAsunto.setFontFamily(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueAsunto.setPlaceholder("...");
-        valueAsunto.setText("");
-        valueAsunto.setTextForeground(new java.awt.Color(64, 76, 102));
-        valueAsunto.setBackgroundColor(new java.awt.Color(245, 245, 245));
+        valueAsunto.setBackground(new java.awt.Color(245, 245, 245));
+        valueAsunto.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        valueAsunto.setForeground(new java.awt.Color(64, 76, 102));
+        valueAsunto.setText("...");
+        valueAsunto.setBorder(null);
         valueAsunto.setPreferredSize(new java.awt.Dimension(492, 22));
-        Input.add(valueAsunto, java.awt.BorderLayout.PAGE_END);
-
-        nameDNI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI.setText("Asunto");
-        nameDNI.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Input.add(nameDNI, java.awt.BorderLayout.LINE_START);
-
-        InputNombre.add(Input, "card2");
+        InputNombre.add(valueAsunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 460, -1));
 
         Content.add(InputNombre);
 
-        Divider.setBackground(new java.awt.Color(255, 255, 255));
-        Divider.setOpaque(false);
-        Divider.setPreferredSize(new java.awt.Dimension(492, 65));
-        Divider.setLayout(new java.awt.GridLayout(1, 0, 15, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(492, 65));
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0, 15, 0));
 
         InputNombre3.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre3.setPreferredSize(new java.awt.Dimension(492, 65));
@@ -251,28 +240,23 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre3.setRoundBottomRight(6);
         InputNombre3.setRoundTopLeft(6);
         InputNombre3.setRoundTopRight(6);
-        InputNombre3.setLayout(new java.awt.CardLayout(10, 10));
+        InputNombre3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Input1.setOpaque(false);
-        Input1.setLayout(new java.awt.BorderLayout());
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel8.setText("Hora");
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        InputNombre3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueHora.setFontFamily(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueHora.setPlaceholder("...");
-        valueHora.setText("");
-        valueHora.setTextForeground(new java.awt.Color(64, 76, 102));
-        valueHora.setBackgroundColor(new java.awt.Color(245, 245, 245));
+        valueHora.setBackground(new java.awt.Color(245, 245, 245));
+        valueHora.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        valueHora.setForeground(new java.awt.Color(64, 76, 102));
+        valueHora.setText("...");
+        valueHora.setBorder(null);
         valueHora.setPreferredSize(new java.awt.Dimension(492, 22));
-        Input1.add(valueHora, java.awt.BorderLayout.PAGE_END);
+        InputNombre3.add(valueHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 210, -1));
 
-        nameDNI1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI1.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI1.setText("Hora");
-        nameDNI1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Input1.add(nameDNI1, java.awt.BorderLayout.LINE_START);
-
-        InputNombre3.add(Input1, "card2");
-
-        Divider.add(InputNombre3);
+        jPanel1.add(InputNombre3);
 
         InputNombre2.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre2.setPreferredSize(new java.awt.Dimension(492, 65));
@@ -280,30 +264,25 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre2.setRoundBottomRight(6);
         InputNombre2.setRoundTopLeft(6);
         InputNombre2.setRoundTopRight(6);
-        InputNombre2.setLayout(new java.awt.CardLayout(10, 10));
+        InputNombre2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Input2.setOpaque(false);
-        Input2.setLayout(new java.awt.BorderLayout());
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel7.setText("Fecha");
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        InputNombre2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, -1, -1));
 
-        valueFecha.setFontFamily(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        valueFecha.setPlaceholder("...");
-        valueFecha.setText("");
-        valueFecha.setTextForeground(new java.awt.Color(64, 76, 102));
-        valueFecha.setBackgroundColor(new java.awt.Color(245, 245, 245));
+        valueFecha.setBackground(new java.awt.Color(245, 245, 245));
+        valueFecha.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        valueFecha.setForeground(new java.awt.Color(64, 76, 102));
+        valueFecha.setText("...");
+        valueFecha.setBorder(null);
         valueFecha.setPreferredSize(new java.awt.Dimension(492, 22));
-        Input2.add(valueFecha, java.awt.BorderLayout.PAGE_END);
+        InputNombre2.add(valueFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 210, -1));
 
-        nameDNI2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI2.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI2.setText("Fecha");
-        nameDNI2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Input2.add(nameDNI2, java.awt.BorderLayout.LINE_START);
+        jPanel1.add(InputNombre2);
 
-        InputNombre2.add(Input2, "card2");
-
-        Divider.add(InputNombre2);
-
-        Content.add(Divider);
+        Content.add(jPanel1);
 
         InputNombre1.setBackground(new java.awt.Color(245, 245, 245));
         InputNombre1.setPreferredSize(new java.awt.Dimension(492, 150));
@@ -311,38 +290,26 @@ public class ReportStep2 extends javax.swing.JPanel {
         InputNombre1.setRoundBottomRight(6);
         InputNombre1.setRoundTopLeft(6);
         InputNombre1.setRoundTopRight(6);
-        InputNombre1.setLayout(new java.awt.CardLayout(10, 10));
+        InputNombre1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Input3.setOpaque(false);
-        Input3.setLayout(new java.awt.BorderLayout());
-
-        nameDNI3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI3.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI3.setText("Descripción");
-        nameDNI3.setToolTipText("");
-        nameDNI3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        nameDNI3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        nameDNI3.setPreferredSize(new java.awt.Dimension(30, 30));
-        Input3.add(nameDNI3, java.awt.BorderLayout.PAGE_START);
-
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jScrollPane1.setOpaque(false);
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel6.setText("Descripción");
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jLabel6.setPreferredSize(new java.awt.Dimension(492, 20));
+        InputNombre1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 5, 470, -1));
 
         valueDescripcion.setBackground(new java.awt.Color(245, 245, 245));
-        valueDescripcion.setColumns(10);
+        valueDescripcion.setColumns(20);
         valueDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         valueDescripcion.setForeground(new java.awt.Color(64, 76, 102));
         valueDescripcion.setLineWrap(true);
         valueDescripcion.setRows(5);
         valueDescripcion.setText("...");
-        valueDescripcion.setWrapStyleWord(true);
-        valueDescripcion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        valueDescripcion.setBorder(null);
         jScrollPane1.setViewportView(valueDescripcion);
 
-        Input3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        InputNombre1.add(Input3, "card2");
+        InputNombre1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 470, 110));
 
         Content.add(InputNombre1);
 
@@ -371,11 +338,6 @@ public class ReportStep2 extends javax.swing.JPanel {
     private DisenoDePatrones.Vista.Components.PanelRound BarProgress;
     private DisenoDePatrones.Vista.Components.PanelRound BarProgress1;
     private javax.swing.JPanel Content;
-    private javax.swing.JPanel Divider;
-    private javax.swing.JPanel Input;
-    private javax.swing.JPanel Input1;
-    private javax.swing.JPanel Input2;
-    private javax.swing.JPanel Input3;
     private DisenoDePatrones.Vista.Components.PanelRound InputNombre;
     private DisenoDePatrones.Vista.Components.PanelRound InputNombre1;
     private DisenoDePatrones.Vista.Components.PanelRound InputNombre2;
@@ -387,17 +349,18 @@ public class ReportStep2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel nameDNI;
-    private javax.swing.JLabel nameDNI1;
-    private javax.swing.JLabel nameDNI2;
-    private javax.swing.JLabel nameDNI3;
+    private DisenoDePatrones.Vista.Components.PanelRound panelRound1;
     private DisenoDePatrones.Vista.Components.PanelRound panelRound2;
     private DisenoDePatrones.Vista.Components.PanelRound panelRound3;
-    private DisenoDePatrones.Vista.Components.PanelRound panelRound4;
-    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueAsunto;
+    private javax.swing.JTextField valueAsunto;
     private javax.swing.JTextArea valueDescripcion;
-    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueFecha;
-    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueHora;
+    private javax.swing.JTextField valueFecha;
+    private javax.swing.JTextField valueHora;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@
  */
 package DisenoDePatrones.Vista.Components;
 
-import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
+import DisenoDePatrones.Vista.Window;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,7 +16,7 @@ import javax.swing.JFrame;
  * @author Alex
  */
 public class ContentDragged extends javax.swing.JPanel {
-    private WindowForm window;
+    private Window window;
     private String title = "JPanel";
     
     private Point initialClick;
@@ -35,7 +35,7 @@ public class ContentDragged extends javax.swing.JPanel {
         
     }
     
-    public void initDragSystem(WindowForm parent) {
+    public void initDragSystem(Window parent) {
         this.window = parent;
         this.Topbar.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {

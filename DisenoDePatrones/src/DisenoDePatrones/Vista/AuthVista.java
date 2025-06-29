@@ -4,7 +4,6 @@
  */
 package DisenoDePatrones.Vista;
 
-import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
 import DisenoDePatrones.Vista.Layouts.Auths.AuthForm;
 import DisenoDePatrones.Vista.Layouts.Auths.Login;
 import DisenoDePatrones.Vista.Layouts.Auths.Register;
@@ -20,7 +19,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
  */
 public class AuthVista implements IAuthVista {
 
-    private WindowForm window;
+    private Window window;
     private AuthForm authform;
     
     private JPanel currentViewer;
@@ -33,10 +32,11 @@ public class AuthVista implements IAuthVista {
     }
     
     public AuthVista() {
-        this.window = new WindowForm(WindowForm.WindowType.FRAME);
+        this.window = new Window();
         this.authform = new AuthForm(this.window);
         this.window.add(this.authform);
-        this.window.setSize(800, 650);
+        this.window.setVisible(true);
+        this.window.SetSizeWindow(800, 650);
         
         this.login = new Login();
         this.register = new Register();

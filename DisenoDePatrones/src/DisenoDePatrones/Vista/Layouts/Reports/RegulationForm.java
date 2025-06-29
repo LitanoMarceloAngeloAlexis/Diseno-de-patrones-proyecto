@@ -4,7 +4,7 @@
  */
 package DisenoDePatrones.Vista.Layouts.Reports;
 
-import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
+import DisenoDePatrones.Vista.Window;
 import java.util.function.Consumer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -25,7 +25,7 @@ public class RegulationForm extends javax.swing.JPanel {
     
     private int currentState = 0;
     
-    public RegulationForm(WindowForm parent) {
+    public RegulationForm(Window parent) {
         initComponents();
         this.contentDragged1.initDragSystem(parent);
         
