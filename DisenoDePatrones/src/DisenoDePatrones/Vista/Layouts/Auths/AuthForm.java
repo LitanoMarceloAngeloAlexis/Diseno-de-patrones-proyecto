@@ -1,6 +1,6 @@
 package DisenoDePatrones.Vista.Layouts.Auths;
 
-import DisenoDePatrones.Vista.Window;
+import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -27,7 +27,7 @@ public class AuthForm extends javax.swing.JPanel {
     private JPanel currentPanel;
     private JButton currentLabel;
 
-    public AuthForm(Window window) {
+    public AuthForm(WindowForm window) {
         initComponents();   
         this.contentDragged1.initDragSystem(window);
         this.SwitchModeAccess(this.jPanel2, this.jButton2);

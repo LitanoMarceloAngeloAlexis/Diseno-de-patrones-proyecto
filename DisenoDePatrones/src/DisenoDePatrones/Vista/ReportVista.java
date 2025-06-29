@@ -1,6 +1,7 @@
 package DisenoDePatrones.Vista;
 
-import DisenoDePatrones.Vista.Components.Notify;
+import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
+import DisenoDePatrones.Vista.Components.NotifyView;
 import DisenoDePatrones.Vista.Layouts.Reports.NotificationForm;
 import DisenoDePatrones.Vista.Layouts.Reports.RegulationForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportForm;
@@ -22,15 +23,16 @@ public class ReportVista implements IReportVista {
     private int currentStep = 1;
     private JPanel currentStepPanel;
         
-    private Window window;
+    private WindowForm window;
     private ReportForm reportForm;
     private RegulationForm reguForm;
     private NotificationForm notiForm;
     
     public ReportVista() {
-        this.window = new Window();
+        this.window = new WindowForm(WindowForm.WindowType.FRAME);
         this.reportForm = new ReportForm(this.window);
         this.window.add(this.reportForm);
+        this.window.setSize(800, 600);
         
         this.SwitchStep(this.currentStep);
     }
@@ -42,7 +44,7 @@ public class ReportVista implements IReportVista {
     
     @Override
     public void ShowRegulationsWindow(String method) {
-        Window regulationWindow = new Window();
+        WindowForm regulationWindow = new WindowForm(WindowForm.WindowType.DIALOG, this.window);
         regulationWindow.setTitle("Regulaciones Importantes");
         this.reguForm = new RegulationForm(regulationWindow);
         regulationWindow.add(this.reguForm);
@@ -64,12 +66,12 @@ public class ReportVista implements IReportVista {
     
     @Override
     public void ShowNotificationWindow() {
-        Window notificationWindow = new Window();
+        WindowForm notificationWindow = new WindowForm(WindowForm.WindowType.DIALOG, this.window);
         notificationWindow.setTitle("Regulaciones Importantes");
-        notificationWindow.SetSizeWindow(400, 500);
-        notificationWindow.setLocation(950, 300);
+        notificationWindow.setSize(400, 500);
         this.notiForm = new NotificationForm(notificationWindow);
         notificationWindow.add(this.notiForm);
+        
         notificationWindow.setVisible(true);
     }
 
@@ -305,13 +307,10 @@ public class ReportVista implements IReportVista {
     @Override
     public void AddNewNotificationToList(String message, String date) {
         if (this.notiForm != null) {
-            Notify not = new Notify();
+            NotifyView not = new NotifyView();
             not.setContent(message);
             not.setDate(date);
-            this.notiForm.GetContentNotifiers().add(not);
-
-            this.notiForm.GetContentNotifiers().revalidate();
-            this.notiForm.GetContentNotifiers().repaint();
+            this.notiForm.addNotification(not);
         } else {
             System.out.println("ERROR: Aún no se ha cargado notiForm");
         }
