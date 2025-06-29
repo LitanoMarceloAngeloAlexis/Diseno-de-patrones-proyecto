@@ -4,10 +4,7 @@
  */
 package DisenoDePatrones.Vista.Layouts.Reports;
 
-import DisenoDePatrones.Vista.Components.NotifyView;
 import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
-import java.awt.GridBagConstraints;
-import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -15,8 +12,6 @@ import javax.swing.JPanel;
  * @author Alex
  */
 public class NotificationForm extends javax.swing.JPanel {    
-    private int count = 0;
-    private ArrayList<NotifyView> instances = new ArrayList<>();
     /**
      * Creates new form regulations
      * @param parent
@@ -26,11 +21,8 @@ public class NotificationForm extends javax.swing.JPanel {
         this.contentDragged1.initDragSystem(parent);
     }
 
-    public void addNotification(NotifyView notify) {
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridy = count + 1;
-        this.jPanel1.add(notify, gbc);
-        this.count++;
+    public JPanel GetContentNotifiers() {
+        return this.jPanel1;
     }
 
     /**

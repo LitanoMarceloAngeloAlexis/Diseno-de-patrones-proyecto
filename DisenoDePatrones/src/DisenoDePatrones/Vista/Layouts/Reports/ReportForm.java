@@ -174,7 +174,7 @@ public class ReportForm extends javax.swing.JPanel {
         iconNoti.setRoundBottomRight(8);
         iconNoti.setRoundTopLeft(8);
         iconNoti.setRoundTopRight(8);
-        iconNoti.setLayout(new java.awt.CardLayout());
+        iconNoti.setLayout(new java.awt.CardLayout(3, 0));
 
         btnNotification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png"))); // NOI18N
         iconNoti.add(btnNotification, "card2");
@@ -185,7 +185,7 @@ public class ReportForm extends javax.swing.JPanel {
         iconRegla.setRoundBottomRight(8);
         iconRegla.setRoundTopLeft(8);
         iconRegla.setRoundTopRight(8);
-        iconRegla.setLayout(new java.awt.CardLayout());
+        iconRegla.setLayout(new java.awt.CardLayout(3, 0));
 
         btnRegulations.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/reglamentos.png"))); // NOI18N
         iconRegla.add(btnRegulations, "card2");

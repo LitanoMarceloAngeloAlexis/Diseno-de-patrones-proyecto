@@ -120,7 +120,7 @@ public class ReportController {
             String mensaje = noti.getMensaje();
             String fecha = noti.getFecha().toLocalDate().toString();
             System.out.println(mensaje + fecha);
-            vista.AddNewNotificationToList(mensaje, fecha);
+            vista.AddNewNotificationToList(mensaje, fecha, 0);
         }
     }
     

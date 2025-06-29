@@ -1,13 +1,17 @@
 package DisenoDePatrones.Vista;
 
+import DisenoDePatrones.Vista.Components.NotifyElement.ColorTextDecorator;
+import DisenoDePatrones.Vista.Components.NotifyElement.INotify;
+import DisenoDePatrones.Vista.Components.NotifyElement.NotifyDecorator;
 import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
-import DisenoDePatrones.Vista.Components.NotifyView;
+import DisenoDePatrones.Vista.Components.NotifyElement.NotifyView;
 import DisenoDePatrones.Vista.Layouts.Reports.NotificationForm;
 import DisenoDePatrones.Vista.Layouts.Reports.RegulationForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep1;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep3;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
@@ -305,12 +309,22 @@ public class ReportVista implements IReportVista {
     }
     
     @Override
-    public void AddNewNotificationToList(String message, String date) {
+    public void AddNewNotificationToList(String message, String date, int priority) {
         if (this.notiForm != null) {
             NotifyView not = new NotifyView();
             not.setContent(message);
             not.setDate(date);
-            this.notiForm.addNotification(not);
+            
+            // PATRON DECORADOR APLICADO
+            INotify component = new ColorTextDecorator(() -> not, new Color(40, 43, 50));
+            
+            if (priority == 1) {
+                component = new ColorTextDecorator(() -> not, Color.RED);
+            } else if (priority == 2) {
+                component = new ColorTextDecorator(() -> not, Color.YELLOW);
+            }
+            
+            this.notiForm.GetContentNotifiers().add(component.obtenerElementoDecorado());
         } else {
             System.out.println("ERROR: Aún no se ha cargado notiForm");
         }
