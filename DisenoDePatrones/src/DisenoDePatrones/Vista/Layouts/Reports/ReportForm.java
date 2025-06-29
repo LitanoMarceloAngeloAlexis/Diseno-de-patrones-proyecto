@@ -5,7 +5,7 @@
 package DisenoDePatrones.Vista.Layouts.Reports;
 
 import DisenoDePatrones.Vista.Components.PanelRound;
-import DisenoDePatrones.Vista.Window;
+import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,7 +18,7 @@ public class ReportForm extends javax.swing.JPanel {
     /**
      * Creates new form ReportForm
      */
-    public ReportForm(Window parent) {
+    public ReportForm(WindowForm parent) {
         initComponents();
         this.contentDragged1.initDragSystem(parent);
         iconRegla.setVisible(false);

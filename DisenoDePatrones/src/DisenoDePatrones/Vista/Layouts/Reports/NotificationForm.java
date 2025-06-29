@@ -4,8 +4,10 @@
  */
 package DisenoDePatrones.Vista.Layouts.Reports;
 
-import DisenoDePatrones.Vista.Components.Notify;
-import DisenoDePatrones.Vista.Window;
+import DisenoDePatrones.Vista.Components.NotifyView;
+import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
+import java.awt.GridBagConstraints;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -13,16 +15,22 @@ import javax.swing.JPanel;
  * @author Alex
  */
 public class NotificationForm extends javax.swing.JPanel {    
+    private int count = 0;
+    private ArrayList<NotifyView> instances = new ArrayList<>();
     /**
      * Creates new form regulations
+     * @param parent
      */
-    public NotificationForm(Window parent) {
+    public NotificationForm(WindowForm parent) {
         initComponents();
         this.contentDragged1.initDragSystem(parent);
     }
 
-    public JPanel GetContentNotifiers() {
-        return this.jPanel1;
+    public void addNotification(NotifyView notify) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridy = count + 1;
+        this.jPanel1.add(notify, gbc);
+        this.count++;
     }
 
     /**
@@ -33,40 +41,35 @@ public class NotificationForm extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         contentDragged1 = new DisenoDePatrones.Vista.Components.ContentDragged();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
+        setOpaque(false);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contentDragged1.setPreferredSize(new java.awt.Dimension(400, 30));
         contentDragged1.setTitleBar("Notificaciones");
+        add(contentDragged1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 30));
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jScrollPane1.setBorder(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentDragged1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(contentDragged1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+        jScrollPane1.setViewportView(jPanel1);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 570));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private DisenoDePatrones.Vista.Components.ContentDragged contentDragged1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,8 +31,8 @@ public class Register extends javax.swing.JPanel {
     public HashMap<String, String> GetData() {
         HashMap<String, String> data = new HashMap<>();
         
-        data.put("CampoDNI", this.tbDNI.getText());
-        data.put("CampoNombres", this.tbNombres.getText());
+        data.put("CampoDNI", this.tbDni.getText());
+        data.put("CampoNombres", this.tbApellidos.getText());
         data.put("CampoApellidos", this.tbApellidos.getText());
         data.put("CampoCorreo", this.tbCorreo.getText());
         data.put("CampoPassword", this.tbPassword.getText());
@@ -42,8 +42,8 @@ public class Register extends javax.swing.JPanel {
     }
     
     public void SetData(HashMap<String, String> data) {      
-        this.tbDNI.setText(data.get("CampoDNI"));
-        this.tbNombres.setText(data.get("CampoNombres"));
+        this.tbDni.setText(data.get("CampoDNI"));
+        this.tbApellidos.setText(data.get("CampoNombres"));
         this.tbApellidos.setText(data.get("CampoApellidos"));
         this.tbCorreo.setText(data.get("CampoCorreo"));
         this.tbPassword.setText(data.get("CampoPassword"));      
@@ -65,24 +65,24 @@ public class Register extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        tbDNI = new DisenoDePatrones.Vista.Components.TextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        tbNombres = new DisenoDePatrones.Vista.Components.TextField();
         jLabel9 = new javax.swing.JLabel();
-        tbApellidos = new DisenoDePatrones.Vista.Components.TextField();
+        tbApellidos = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
+        tbNombres1 = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
         jLabel10 = new javax.swing.JLabel();
-        tbCorreo = new DisenoDePatrones.Vista.Components.TextField();
         jLabel11 = new javax.swing.JLabel();
-        tbPassword = new DisenoDePatrones.Vista.Components.TextField();
         jLabel12 = new javax.swing.JLabel();
-        tbPasswordRep = new DisenoDePatrones.Vista.Components.TextField();
         panelRound1 = new DisenoDePatrones.Vista.Components.PanelRound();
         btnAcceder = new javax.swing.JLabel();
         panelRound2 = new DisenoDePatrones.Vista.Components.PanelRound();
         btnLogin = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        tbDni = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
+        tbCorreo = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
+        tbPassword = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
+        tbPasswordRep = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
         pnContent1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         image = new javax.swing.JLabel();
@@ -139,14 +139,6 @@ public class Register extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         pnContent.add(jPanel1, gridBagConstraints);
 
-        tbDNI.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbDNI.setDisabledTextColor(new java.awt.Color(224, 224, 224));
-        tbDNI.setPlaceholder("ej. 985741746");
-        tbDNI.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 4;
-        pnContent.add(tbDNI, gridBagConstraints);
-
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(331, 60));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -157,23 +149,37 @@ public class Register extends javax.swing.JPanel {
         jLabel8.setPreferredSize(new java.awt.Dimension(335, 32));
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
 
-        tbNombres.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbNombres.setDisabledTextColor(new java.awt.Color(224, 224, 224));
-        tbNombres.setPlaceholder("ej. Juan Pablo");
-        tbNombres.setPreferredSize(new java.awt.Dimension(331, 30));
-        jPanel4.add(tbNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, -1));
-
         jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(69, 132, 255));
         jLabel9.setText("Apellidos");
         jLabel9.setPreferredSize(new java.awt.Dimension(335, 32));
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 160, -1));
 
-        tbApellidos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbApellidos.setDisabledTextColor(new java.awt.Color(224, 224, 224));
-        tbApellidos.setPlaceholder("ej. Segundo");
+        tbApellidos.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbApellidos.setGap(new java.awt.Point(5, 0));
+        tbApellidos.setPlaceholder("ej. Santos Valverde");
+        tbApellidos.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbApellidos.setText("");
+        tbApellidos.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbApellidos.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbApellidos.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbApellidos.setBorderThickness(1);
+        tbApellidos.setCornerRadius(10);
         tbApellidos.setPreferredSize(new java.awt.Dimension(331, 30));
         jPanel4.add(tbApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 160, -1));
+
+        tbNombres1.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbNombres1.setGap(new java.awt.Point(5, 0));
+        tbNombres1.setPlaceholder("ej. Juan Pablo");
+        tbNombres1.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbNombres1.setText("");
+        tbNombres1.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbNombres1.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbNombres1.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbNombres1.setBorderThickness(1);
+        tbNombres1.setCornerRadius(10);
+        tbNombres1.setPreferredSize(new java.awt.Dimension(331, 30));
+        jPanel4.add(tbNombres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, -1));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
@@ -188,14 +194,6 @@ public class Register extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         pnContent.add(jLabel10, gridBagConstraints);
 
-        tbCorreo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbCorreo.setDisabledTextColor(new java.awt.Color(224, 224, 224));
-        tbCorreo.setPlaceholder("ej. juanpablo@gmail.com");
-        tbCorreo.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 7;
-        pnContent.add(tbCorreo, gridBagConstraints);
-
         jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(69, 132, 255));
         jLabel11.setText("Contraseña");
@@ -205,14 +203,6 @@ public class Register extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         pnContent.add(jLabel11, gridBagConstraints);
 
-        tbPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbPassword.setDisabledTextColor(new java.awt.Color(224, 224, 224));
-        tbPassword.setPlaceholder("...");
-        tbPassword.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 9;
-        pnContent.add(tbPassword, gridBagConstraints);
-
         jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(69, 132, 255));
         jLabel12.setText("Repetir Contraseña");
@@ -221,14 +211,6 @@ public class Register extends javax.swing.JPanel {
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         pnContent.add(jLabel12, gridBagConstraints);
-
-        tbPasswordRep.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbPasswordRep.setDisabledTextColor(new java.awt.Color(224, 224, 224));
-        tbPasswordRep.setPlaceholder("...");
-        tbPasswordRep.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 11;
-        pnContent.add(tbPasswordRep, gridBagConstraints);
 
         panelRound1.setBackground(new java.awt.Color(69, 132, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(331, 40));
@@ -306,6 +288,66 @@ public class Register extends javax.swing.JPanel {
         gridBagConstraints.gridy = 12;
         pnContent.add(jPanel2, gridBagConstraints);
 
+        tbDni.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbDni.setGap(new java.awt.Point(5, 0));
+        tbDni.setPlaceholder("ej. Juan Pablo");
+        tbDni.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbDni.setText("");
+        tbDni.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbDni.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbDni.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbDni.setBorderThickness(1);
+        tbDni.setCornerRadius(10);
+        tbDni.setPreferredSize(new java.awt.Dimension(331, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        pnContent.add(tbDni, gridBagConstraints);
+
+        tbCorreo.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbCorreo.setGap(new java.awt.Point(5, 0));
+        tbCorreo.setPlaceholder("ej. juansantos@gmail.com");
+        tbCorreo.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbCorreo.setText("");
+        tbCorreo.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbCorreo.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbCorreo.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbCorreo.setBorderThickness(1);
+        tbCorreo.setCornerRadius(10);
+        tbCorreo.setPreferredSize(new java.awt.Dimension(331, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 7;
+        pnContent.add(tbCorreo, gridBagConstraints);
+
+        tbPassword.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbPassword.setGap(new java.awt.Point(5, 0));
+        tbPassword.setPlaceholder("...");
+        tbPassword.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbPassword.setText("");
+        tbPassword.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbPassword.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbPassword.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbPassword.setBorderThickness(1);
+        tbPassword.setCornerRadius(10);
+        tbPassword.setPreferredSize(new java.awt.Dimension(331, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 9;
+        pnContent.add(tbPassword, gridBagConstraints);
+
+        tbPasswordRep.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbPasswordRep.setGap(new java.awt.Point(5, 0));
+        tbPasswordRep.setPlaceholder("...");
+        tbPasswordRep.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbPasswordRep.setText("");
+        tbPasswordRep.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbPasswordRep.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbPasswordRep.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbPasswordRep.setBorderThickness(1);
+        tbPasswordRep.setCornerRadius(10);
+        tbPasswordRep.setPreferredSize(new java.awt.Dimension(331, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 11;
+        pnContent.add(tbPasswordRep, gridBagConstraints);
+
         add(pnContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pnContent1.setBackground(new java.awt.Color(234, 245, 255));
@@ -347,11 +389,11 @@ public class Register extends javax.swing.JPanel {
     private DisenoDePatrones.Vista.Components.PanelRound panelRound2;
     private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnContent1;
-    private DisenoDePatrones.Vista.Components.TextField tbApellidos;
-    private DisenoDePatrones.Vista.Components.TextField tbCorreo;
-    private DisenoDePatrones.Vista.Components.TextField tbDNI;
-    private DisenoDePatrones.Vista.Components.TextField tbNombres;
-    private DisenoDePatrones.Vista.Components.TextField tbPassword;
-    private DisenoDePatrones.Vista.Components.TextField tbPasswordRep;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbApellidos;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbCorreo;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbDni;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbNombres1;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbPassword;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbPasswordRep;
     // End of variables declaration//GEN-END:variables
 }

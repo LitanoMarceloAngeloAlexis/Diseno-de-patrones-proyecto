@@ -64,9 +64,9 @@ public class Login extends javax.swing.JPanel {
         btnRegister = new javax.swing.JLabel();
         panelRound1 = new DisenoDePatrones.Vista.Components.PanelRound();
         btnAcceder = new javax.swing.JButton();
-        tbDni = new DisenoDePatrones.Vista.Components.TextField();
-        tbPassword = new DisenoDePatrones.Vista.Components.TextField();
         jPanel3 = new javax.swing.JPanel();
+        tbDni = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
+        tbPassword = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
         pnContent1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         image = new javax.swing.JLabel();
@@ -125,7 +125,7 @@ public class Login extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -144,7 +144,7 @@ public class Login extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -192,23 +192,6 @@ public class Login extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         pnContent.add(panelRound1, gridBagConstraints);
 
-        tbDni.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbDni.setDisabledTextColor(new java.awt.Color(224, 224, 224));
-        tbDni.setPlaceholder("ej. 985741746");
-        tbDni.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipady = 10;
-        pnContent.add(tbDni, gridBagConstraints);
-
-        tbPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        tbPassword.setPlaceholder("...");
-        tbPassword.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipady = 10;
-        pnContent.add(tbPassword, gridBagConstraints);
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(331, 5));
 
@@ -220,12 +203,44 @@ public class Login extends javax.swing.JPanel {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 9;
         pnContent.add(jPanel3, gridBagConstraints);
+
+        tbDni.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbDni.setGap(new java.awt.Point(10, 0));
+        tbDni.setPlaceholder("ej. Juan Pablo");
+        tbDni.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbDni.setText("");
+        tbDni.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbDni.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbDni.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbDni.setBorderThickness(1);
+        tbDni.setCornerRadius(10);
+        tbDni.setPreferredSize(new java.awt.Dimension(331, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipady = 10;
+        pnContent.add(tbDni, gridBagConstraints);
+
+        tbPassword.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbPassword.setGap(new java.awt.Point(10, 0));
+        tbPassword.setPlaceholder("...");
+        tbPassword.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbPassword.setText("");
+        tbPassword.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbPassword.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbPassword.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbPassword.setBorderThickness(1);
+        tbPassword.setCornerRadius(10);
+        tbPassword.setPreferredSize(new java.awt.Dimension(331, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.ipady = 10;
+        pnContent.add(tbPassword, gridBagConstraints);
 
         add(pnContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -263,7 +278,7 @@ public class Login extends javax.swing.JPanel {
     private DisenoDePatrones.Vista.Components.PanelRound panelRound2;
     private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnContent1;
-    private DisenoDePatrones.Vista.Components.TextField tbDni;
-    private DisenoDePatrones.Vista.Components.TextField tbPassword;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbDni;
+    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbPassword;
     // End of variables declaration//GEN-END:variables
 }
