@@ -4,8 +4,6 @@
  */
 package DisenoDePatrones.Vista.Layouts.Reports;
 
-import java.awt.Color;
-
 /**
  *
  * @author Alex
@@ -17,11 +15,6 @@ public class ReportStep2 extends javax.swing.JPanel {
      */
     public ReportStep2() {
         initComponents();
-        Color transparent = new Color(0, 0, 0, 0);
-        
-        this.setBackground(transparent);
-        this.Stepper.setBackground(transparent);
-        this.Content.setBackground(transparent);
     }
     
     public String getAsunto() {
@@ -59,345 +52,115 @@ public class ReportStep2 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Stepper = new javax.swing.JPanel();
-        panelRound2 = new DisenoDePatrones.Vista.Components.PanelRound();
-        Step1Label = new javax.swing.JLabel();
-        BarProgress = new DisenoDePatrones.Vista.Components.PanelRound();
-        decor = new DisenoDePatrones.Vista.Components.PanelRound();
-        panelRound4 = new DisenoDePatrones.Vista.Components.PanelRound();
+        pictureBox1 = new DisenoDePatrones.Vista.Components.PictureBox();
+        btnPrevious = new DisenoDePatrones.Vista.Components.ImageButton();
+        btnCancelar = new DisenoDePatrones.Vista.Components.ImageButton();
+        btnNext = new DisenoDePatrones.Vista.Components.ImageButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        BarProgress1 = new DisenoDePatrones.Vista.Components.PanelRound();
-        decor1 = new DisenoDePatrones.Vista.Components.PanelRound();
-        panelRound3 = new DisenoDePatrones.Vista.Components.PanelRound();
-        jLabel4 = new javax.swing.JLabel();
-        Content = new javax.swing.JPanel();
-        InputNombre = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input = new javax.swing.JPanel();
         valueAsunto = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
-        nameDNI = new javax.swing.JLabel();
-        Divider = new javax.swing.JPanel();
-        InputNombre3 = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         valueHora = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
-        nameDNI1 = new javax.swing.JLabel();
-        InputNombre2 = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         valueFecha = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
-        nameDNI2 = new javax.swing.JLabel();
-        InputNombre1 = new DisenoDePatrones.Vista.Components.PanelRound();
-        Input3 = new javax.swing.JPanel();
-        nameDNI3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         valueDescripcion = new javax.swing.JTextArea();
 
+        setName(""); // NOI18N
         setOpaque(false);
+        setLayout(new java.awt.CardLayout());
 
-        Stepper.setOpaque(false);
-        Stepper.setPreferredSize(new java.awt.Dimension(800, 80));
-        Stepper.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
+        pictureBox1.setImage("Views/Reports/ReportsStepper2.png");
+        pictureBox1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound2.setBackground(new java.awt.Color(65, 125, 255));
-        panelRound2.setPreferredSize(new java.awt.Dimension(40, 40));
-        panelRound2.setRoundBottomLeft(40);
-        panelRound2.setRoundBottomRight(40);
-        panelRound2.setRoundTopLeft(40);
-        panelRound2.setRoundTopRight(40);
-        panelRound2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 8));
+        btnPrevious.setBorder(null);
+        btnPrevious.setText("");
+        btnPrevious.setImageName("Views/Reports/NavRetroceder.png");
+        pictureBox1.add(btnPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 543, -1, -1));
 
-        Step1Label.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        Step1Label.setForeground(new java.awt.Color(255, 255, 255));
-        Step1Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/check.png"))); // NOI18N
-        panelRound2.add(Step1Label);
+        btnCancelar.setBorder(null);
+        btnCancelar.setText("");
+        btnCancelar.setBackgroundColor(java.awt.Color.white);
+        btnCancelar.setImageName("Views/Reports/NavCancelar.png");
+        pictureBox1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 543, -1, -1));
 
-        Stepper.add(panelRound2);
+        btnNext.setBorder(null);
+        btnNext.setText("");
+        btnNext.setImageName("Views/Reports/NavSiguiente.png");
+        pictureBox1.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(538, 543, -1, -1));
 
-        BarProgress.setBackground(new java.awt.Color(197, 205, 216));
-        BarProgress.setPreferredSize(new java.awt.Dimension(205, 6));
-        BarProgress.setRoundBottomLeft(6);
-        BarProgress.setRoundBottomRight(6);
-        BarProgress.setRoundTopLeft(6);
-        BarProgress.setRoundTopRight(6);
-        BarProgress.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        decor.setBackground(new java.awt.Color(65, 125, 255));
-        decor.setPreferredSize(new java.awt.Dimension(205, 6));
-        decor.setRoundBottomLeft(6);
-        decor.setRoundBottomRight(6);
-        decor.setRoundTopLeft(6);
-        decor.setRoundTopRight(6);
-
-        javax.swing.GroupLayout decorLayout = new javax.swing.GroupLayout(decor);
-        decor.setLayout(decorLayout);
-        decorLayout.setHorizontalGroup(
-            decorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
-        );
-        decorLayout.setVerticalGroup(
-            decorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 6, Short.MAX_VALUE)
-        );
-
-        BarProgress.add(decor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        Stepper.add(BarProgress);
-
-        panelRound4.setBackground(new java.awt.Color(65, 125, 255));
-        panelRound4.setPreferredSize(new java.awt.Dimension(200, 36));
-        panelRound4.setRoundBottomLeft(40);
-        panelRound4.setRoundBottomRight(40);
-        panelRound4.setRoundTopLeft(40);
-        panelRound4.setRoundTopRight(40);
-        panelRound4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("2");
-        panelRound4.add(jLabel2);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Tema de Reporte");
-        panelRound4.add(jLabel1);
-
-        Stepper.add(panelRound4);
-
-        BarProgress1.setBackground(new java.awt.Color(64, 76, 102));
-        BarProgress1.setPreferredSize(new java.awt.Dimension(205, 6));
-        BarProgress1.setRoundBottomLeft(6);
-        BarProgress1.setRoundBottomRight(6);
-        BarProgress1.setRoundTopLeft(6);
-        BarProgress1.setRoundTopRight(6);
-        BarProgress1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        decor1.setBackground(new java.awt.Color(65, 125, 255));
-        decor1.setPreferredSize(new java.awt.Dimension(102, 6));
-        decor1.setRoundBottomLeft(6);
-        decor1.setRoundBottomRight(6);
-        decor1.setRoundTopLeft(6);
-        decor1.setRoundTopRight(6);
-
-        javax.swing.GroupLayout decor1Layout = new javax.swing.GroupLayout(decor1);
-        decor1.setLayout(decor1Layout);
-        decor1Layout.setHorizontalGroup(
-            decor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 102, Short.MAX_VALUE)
-        );
-        decor1Layout.setVerticalGroup(
-            decor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 6, Short.MAX_VALUE)
-        );
-
-        BarProgress1.add(decor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        Stepper.add(BarProgress1);
-
-        panelRound3.setBackground(new java.awt.Color(64, 76, 102));
-        panelRound3.setPreferredSize(new java.awt.Dimension(40, 40));
-        panelRound3.setRoundBottomLeft(40);
-        panelRound3.setRoundBottomRight(40);
-        panelRound3.setRoundTopLeft(40);
-        panelRound3.setRoundTopRight(40);
-        panelRound3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 15, 2));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("3");
-        panelRound3.add(jLabel4);
-
-        Stepper.add(panelRound3);
-
-        Content.setOpaque(false);
-        Content.setPreferredSize(new java.awt.Dimension(800, 80));
-        Content.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 15));
-
-        InputNombre.setBackground(new java.awt.Color(245, 245, 245));
-        InputNombre.setPreferredSize(new java.awt.Dimension(492, 65));
-        InputNombre.setRoundBottomLeft(6);
-        InputNombre.setRoundBottomRight(6);
-        InputNombre.setRoundTopLeft(6);
-        InputNombre.setRoundTopRight(6);
-        InputNombre.setLayout(new java.awt.CardLayout(10, 10));
-
-        Input.setOpaque(false);
-        Input.setLayout(new java.awt.BorderLayout());
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel2.setText("Asunto");
+        pictureBox1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 196, -1, -1));
 
         valueAsunto.setFontFamily(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         valueAsunto.setPlaceholder("...");
         valueAsunto.setText("");
         valueAsunto.setTextForeground(new java.awt.Color(64, 76, 102));
-        valueAsunto.setBackgroundColor(new java.awt.Color(245, 245, 245));
-        valueAsunto.setPreferredSize(new java.awt.Dimension(492, 22));
-        Input.add(valueAsunto, java.awt.BorderLayout.PAGE_END);
+        valueAsunto.setPreferredSize(new java.awt.Dimension(470, 20));
+        pictureBox1.add(valueAsunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 215, -1, -1));
 
-        nameDNI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI.setText("Asunto");
-        nameDNI.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Input.add(nameDNI, java.awt.BorderLayout.LINE_START);
-
-        InputNombre.add(Input, "card2");
-
-        Content.add(InputNombre);
-
-        Divider.setBackground(new java.awt.Color(255, 255, 255));
-        Divider.setOpaque(false);
-        Divider.setPreferredSize(new java.awt.Dimension(492, 65));
-        Divider.setLayout(new java.awt.GridLayout(1, 0, 15, 0));
-
-        InputNombre3.setBackground(new java.awt.Color(245, 245, 245));
-        InputNombre3.setPreferredSize(new java.awt.Dimension(492, 65));
-        InputNombre3.setRoundBottomLeft(6);
-        InputNombre3.setRoundBottomRight(6);
-        InputNombre3.setRoundTopLeft(6);
-        InputNombre3.setRoundTopRight(6);
-        InputNombre3.setLayout(new java.awt.CardLayout(10, 10));
-
-        Input1.setOpaque(false);
-        Input1.setLayout(new java.awt.BorderLayout());
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel3.setText("Hora");
+        pictureBox1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 271, -1, -1));
 
         valueHora.setFontFamily(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         valueHora.setPlaceholder("...");
         valueHora.setText("");
         valueHora.setTextForeground(new java.awt.Color(64, 76, 102));
-        valueHora.setBackgroundColor(new java.awt.Color(245, 245, 245));
-        valueHora.setPreferredSize(new java.awt.Dimension(492, 22));
-        Input1.add(valueHora, java.awt.BorderLayout.PAGE_END);
+        valueHora.setPreferredSize(new java.awt.Dimension(217, 20));
+        pictureBox1.add(valueHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 290, -1, -1));
 
-        nameDNI1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI1.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI1.setText("Hora");
-        nameDNI1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Input1.add(nameDNI1, java.awt.BorderLayout.LINE_START);
-
-        InputNombre3.add(Input1, "card2");
-
-        Divider.add(InputNombre3);
-
-        InputNombre2.setBackground(new java.awt.Color(245, 245, 245));
-        InputNombre2.setPreferredSize(new java.awt.Dimension(492, 65));
-        InputNombre2.setRoundBottomLeft(6);
-        InputNombre2.setRoundBottomRight(6);
-        InputNombre2.setRoundTopLeft(6);
-        InputNombre2.setRoundTopRight(6);
-        InputNombre2.setLayout(new java.awt.CardLayout(10, 10));
-
-        Input2.setOpaque(false);
-        Input2.setLayout(new java.awt.BorderLayout());
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel4.setText("Fecha");
+        pictureBox1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 271, -1, -1));
 
         valueFecha.setFontFamily(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         valueFecha.setPlaceholder("...");
         valueFecha.setText("");
         valueFecha.setTextForeground(new java.awt.Color(64, 76, 102));
-        valueFecha.setBackgroundColor(new java.awt.Color(245, 245, 245));
-        valueFecha.setPreferredSize(new java.awt.Dimension(492, 22));
-        Input2.add(valueFecha, java.awt.BorderLayout.PAGE_END);
+        valueFecha.setPreferredSize(new java.awt.Dimension(217, 20));
+        pictureBox1.add(valueFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 290, -1, -1));
 
-        nameDNI2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI2.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI2.setText("Fecha");
-        nameDNI2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        Input2.add(nameDNI2, java.awt.BorderLayout.LINE_START);
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel5.setText("Descripción");
+        pictureBox1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 346, -1, -1));
 
-        InputNombre2.add(Input2, "card2");
-
-        Divider.add(InputNombre2);
-
-        Content.add(Divider);
-
-        InputNombre1.setBackground(new java.awt.Color(245, 245, 245));
-        InputNombre1.setPreferredSize(new java.awt.Dimension(492, 150));
-        InputNombre1.setRoundBottomLeft(6);
-        InputNombre1.setRoundBottomRight(6);
-        InputNombre1.setRoundTopLeft(6);
-        InputNombre1.setRoundTopRight(6);
-        InputNombre1.setLayout(new java.awt.CardLayout(10, 10));
-
-        Input3.setOpaque(false);
-        Input3.setLayout(new java.awt.BorderLayout());
-
-        nameDNI3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameDNI3.setForeground(new java.awt.Color(64, 76, 102));
-        nameDNI3.setText("Descripción");
-        nameDNI3.setToolTipText("");
-        nameDNI3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        nameDNI3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        nameDNI3.setPreferredSize(new java.awt.Dimension(30, 30));
-        Input3.add(nameDNI3, java.awt.BorderLayout.PAGE_START);
-
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setBorder(null);
         jScrollPane1.setOpaque(false);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(470, 121));
 
-        valueDescripcion.setBackground(new java.awt.Color(245, 245, 245));
-        valueDescripcion.setColumns(10);
+        valueDescripcion.setColumns(20);
         valueDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         valueDescripcion.setForeground(new java.awt.Color(64, 76, 102));
-        valueDescripcion.setLineWrap(true);
         valueDescripcion.setRows(5);
-        valueDescripcion.setText("...");
-        valueDescripcion.setWrapStyleWord(true);
-        valueDescripcion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        valueDescripcion.setBorder(null);
+        valueDescripcion.setOpaque(false);
         jScrollPane1.setViewportView(valueDescripcion);
 
-        Input3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        pictureBox1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 365, -1, -1));
 
-        InputNombre1.add(Input3, "card2");
-
-        Content.add(InputNombre1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Stepper, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Stepper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        add(pictureBox1, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private DisenoDePatrones.Vista.Components.PanelRound BarProgress;
-    private DisenoDePatrones.Vista.Components.PanelRound BarProgress1;
-    private javax.swing.JPanel Content;
-    private javax.swing.JPanel Divider;
-    private javax.swing.JPanel Input;
-    private javax.swing.JPanel Input1;
-    private javax.swing.JPanel Input2;
-    private javax.swing.JPanel Input3;
-    private DisenoDePatrones.Vista.Components.PanelRound InputNombre;
-    private DisenoDePatrones.Vista.Components.PanelRound InputNombre1;
-    private DisenoDePatrones.Vista.Components.PanelRound InputNombre2;
-    private DisenoDePatrones.Vista.Components.PanelRound InputNombre3;
-    private javax.swing.JLabel Step1Label;
-    private javax.swing.JPanel Stepper;
-    private DisenoDePatrones.Vista.Components.PanelRound decor;
-    private DisenoDePatrones.Vista.Components.PanelRound decor1;
-    private javax.swing.JLabel jLabel1;
+    public DisenoDePatrones.Vista.Components.ImageButton btnCancelar;
+    public DisenoDePatrones.Vista.Components.ImageButton btnNext;
+    public DisenoDePatrones.Vista.Components.ImageButton btnPrevious;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel nameDNI;
-    private javax.swing.JLabel nameDNI1;
-    private javax.swing.JLabel nameDNI2;
-    private javax.swing.JLabel nameDNI3;
-    private DisenoDePatrones.Vista.Components.PanelRound panelRound2;
-    private DisenoDePatrones.Vista.Components.PanelRound panelRound3;
-    private DisenoDePatrones.Vista.Components.PanelRound panelRound4;
-    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueAsunto;
-    private javax.swing.JTextArea valueDescripcion;
-    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueFecha;
-    private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueHora;
+    private DisenoDePatrones.Vista.Components.PictureBox pictureBox1;
+    public DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueAsunto;
+    public javax.swing.JTextArea valueDescripcion;
+    public DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueFecha;
+    public DisenoDePatrones.Vista.Components.TextBoxElement.TextBox valueHora;
     // End of variables declaration//GEN-END:variables
 }

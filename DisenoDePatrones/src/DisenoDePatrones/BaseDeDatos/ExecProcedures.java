@@ -6,6 +6,7 @@ import DisenoDePatrones.Modelo.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ExecProcedures {
 
@@ -63,21 +64,22 @@ public class ExecProcedures {
 
     }
     
-    public List<Tramite> obtenerTramites() {
+    public List<Tramite> ObtenerTramitesActivosPorDni(String dni) {
         List<Tramite> tramites = new ArrayList<>();
-        String sql = "{call sp_GetTramites}";
+        String sql = "{call sp_GetTramitesPorDNI(?)}";
 
         try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                String dniFromDB = rs.getString("DNI");
-                int id = rs.getInt("ID");
                 String titulo = rs.getString("titulo");
                 String estado = rs.getString("estado");
+                int id = rs.getInt("id");
 
-                Tramite tramite = new Tramite(id, dniFromDB, titulo, estado);
-                tramites.add(tramite);
+                if (!estado.equalsIgnoreCase("Finalizado")) {
+                    tramites.add(new Tramite(id, dni, titulo, estado));
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,6 +87,42 @@ public class ExecProcedures {
 
         return tramites;
     }
+    
+    public boolean InsertarTramite(String dni, String titulo) {
+        String sql = "{call sp_InsertarTramite(?, ?)}";
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            stmt.setString(2, titulo);
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public List<Tramite> obtenerTramitesPendientes() {
+        List<Tramite> tramites = new ArrayList<>();
+        String sql = "{call sp_GetTramitesPendientes}";
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("Id");
+                String dni = rs.getString("Dni");
+                String titulo = rs.getString("Titulo");
+                String estado = rs.getString("Estado");
+
+                tramites.add(new Tramite(id, dni, titulo, estado));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tramites;
+    }
+
     
     public List<DelincuenciaDistritos> ObtenerSIGDelincuencial() {
         List<DelincuenciaDistritos> delincuenciaDistritos = new ArrayList<>();
@@ -209,6 +247,98 @@ public class ExecProcedures {
         }
 
         return notificaciones;
+    }
+
+    public boolean insertarEncuesta(String dni, Map<String, String> respuestas) {
+        String sql = "{call sp_InsertarEncuesta(?, ?, ?, ?, ?, ?, ?)}";
+
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            stmt.setString(2, respuestas.getOrDefault("Pregunta 1", "sin_respuesta"));
+            stmt.setString(3, respuestas.getOrDefault("Pregunta 2", "sin_respuesta"));
+            stmt.setString(4, respuestas.getOrDefault("Pregunta 3", "sin_respuesta"));
+            stmt.setString(5, respuestas.getOrDefault("Pregunta 4", "sin_respuesta"));
+            stmt.setString(6, respuestas.getOrDefault("Pregunta 5", "sin_respuesta"));
+            stmt.setString(7, respuestas.getOrDefault("Pregunta 6", "sin_respuesta"));
+
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean insertarDocumento(Documento doc) {
+        String sql = "{call sp_InsertarDocumento(?, ?, ?, ?, ?)}";
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, doc.getDni());
+            stmt.setString(2, doc.getNombreArchivo());
+            stmt.setString(3, doc.getTipoMime());
+            stmt.setInt(4, doc.getTamaño());
+            stmt.setBytes(5, doc.getArchivo());
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public List<Documento> obtenerDocumentosPorDni(String dni) {
+        List<Documento> documentos = new ArrayList<>();
+        String sql = "{call sp_ObtenerDocumentosPorDNI(?)}";
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setString(1, dni);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Documento doc = new Documento();
+                doc.setId(rs.getInt("Id"));
+                doc.setDni(dni);
+                doc.setNombreArchivo(rs.getString("NombreArchivo"));
+                doc.setTipoMime(rs.getString("TipoMime"));
+                doc.setTamaño(rs.getInt("Tamaño"));
+                Timestamp ts = rs.getTimestamp("FechaSubida");
+                if (ts != null) {
+                    doc.setFechaSubida(ts.toLocalDateTime());
+                }
+                documentos.add(doc);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return documentos;
+    }
+
+    public Documento obtenerDocumentoPorId(int id) {
+        String sql = "{call sp_ObtenerDocumentoPorId(?)}";
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Documento doc = new Documento();
+                doc.setId(id);
+                doc.setNombreArchivo(rs.getString("NombreArchivo"));
+                doc.setTipoMime(rs.getString("TipoMime"));
+                doc.setArchivo(rs.getBytes("Archivo"));
+                return doc;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean eliminarDocumentoPorId(int id) {
+        String sql = "{call sp_EliminarDocumentoPorId(?)}";
+        try (CallableStatement stmt = connection.prepareCall(sql)) {
+            stmt.setInt(1, id);
+            stmt.execute();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 }

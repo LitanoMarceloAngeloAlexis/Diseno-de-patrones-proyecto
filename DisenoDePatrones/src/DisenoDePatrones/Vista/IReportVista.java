@@ -1,32 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ */
 package DisenoDePatrones.Vista;
 
 import java.util.Map;
-import java.util.function.Consumer;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author Alex
+ */
 public interface IReportVista {
-    void ShowNextStep();
-    void ShowPreviousStep();
-    Map<String, String> GetCurrentStepData();
-    void SetCurrentStepData(Map<String, String> data);
-    void OnNextClickEvent(Runnable event);
-    void OnCancelClickEvent(Runnable event);
-    void OnPreviousClickEvent(Runnable event);
-    void OnThanksClickEvent(Runnable event);
-    void OnRegulationsClickEvent(Runnable event);
-    void OnNotificationClickEvent(Runnable event);
-    void OnOtherReportClickEvent(Runnable event);
-    void Cerrar();
-    void Mostrar();
+
     int GetCurrentStep();
+
+    Map<String, String> GetCurrentStepData();
+
+    JPanel GetWindow();
+
+    void OnCancelClickEvent(Runnable event);
+
+    void OnNextClickEvent(Runnable event);
+
+    void OnOtherReportClickEvent(Runnable event);
+
+    void OnPreviousClickEvent(Runnable event);
+
+    void OnThanksClickEvent(Runnable event);
+
+    void SetCurrentStepData(Map<String, String> data);
+
+    void ShowNextStep();
+
+    void ShowPreviousStep();
+
+    void SwitchStep(int stepNumber);
+
     JPanel getCurrentStepPanel();
-    void ChangeStateNotification(int state);
-    void ShowRegulationsWindow(String method);
-    void ShowRegulationsWindow(String method, Consumer<String> event);
-    void ShowNotificationWindow();
-    void SetContentTextRegulations(String text);
-    void AddNewNotificationToList(String message, String date, int priority);
-    void ChangeIconVisible(boolean valor);
-    void setOnCtrlEnterRegulation(Runnable listener);
-    String obtenerTextoReglamento();
+    
 }

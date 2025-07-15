@@ -2,16 +2,11 @@
 package DisenoDePatrones.Controlador;
 
 import DisenoDePatrones.BaseDeDatos.ExecProcedures;
-import DisenoDePatrones.Controlador.AgentePublicoService;
-import DisenoDePatrones.Controlador.CiudadanoService;
-import DisenoDePatrones.Controlador.FuerzaOrdenService;
-import DisenoDePatrones.Controlador.ProxyAgentePublicoService;
-import DisenoDePatrones.Controlador.ProxyFuerzaOrdenService;
 import DisenoDePatrones.Modelo.AgentePublico;
 import DisenoDePatrones.Modelo.Ciudadano;
 import DisenoDePatrones.Modelo.FuerzaOrden;
 import DisenoDePatrones.Modelo.Habitante;
-import DisenoDePatrones.Vista.Layouts.Auths.AuthForm;
+import DisenoDePatrones.Vista.AuthVista;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,10 +14,10 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class ServiceFactory {
-    public static CiudadanoService crearService(List<Ciudadano> lista, String dni, AuthForm.Modos mode) {
+    public static CiudadanoService crearService(List<Ciudadano> lista, String dni, AuthVista.Roles rol) {
         Ciudadano usuario = buscarUsuario(lista, dni);
         
-        switch (mode) {
+        switch (rol) {
             case FUERZA_ORDEN:
                 if (usuario instanceof FuerzaOrden) {
                     FuerzaOrdenService real = new FuerzaOrdenService(lista, usuario);

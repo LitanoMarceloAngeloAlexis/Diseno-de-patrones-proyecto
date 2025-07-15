@@ -1,44 +1,36 @@
 package DisenoDePatrones.Controlador;
 
 import DisenoDePatrones.BaseDeDatos.ExecProcedures;
-import DisenoDePatrones.Modelo.Ciudadano;
-import DisenoDePatrones.Modelo.FuerzaOrden;
-import DisenoDePatrones.Modelo.Notificacion;
-import DisenoDePatrones.Modelo.Reglamento;
 import DisenoDePatrones.Modelo.Reporte;
+import DisenoDePatrones.Vista.IMenuVista;
 import DisenoDePatrones.Vista.IReportVista;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
-import DisenoDePatrones.Vista.ReportVista;
+import DisenoDePatrones.Vista.MenuVista;
 import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class ReportController {
     private IReportVista vista;
+    private IMenuVista menuVista;
     private CiudadanoService ciudadano;
     private ExecProcedures execProcedures;
     private Reporte ultimoReporteEnviado;
     Map<String, String> datosReporte;
     Map<String, String> data;
     
-    public ReportController(CiudadanoService ciudadano, Connection conn){
+    public ReportController(CiudadanoService ciudadano, Connection conn, IReportVista vista, IMenuVista menuVista){
+        this.vista = vista;
+        this.menuVista = menuVista;
         this.execProcedures = new ExecProcedures(conn);
-        this.vista = new ReportVista();
-        this.vista.Mostrar();
-        this.vista.OnNextClickEvent(this::manejarNextClick);
         this.vista.OnCancelClickEvent(this::manejarCancelClick);
+        this.vista.OnNextClickEvent(this::manejarNextClick);
         this.vista.OnPreviousClickEvent(this::manejarPreviousClick);
         this.vista.OnThanksClickEvent(this::manejarCancelClick);
-        this.vista.OnRegulationsClickEvent(this::manejarClickReglamento);
-        this.vista.OnNotificationClickEvent(this::manejarNotificationClick);
         this.vista.OnOtherReportClickEvent(this::manejarOtherReportClick);
         this.ciudadano = ciudadano;
         this.data = ciudadano.getHashMapInfo();
         this.vista.SetCurrentStepData(data);
-        this.comprobarNotificaciones();
-        this.opcionesDeRol();
     }
 
     private void manejarNextClick() {
@@ -63,65 +55,13 @@ public class ReportController {
     }
     
     private void manejarCancelClick() {
-        vista.Cerrar();
+       this.menuVista.ChangeToView(MenuVista.Vistas.NAVIGATION);
     }
 
     private void manejarPreviousClick() {
        vista.ShowPreviousStep();
     }
-    
-    private void comprobarNotificaciones() {
-        String dni = ciudadano.getCiudadanoActual().getDNI();
-        List<Notificacion> notificaciones = execProcedures.leerNotificacionesNoLeidas(dni);
-
-        if (!notificaciones.isEmpty()) {
-            vista.ChangeStateNotification(1);
-        } else {
-            vista.ChangeStateNotification(0);
-        }
-    }
-    
-    private void manejarClickReglamento(){
-        Reglamento reglamento = Reglamento.getInstancia();
-        if(ciudadano instanceof ProxyFuerzaOrdenService){
-            vista.ShowRegulationsWindow("READ");
-            vista.SetContentTextRegulations(reglamento.getContenido());
-        } else if (ciudadano instanceof ProxyAgentePublicoService) {
-            vista.ShowRegulationsWindow("WRITE");
-            vista.SetContentTextRegulations(reglamento.getContenido());
-
-            List<Ciudadano> fuerzas = execProcedures.obtenerRegistrosHumanos("FUERZAORDEN");
-            List<FuerzaOrden> fuerzasOrden = new ArrayList<>();
-            
-            for (Ciudadano c : fuerzas) {
-                if (c instanceof FuerzaOrden f) {
-                    fuerzasOrden.add(f);
-                }
-            }
-            
-            reglamento.registrarObservador(new NotificacionDispatcher(execProcedures, fuerzasOrden));
-            
-            vista.setOnCtrlEnterRegulation(() -> {
-                System.out.println("Desde el controlador: Se presiono Ctrl+Enter");
-                String nuevoContenido = vista.obtenerTextoReglamento();
-                reglamento.modificar(nuevoContenido);
-            });
-        }
-    }
-    
-    private void manejarNotificationClick(){
-        vista.ShowNotificationWindow();
-        
-        String dni = ciudadano.getCiudadanoActual().getDNI();
-        List<Notificacion> notificaciones = execProcedures.leerNotificacionesNoLeidas(dni);
-
-        for (Notificacion noti : notificaciones) {
-            String mensaje = noti.getMensaje();
-            String fecha = noti.getFecha().toLocalDate().toString();
-            System.out.println(mensaje + fecha);
-            vista.AddNewNotificationToList(mensaje, fecha, 0);
-        }
-    }
+ 
     
     private void manejarOtherReportClick(){
         this.vista.ShowPreviousStep();
@@ -135,12 +75,6 @@ public class ReportController {
             step2.setHora(reporteClonado.getHora());
         } else {
             JOptionPane.showMessageDialog(null, "No hay reporte anterior para clonar", "Información", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
-    
-    private void opcionesDeRol(){
-        if(ciudadano instanceof ProxyFuerzaOrdenService || ciudadano instanceof ProxyAgentePublicoService){
-            this.vista.ChangeIconVisible(true);
         }
     }
 }

@@ -5,6 +5,7 @@
 package DisenoDePatrones.Vista.Layouts.Auths;
 
 import java.util.HashMap;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -29,6 +30,10 @@ public class Login extends javax.swing.JPanel {
         return this.btnRegister;
     }
     
+    public ButtonGroup GetButtonGroup() {
+        return this.typeCiudadano;
+    }
+    
     public HashMap<String, String> GetData() {
         HashMap<String, String> data = new HashMap<>();
         
@@ -51,185 +56,53 @@ public class Login extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
+        typeCiudadano = new javax.swing.ButtonGroup();
         pnContent = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        panelRound2 = new DisenoDePatrones.Vista.Components.PanelRound();
-        btnRegister = new javax.swing.JButton();
-        panelRound1 = new DisenoDePatrones.Vista.Components.PanelRound();
-        btnAcceder = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        tbDni = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
-        tbPassword = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
         pnContent1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        tbPassword = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
+        jLabel8 = new javax.swing.JLabel();
+        tbDni = new DisenoDePatrones.Vista.Components.TextBoxElement.TextBox();
+        jLabel3 = new javax.swing.JLabel();
+        radioAgentePublico = new javax.swing.JRadioButton();
+        radioCiudadano = new javax.swing.JRadioButton();
+        radioFDelOrden = new javax.swing.JRadioButton();
+        btnRegister = new DisenoDePatrones.Vista.Components.ImageButton();
+        btnAcceder = new DisenoDePatrones.Vista.Components.ImageButton();
         image = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnContent.setBackground(new java.awt.Color(255, 255, 255));
-        pnContent.setPreferredSize(new java.awt.Dimension(390, 570));
-        pnContent.setLayout(new java.awt.GridBagLayout());
+        pnContent.setPreferredSize(new java.awt.Dimension(400, 660));
+        pnContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(64, 76, 102));
-        jLabel1.setText("<html><body style='width: 100%;text-align: center;'>INICIAR SESION</body></html>");
-        jLabel1.setPreferredSize(new java.awt.Dimension(335, 32));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipady = 40;
-        pnContent.add(jLabel1, gridBagConstraints);
+        pnContent1.setBackground(new java.awt.Color(255, 255, 255));
+        pnContent1.setPreferredSize(new java.awt.Dimension(400, 660));
+        pnContent1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(64, 76, 102));
-        jLabel3.setText("<html><body style='width: 100%;'>Descubre cómo la plataforma de Gestión Ciudadana te permite participar activamente.</body></html>");
-        jLabel3.setPreferredSize(new java.awt.Dimension(335, 32));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipady = 10;
-        pnContent.add(jLabel3, gridBagConstraints);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(69, 132, 255));
-        jLabel4.setText("Documento de Identidad");
-        jLabel4.setPreferredSize(new java.awt.Dimension(335, 32));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        pnContent.add(jLabel4, gridBagConstraints);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(69, 132, 255));
         jLabel5.setText("Contraseña");
-        jLabel5.setPreferredSize(new java.awt.Dimension(335, 32));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-        pnContent.add(jLabel5, gridBagConstraints);
+        jLabel5.setPreferredSize(new java.awt.Dimension(340, 20));
+        pnContent1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(331, 40));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel6.setText("INICIAR SESION");
+        pnContent1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 2;
-        pnContent.add(jPanel1, gridBagConstraints);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setToolTipText("");
-        jPanel2.setPreferredSize(new java.awt.Dimension(331, 40));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 7;
-        pnContent.add(jPanel2, gridBagConstraints);
-
-        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(69, 132, 255), 2, true));
-        panelRound2.setPreferredSize(new java.awt.Dimension(331, 40));
-        panelRound2.setRoundBottomLeft(4);
-        panelRound2.setRoundBottomRight(4);
-        panelRound2.setRoundTopLeft(4);
-        panelRound2.setRoundTopRight(4);
-        panelRound2.setLayout(new java.awt.CardLayout());
-
-        btnRegister.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(69, 132, 255));
-        btnRegister.setText("REGISTRAR");
-        btnRegister.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnRegister.setBorderPainted(false);
-        btnRegister.setContentAreaFilled(false);
-        btnRegister.setFocusPainted(false);
-        panelRound2.add(btnRegister, "card2");
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 10;
-        pnContent.add(panelRound2, gridBagConstraints);
-
-        panelRound1.setBackground(new java.awt.Color(69, 132, 255));
-        panelRound1.setPreferredSize(new java.awt.Dimension(331, 40));
-        panelRound1.setRoundBottomLeft(5);
-        panelRound1.setRoundBottomRight(5);
-        panelRound1.setRoundTopLeft(5);
-        panelRound1.setRoundTopRight(5);
-        panelRound1.setLayout(new java.awt.CardLayout());
-
-        btnAcceder.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnAcceder.setForeground(new java.awt.Color(255, 255, 255));
-        btnAcceder.setText("ACCEDER");
-        btnAcceder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnAcceder.setBorderPainted(false);
-        btnAcceder.setContentAreaFilled(false);
-        btnAcceder.setFocusPainted(false);
-        panelRound1.add(btnAcceder, "card2");
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 8;
-        pnContent.add(panelRound1, gridBagConstraints);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(331, 5));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 9;
-        pnContent.add(jPanel3, gridBagConstraints);
-
-        tbDni.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tbDni.setGap(new java.awt.Point(10, 0));
-        tbDni.setPlaceholder("ej. Juan Pablo");
-        tbDni.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
-        tbDni.setText("");
-        tbDni.setTextForeground(new java.awt.Color(64, 76, 102));
-        tbDni.setBackgroundColor(new java.awt.Color(255, 255, 255));
-        tbDni.setBorderColor(new java.awt.Color(69, 132, 255));
-        tbDni.setBorderThickness(1);
-        tbDni.setCornerRadius(10);
-        tbDni.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipady = 10;
-        pnContent.add(tbDni, gridBagConstraints);
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel7.setText("<html><body style='width:100%;'>Descubre cómo la plataforma de Gestión Ciudadana te permite participar activamente.</body></html>");
+        jLabel7.setPreferredSize(new java.awt.Dimension(340, 42));
+        pnContent1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 102, -1, -1));
 
         tbPassword.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tbPassword.setGap(new java.awt.Point(10, 0));
+        tbPassword.setGap(new java.awt.Point(5, 0));
         tbPassword.setPlaceholder("...");
         tbPassword.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
         tbPassword.setText("");
@@ -237,50 +110,89 @@ public class Login extends javax.swing.JPanel {
         tbPassword.setBackgroundColor(new java.awt.Color(255, 255, 255));
         tbPassword.setBorderColor(new java.awt.Color(69, 132, 255));
         tbPassword.setBorderThickness(1);
-        tbPassword.setCornerRadius(10);
-        tbPassword.setPreferredSize(new java.awt.Dimension(331, 30));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipady = 10;
-        pnContent.add(tbPassword, gridBagConstraints);
+        tbPassword.setCornerRadius(4);
+        tbPassword.setPreferredSize(new java.awt.Dimension(340, 27));
+        pnContent1.add(tbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 244, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(69, 132, 255));
+        jLabel8.setText("Documento de Identidad");
+        jLabel8.setPreferredSize(new java.awt.Dimension(340, 20));
+        pnContent1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        tbDni.setFontFamily(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tbDni.setGap(new java.awt.Point(5, 0));
+        tbDni.setPlaceholder("ej. Juan Pablo");
+        tbDni.setPlaceholderForeground(new java.awt.Color(153, 153, 153));
+        tbDni.setText("");
+        tbDni.setTextForeground(new java.awt.Color(64, 76, 102));
+        tbDni.setBackgroundColor(new java.awt.Color(255, 255, 255));
+        tbDni.setBorderColor(new java.awt.Color(69, 132, 255));
+        tbDni.setBorderThickness(1);
+        tbDni.setCornerRadius(4);
+        tbDni.setPreferredSize(new java.awt.Dimension(340, 27));
+        pnContent1.add(tbDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 183, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(64, 76, 102));
+        jLabel3.setText("Tipo de Usuario");
+        jLabel3.setPreferredSize(new java.awt.Dimension(340, 20));
+        pnContent1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 286, -1, -1));
+
+        typeCiudadano.add(radioAgentePublico);
+        radioAgentePublico.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        radioAgentePublico.setForeground(new java.awt.Color(64, 76, 102));
+        radioAgentePublico.setText("AGENTE PUBLICO");
+        pnContent1.add(radioAgentePublico, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
+
+        typeCiudadano.add(radioCiudadano);
+        radioCiudadano.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        radioCiudadano.setForeground(new java.awt.Color(64, 76, 102));
+        radioCiudadano.setSelected(true);
+        radioCiudadano.setText("CIUDADANO");
+        pnContent1.add(radioCiudadano, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        typeCiudadano.add(radioFDelOrden);
+        radioFDelOrden.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        radioFDelOrden.setForeground(new java.awt.Color(64, 76, 102));
+        radioFDelOrden.setText("FUERZA DEL ORDEN");
+        pnContent1.add(radioFDelOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+
+        btnRegister.setBorder(null);
+        btnRegister.setText("");
+        btnRegister.setImageName("Login/Action-1.png");
+        pnContent1.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 574, -1, -1));
+
+        btnAcceder.setBorder(null);
+        btnAcceder.setText("");
+        btnAcceder.setImageName("Login/Action.png");
+        pnContent1.add(btnAcceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 528, -1, -1));
+
+        pnContent.add(pnContent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         add(pnContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pnContent1.setBackground(new java.awt.Color(234, 245, 255));
-        pnContent1.setForeground(new java.awt.Color(64, 76, 102));
-        pnContent1.setPreferredSize(new java.awt.Dimension(410, 570));
-        pnContent1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(64, 76, 102));
-        jLabel2.setText("<html><body style='width: 100%;text-align: center;'>GESTIONA TU CIUDAD, MEJORA LA CALIDAD DE VIDA.</body></html>");
-        jLabel2.setPreferredSize(new java.awt.Dimension(335, 32));
-        pnContent1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 335, 96));
-
-        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/image1.png"))); // NOI18N
-        pnContent1.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 640, 448));
-
-        add(pnContent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, -1, -1));
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/AuthBackgroundImage.png"))); // NOI18N
+        add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcceder;
-    private javax.swing.JButton btnRegister;
+    private DisenoDePatrones.Vista.Components.ImageButton btnAcceder;
+    private DisenoDePatrones.Vista.Components.ImageButton btnRegister;
     private javax.swing.JLabel image;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private DisenoDePatrones.Vista.Components.PanelRound panelRound1;
-    private DisenoDePatrones.Vista.Components.PanelRound panelRound2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnContent1;
+    private javax.swing.JRadioButton radioAgentePublico;
+    private javax.swing.JRadioButton radioCiudadano;
+    private javax.swing.JRadioButton radioFDelOrden;
     private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbDni;
     private DisenoDePatrones.Vista.Components.TextBoxElement.TextBox tbPassword;
+    private javax.swing.ButtonGroup typeCiudadano;
     // End of variables declaration//GEN-END:variables
 }

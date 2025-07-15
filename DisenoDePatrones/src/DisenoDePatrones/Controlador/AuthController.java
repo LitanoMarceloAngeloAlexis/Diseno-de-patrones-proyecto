@@ -9,7 +9,7 @@ import DisenoDePatrones.BaseDeDatos.ExecProcedures;
 import DisenoDePatrones.Modelo.Ciudadano;
 import DisenoDePatrones.Vista.AuthVista;
 import DisenoDePatrones.Vista.IAuthVista;
-import DisenoDePatrones.Vista.Layouts.Auths.AuthForm;
+import DisenoDePatrones.Vista.MenuVista;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.sql.SQLException;
@@ -49,12 +49,13 @@ public class AuthController {
         boolean autenticador = execProcedures.autenticarLogin(dni, contraseña);
         
         if (autenticador) {
-            List<Ciudadano> listaCiudadanos = ServiceFactory.cargarCiudadanosSinDuplicados(execProcedures);
-            AuthForm.Modos mode = authVista.GetCurrentModeAccess();
-            CiudadanoService ciudadano1 = ServiceFactory.crearService(listaCiudadanos,dni,mode);
             authVista.CerrarVentana();
-            new ReportController(ciudadano1, conn);
-
+            List<Ciudadano> listaCiudadanos = ServiceFactory.cargarCiudadanosSinDuplicados(execProcedures);
+            AuthVista.Roles rol = authVista.GetRolSelected();
+            CiudadanoService ciudadano1 = ServiceFactory.crearService(listaCiudadanos,dni,rol);
+            
+            MenuVista menuVista = new MenuVista();
+            new MenuController(menuVista, ciudadano1, conn);
         } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Advertencia", JOptionPane.WARNING_MESSAGE);
             System.out.println("FALLO DE AUTENTICACIÓN");

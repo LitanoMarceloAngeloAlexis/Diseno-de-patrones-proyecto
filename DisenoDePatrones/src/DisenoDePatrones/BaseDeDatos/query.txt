@@ -352,3 +352,133 @@ BEGIN
     FROM notificacion
     WHERE dni = @dni AND leido = 0;
 END;
+
+CREATE TABLE Encuestas (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    DNI VARCHAR(20) NOT NULL,
+    Pregunta1 VARCHAR(255) NOT NULL,
+    Pregunta2 VARCHAR(255) NOT NULL,
+    Pregunta3 VARCHAR(255) NOT NULL,
+    Pregunta4 VARCHAR(255) NOT NULL,
+    Pregunta5 VARCHAR(255) NOT NULL,
+    Pregunta6 VARCHAR(255) NOT NULL,
+    FechaRegistro DATETIME DEFAULT GETDATE()
+);
+
+CREATE PROCEDURE sp_InsertarEncuesta
+    @dni VARCHAR(20),
+    @pregunta1 VARCHAR(255),
+    @pregunta2 VARCHAR(255),
+    @pregunta3 VARCHAR(255),
+    @pregunta4 VARCHAR(255),
+    @pregunta5 VARCHAR(255),
+    @pregunta6 VARCHAR(255)
+AS
+BEGIN
+    INSERT INTO Encuestas (DNI, Pregunta1, Pregunta2, Pregunta3, Pregunta4, Pregunta5, Pregunta6)
+    VALUES (@dni, @pregunta1, @pregunta2, @pregunta3, @pregunta4, @pregunta5, @pregunta6);
+END
+
+CREATE PROCEDURE sp_InsertarTramite
+    @dni VARCHAR(20),
+    @titulo VARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (
+        SELECT 1
+        FROM Tramites
+        WHERE DNI = @dni
+          AND Titulo = @titulo
+          AND Estado IN ('Pendiente', 'En proceso')
+    )
+    BEGIN
+        RAISERROR('Ya existe un trámite activo de este tipo para el ciudadano.', 16, 1);
+        RETURN;
+    END
+
+    INSERT INTO Tramites (DNI, Titulo, Estado)
+    VALUES (@dni, @titulo, 'En proceso');
+END;
+
+CREATE PROCEDURE sp_GetTramitesPorDNI
+    @dni NVARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT ID, DNI, Titulo, Estado
+    FROM Tramites
+    WHERE DNI = @dni AND Estado IN ('Pendiente', 'En proceso')
+END
+
+CREATE PROCEDURE sp_GetTramitesPendientes
+AS
+BEGIN
+    SELECT 
+        Id,
+        Dni,
+        Titulo,
+        Estado
+    FROM Tramites
+    WHERE Estado IN ('Pendiente', 'En Proceso')
+    ORDER BY Id DESC;
+END
+
+CREATE TABLE Documentos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Dni NVARCHAR(20) NOT NULL,
+    NombreArchivo NVARCHAR(255) NOT NULL,
+    TipoMime NVARCHAR(100),
+    Tamaño INT,
+    FechaSubida DATETIME DEFAULT GETDATE(),
+    Archivo VARBINARY(MAX)
+);
+
+CREATE PROCEDURE sp_InsertarDocumento
+    @Dni NVARCHAR(20),
+    @NombreArchivo NVARCHAR(255),
+    @TipoMime NVARCHAR(100),
+    @Tamaño INT,
+    @Archivo VARBINARY(MAX)
+AS
+BEGIN
+    INSERT INTO Documentos (Dni, NombreArchivo, TipoMime, Tamaño, Archivo)
+    VALUES (@Dni, @NombreArchivo, @TipoMime, @Tamaño, @Archivo);
+END
+
+CREATE PROCEDURE sp_ObtenerDocumentosPorDNI
+    @Dni NVARCHAR(20)
+AS
+BEGIN
+    SELECT 
+        Id,
+        NombreArchivo,
+        TipoMime,
+        Tamaño,
+        FechaSubida
+    FROM Documentos
+    WHERE Dni = @Dni
+    ORDER BY FechaSubida DESC;
+END
+
+ALTER PROCEDURE sp_ObtenerDocumentoPorId
+    @Id INT
+AS
+BEGIN
+    SELECT 
+        Id,
+        NombreArchivo,
+        TipoMime,
+        Archivo
+    FROM Documentos
+    WHERE Id = @Id;
+END
+
+CREATE PROCEDURE sp_EliminarDocumentoPorId
+    @Id INT
+AS
+BEGIN
+    DELETE FROM Documentos WHERE Id = @Id;
+END

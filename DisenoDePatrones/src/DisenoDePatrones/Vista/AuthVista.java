@@ -8,11 +8,9 @@ import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
 import DisenoDePatrones.Vista.Layouts.Auths.AuthForm;
 import DisenoDePatrones.Vista.Layouts.Auths.Login;
 import DisenoDePatrones.Vista.Layouts.Auths.Register;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.Enumeration;
 import java.util.HashMap;
-import javax.swing.JPanel;
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import javax.swing.AbstractButton;
 
 /**
  *
@@ -23,88 +21,116 @@ public class AuthVista implements IAuthVista {
     private WindowForm window;
     private AuthForm authform;
     
-    private JPanel currentViewer;
-    private Login login;
-    private Register register;
+    private Login loginForm = new Login();
+    private Register registerForm = new Register();
 
-    public enum AuthState {
+    public enum WindowAuth {
         LOGIN,
-        REGISTER
+        REGISTER,
     }
+    
+    public enum Roles {
+        CIUDADANO,
+        FUERZA_ORDEN,
+        AGENTE_PUBLICO
+    }
+    
+    private Roles currentRol;
+    private WindowAuth currentWindowAuth;
     
     public AuthVista() {
         this.window = new WindowForm(WindowForm.WindowType.FRAME);
         this.authform = new AuthForm(this.window);
+        this.authform.getContent().add(this.loginForm);
+        this.authform.getContent().add(this.registerForm);
         this.window.add(this.authform);
-        this.window.setSize(800, 650);
+        this.window.setSize(800, 690);
         
-        this.login = new Login();
-        this.register = new Register();
-        this.login.setVisible(false);
-        this.register.setVisible(false);
-        
-        this.authform.getContent().add(this.login, new AbsoluteConstraints(0, 0, 800, 570));
-        this.authform.getContent().add(this.register, new AbsoluteConstraints(0, 0, 800, 570));
-
-        this.ChangeVistaTo(AuthState.LOGIN);
-        
-        this.login.GetChangeToRegister().addActionListener((e) -> {
-            this.ChangeVistaTo(AuthState.REGISTER);
+        this.currentWindowAuth = WindowAuth.LOGIN;
+        this.SwitchLoginOrRegister();
+                
+        this.loginForm.GetChangeToRegister().addActionListener((e) -> {
+            this.currentWindowAuth = WindowAuth.REGISTER;
+            this.SwitchLoginOrRegister();
         });
         
-        this.register.GetChangeToLogin().addActionListener((e) -> {
-            this.ChangeVistaTo(AuthState.LOGIN);
+        this.registerForm.GetChangeToLogin().addActionListener((e) -> {
+            this.currentWindowAuth = WindowAuth.LOGIN;
+            this.SwitchLoginOrRegister();
         });
     }
     
-    @Override
-    public void ChangeVistaTo(AuthState state) {
-        if (state.equals(AuthState.LOGIN)) {
-            this.currentViewer = this.login;
-            this.login.setVisible(true);
-            this.register.setVisible(false);
-        } else if (state.equals(AuthState.REGISTER)) {
-            this.currentViewer = this.register;
-            this.login.setVisible(false);
-            this.register.setVisible(true);
+    private void SwitchLoginOrRegister() {
+        if (this.currentWindowAuth == WindowAuth.LOGIN) {
+            this.loginForm.setVisible(true);
+            this.registerForm.setVisible(false);
+        } else if (this.currentWindowAuth == WindowAuth.REGISTER) {
+            this.loginForm.setVisible(false);
+            this.registerForm.setVisible(true);
         }
     }
-    
+        
     @Override
     public HashMap<String, String> GetLoginData() {
-        return this.login.GetData();
+        return this.loginForm.GetData();
     }
     
     @Override
     public HashMap<String, String> GetRegisterData() {
-        return this.register.GetData();
+        return this.registerForm.GetData();
     }
     
     @Override
     public void SetLoginData(HashMap<String, String> data) {
-        this.login.SetData(data);
+        this.loginForm.SetData(data);
     }
     
     @Override
     public void SetRegisterData(HashMap<String, String> data) {
-        this.register.SetData(data);
+        this.registerForm.SetData(data);
     }
     
     @Override
-    public AuthForm.Modos GetCurrentModeAccess() {
-       return this.authform.getModeAccess();
+    public AuthVista.Roles GetRolSelected() {
+        Enumeration<AbstractButton> botonesRol = null;
+
+        if (this.currentWindowAuth == WindowAuth.LOGIN) {
+            botonesRol = this.loginForm.GetButtonGroup().getElements();
+        } else if (this.currentWindowAuth == WindowAuth.REGISTER) {
+            botonesRol = this.registerForm.GetButtonGroup().getElements();
+        }
+
+        if (botonesRol == null)
+            return null;
+
+        while (botonesRol.hasMoreElements()) {
+            AbstractButton boton = botonesRol.nextElement();
+            if (boton.isSelected()) {
+                String texto = boton.getText().toUpperCase().replace(" ", "_");
+
+                try {
+                    this.currentRol = Roles.valueOf(texto);
+                } catch (IllegalArgumentException ex) {
+                    this.currentRol = null;
+                }
+
+                break;
+            }
+        }
+        
+        return this.currentRol;
     }
     
     @Override
     public void OnClickAccederLogin(Runnable callback) {
-        this.login.GetButtonAcceder().addActionListener((e) -> {
+        this.loginForm.GetButtonAcceder().addActionListener((e) -> {
             callback.run();
         });
     }
     
     @Override
     public void OnClickAccederRegister(Runnable callback) {
-        this.register.GetButtonAcceder().addActionListener((e) -> {
+        this.registerForm.GetButtonAcceder().addActionListener((e) -> {
             callback.run();
         });
     }

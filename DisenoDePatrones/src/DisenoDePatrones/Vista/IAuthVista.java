@@ -4,7 +4,6 @@
  */
 package DisenoDePatrones.Vista;
 
-import DisenoDePatrones.Vista.Layouts.Auths.AuthForm;
 import java.util.HashMap;
 
 /**
@@ -18,7 +17,6 @@ public interface IAuthVista {
     void SetRegisterData(HashMap<String, String> data);
     void OnClickAccederLogin(Runnable callback);
     void OnClickAccederRegister(Runnable callback);
-    void ChangeVistaTo(AuthVista.AuthState state);
-    AuthForm.Modos GetCurrentModeAccess();
+    AuthVista.Roles GetRolSelected();
     void CerrarVentana();
 }

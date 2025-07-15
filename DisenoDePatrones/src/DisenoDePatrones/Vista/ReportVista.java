@@ -1,82 +1,64 @@
 package DisenoDePatrones.Vista;
 
-import DisenoDePatrones.Vista.Components.NotifyElement.ColorTextDecorator;
-import DisenoDePatrones.Vista.Components.NotifyElement.INotify;
-import DisenoDePatrones.Vista.Layouts.Window.WindowForm;
-import DisenoDePatrones.Vista.Components.NotifyElement.NotifyView;
-import DisenoDePatrones.Vista.Layouts.Reports.NotificationForm;
-import DisenoDePatrones.Vista.Layouts.Reports.RegulationForm;
-import DisenoDePatrones.Vista.Layouts.Reports.ReportForm;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep1;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep2;
 import DisenoDePatrones.Vista.Layouts.Reports.ReportStep3;
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.CardLayout;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 // IMPLEMENTACION DE REPORTE VISTA CON EL PATRON DE FACADE
 public class ReportVista implements IReportVista {
     private int currentStep = 1;
     private JPanel currentStepPanel;
         
-    private WindowForm window;
-    private ReportForm reportForm;
-    private RegulationForm reguForm;
-    private NotificationForm notiForm;
+    private JPanel reportForm;
+    private final ReportStep1 reportStep1;
+    private final ReportStep2 reportStep2;
+    private final ReportStep3 reportStep3;
     
     public ReportVista() {
-        this.window = new WindowForm(WindowForm.WindowType.FRAME);
-        this.reportForm = new ReportForm(this.window);
-        this.window.add(this.reportForm);
-        this.window.setSize(800, 600);
+        this.reportForm = new JPanel();
+        this.reportForm.setLayout(new CardLayout());
         
+        this.reportStep1 = new ReportStep1();
+        this.reportStep2 = new ReportStep2();
+        this.reportStep3 = new ReportStep3();
+
+        this.reportForm.add(this.reportStep1, "STEP1");
+        this.reportForm.add(this.reportStep2, "STEP2");
+        this.reportForm.add(this.reportStep3, "STEP3");
+        
+        this.currentStep = 1;
         this.SwitchStep(this.currentStep);
     }
     
     @Override
-    public void SetContentTextRegulations(String text) {
-        this.reguForm.setText(text);
-    }
-    
-    @Override
-    public void ShowRegulationsWindow(String method) {
-        WindowForm regulationWindow = new WindowForm(WindowForm.WindowType.DIALOG, this.window);
-        regulationWindow.setTitle("Regulaciones Importantes");
-        this.reguForm = new RegulationForm(regulationWindow);
-        regulationWindow.add(this.reguForm);
-        
-        if (method.equals("READ")) {
-            this.reguForm.ChangeWriteOrWrite(0);
-        } else if (method.equals("WRITE")) {
-            this.reguForm.ChangeWriteOrWrite(1); 
+    public void SwitchStep(int stepNumber) {
+        CardLayout cl = (CardLayout)(this.reportForm.getLayout());
+        switch (stepNumber) {
+            case 1 -> {
+                cl.show(this.reportForm, "STEP1");
+                this.currentStepPanel = this.reportStep1;
+                this.currentStep = 1;
+            }
+            case 2 -> {
+                cl.show(this.reportForm, "STEP2");
+                this.currentStepPanel = this.reportStep2;
+                this.currentStep = 2;
+            }
+            case 3 -> {
+                cl.show(this.reportForm, "STEP3");
+                this.currentStepPanel = this.reportStep3;
+                this.currentStep = 3;
+            }
+            default -> {
+                cl.show(this.reportForm, "STEP1");
+                this.currentStepPanel = this.reportStep1;
+                this.currentStep = 1;
+            }
         }
-        
-        regulationWindow.setVisible(true);
-    }
-    
-    @Override
-    public void ShowRegulationsWindow(String method, Consumer<String> event) {
-        this.ShowRegulationsWindow(method);
-        this.reguForm.setOnTextChangeListener(event);
-    }
-    
-    @Override
-    public void ShowNotificationWindow() {
-        WindowForm notificationWindow = new WindowForm(WindowForm.WindowType.DIALOG, this.window);
-        notificationWindow.setTitle("Regulaciones Importantes");
-        notificationWindow.setSize(400, 500);
-        this.notiForm = new NotificationForm(notificationWindow);
-        notificationWindow.add(this.notiForm);
-        notificationWindow.setLocation(950, 300);
-        
-        notificationWindow.setVisible(true);
     }
 
     @Override
@@ -96,7 +78,7 @@ public class ReportVista implements IReportVista {
         this.currentStep -= 1;
         this.SwitchStep(this.currentStep);
     }
-
+    
     @Override
     public Map<String, String> GetCurrentStepData() {
         Map<String, String> data = new HashMap<>();
@@ -121,7 +103,7 @@ public class ReportVista implements IReportVista {
 
         return data;
     }
-
+    
     @Override
     public void SetCurrentStepData(Map<String, String> data) {
         String[] Step1Keys = { "dni", "nombres", "apellidos", "edad", "procedencia", "correo" };
@@ -148,7 +130,7 @@ public class ReportVista implements IReportVista {
             }
             
             case ReportStep2 step2 -> {
-                 for (String key : Step2Keys) {
+                for (String key : Step2Keys) {
                     if (data.containsKey(key)) {
                         String value = data.get(key);
                         switch (key) {
@@ -164,173 +146,62 @@ public class ReportVista implements IReportVista {
             default -> {}
         }
     }
-
+  
     @Override
     public void OnNextClickEvent(Runnable event) {
-        this.reportForm.GetNextButton().addActionListener((e) -> {
+        this.reportStep1.btnNext.addActionListener((e) -> {
+            event.run();
+        });
+        
+        this.reportStep2.btnNext.addActionListener((e) -> {
             event.run();
         });
     }
     
     @Override
     public void OnPreviousClickEvent(Runnable event) {
-        this.reportForm.GetPreviousButton().addActionListener((e) -> {
+        this.reportStep2.btnPrevious.addActionListener((e) -> {
             event.run();
         });
     }
-    
+       
     @Override
     public void OnCancelClickEvent(Runnable event) {
-        this.reportForm.GetCancelButton().addActionListener((e) -> {
+        this.reportStep1.btnCancelar.addActionListener((e) -> {
+            event.run();
+        });
+        
+        this.reportStep2.btnCancelar.addActionListener((e) -> {
             event.run();
         });
     }
     
     @Override
     public void OnThanksClickEvent(Runnable event) {
-        this.reportForm.GetThanksButton().addActionListener((e) -> {
+        this.reportStep3.btnThanks.addActionListener((e) -> {
             event.run();
         });
     }
-    
+       
     @Override
     public void OnOtherReportClickEvent(Runnable event) {
-        this.reportForm.GetOtherReportButton().addActionListener((e) -> {
+        this.reportStep3.btnRepeat.addActionListener((e) -> {
             event.run();
         });
-    }
-    
-    @Override
-    public void OnRegulationsClickEvent(Runnable event) {
-        this.reportForm.GetRegulationsButton().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-               event.run();
-            }
-        });
-    }
-    
-    @Override
-    public void OnNotificationClickEvent(Runnable event) {
-        this.reportForm.GetNotificationButton().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-               event.run();
-            }
-        });
-    }   
-   
-    
-    @Override
-    public void Mostrar() {
-        this.window.setVisible(true);
-    }
-    
-    @Override
-    public void Cerrar() {
-        this.window.dispose();
-    }
-    
-    private void SwitchStep(int step) {
-        JPanel mainContent = this.reportForm.GetMainContent();
-
-        if (this.currentStepPanel != null) {
-            mainContent.remove(this.currentStepPanel);
-        }
-
-        switch (step) {
-            case 1 -> {
-                this.reportForm.GetPreviousPanel().setVisible(false);
-                this.reportForm.GetThanksPanel().setVisible(false);
-                this.reportForm.GetNextPanel().setVisible(true);
-                this.reportForm.GetOtherReportPanel().setVisible(false);
-                this.currentStepPanel = new ReportStep1();
-            }
-            case 2 -> {
-                this.currentStepPanel = new ReportStep2();
-                this.reportForm.GetThanksPanel().setVisible(false);
-                this.reportForm.GetNextPanel().setVisible(true);
-                this.reportForm.GetPreviousPanel().setVisible(true);
-                this.reportForm.GetOtherReportPanel().setVisible(false);
-            }
-            case 3 -> {
-                this.reportForm.GetPreviousPanel().setVisible(false);
-                this.reportForm.GetNextPanel().setVisible(false);
-                this.reportForm.GetCancelPanel().setVisible(false);
-                this.reportForm.GetThanksPanel().setVisible(true);
-                this.reportForm.GetOtherReportPanel().setVisible(true);
-                this.currentStepPanel = new ReportStep3();
-            }
-            default -> {
-                this.currentStepPanel = new JPanel();
-            }
-        }
-        
-        //this.changeEvent.vrun(this.currentStep);
-        mainContent.add(this.currentStepPanel, new AbsoluteConstraints(0, 0, 800, 420));
-        mainContent.revalidate();
-        mainContent.repaint();
     }
 
     @Override
     public int GetCurrentStep() {
         return currentStep;
     }
-    
+       
     @Override
     public JPanel getCurrentStepPanel(){
         return this.currentStepPanel;
     }
-    
-    @Override
-    public void ChangeStateNotification(int state) {
-        JLabel button = this.reportForm.GetNotificationButton();
-        
-        if (state == 0) {
-            button.setIcon(new ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationO.png")));
-        } else if (state == 1) {
-            button.setIcon(new ImageIcon(getClass().getResource("/DisenoDePatrones/Vista/Assets/notificationI.png")));
-        }
-    }
-    
-    @Override
-    public void AddNewNotificationToList(String message, String date, int priority) {
-        if (this.notiForm != null) {
-            NotifyView not = new NotifyView();
-            not.setContent(message);
-            not.setDate(date);
-            
-            // PATRON DECORADOR APLICADO
-            INotify component = new ColorTextDecorator(() -> not, new Color(40, 43, 50));
-            
-            if (priority == 1) {
-                component = new ColorTextDecorator(() -> not, Color.RED);
-            } else if (priority == 2) {
-                component = new ColorTextDecorator(() -> not, Color.YELLOW);
-            }
-            
-            this.notiForm.GetContentNotifiers().add(component.obtenerElementoDecorado());
-        } else {
-            System.out.println("ERROR: Aún no se ha cargado notiForm");
-        }
-    }
 
     @Override
-    public void ChangeIconVisible(boolean valor) {
-        this.reportForm.SetIconRegla(valor);
-    }
-    
-    @Override
-    public void setOnCtrlEnterRegulation(Runnable listener) {
-        if (this.reguForm != null) {
-            this.reguForm.setOnCtrlEnterListener(listener);
-        } else {
-            System.out.println("reguForm aún no ha sido inicializado.");
-        }
-    }
-    
-    @Override
-    public String obtenerTextoReglamento(){
-        return this.reguForm.obtenerTexto();
+    public JPanel GetWindow() {
+        return this.reportForm;
     }
 }
